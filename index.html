@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="fr">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260813-05-b52571e","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/7949ff62d67710d5.telemetry_sdk.js" integrity="sha512-KIvXA82Di44YY/RH9/63A9MuTuavYgDFG8PfErJn7Wli4K0LAOk+coo/aPXk3+ZNL96nHh9VYD4PE+fLes+laQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Journal Bien-Être</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+        body { font-family: 'Alegreya', serif; }
+        .heading-font { font-family: 'Playfair Display', serif; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .book-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.08); }
+        .prayer-check:checked + label { text-decoration: line-through; opacity: 0.6; }
+        .meal-row { display: flex; gap: 0.5rem; padding: 0.5rem; border-radius: 0.5rem; background: rgba(255,228,230,0.4); }
+        .section-title { font-family: 'Playfair Display', serif; font-weight: 600; color: #881337; margin-bottom: 0.5rem; }
+    </style>
+  <script src="/_sdk/0e8d3a91e1c6f495.data_sdk.js" type="text/javascript" integrity="sha512-c00oDoGjsMgluCLLEyVl3suwEkgjOGGplVFbsilUoBg4aMKNmsL3mwsc9r0dPn95qiSZyjBousQXgROkAW7p/w=="></script>
+  <script src="/_sdk/eba18683f23e5798.resizing_sdk.js" type="text/javascript" integrity="sha512-E0UWUllhwPXaNJtjyTKXWKrIE+FruPfFpO4mRmMDP2LI+U9bOizy5npCq6xx/JyWcvSK7D3TFf2wFR2Mha9kbA=="></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-2xl book-shadow rounded-2xl overflow-hidden bg-white" style="max-height:calc(95 * min(var(--vh,1vh),1vh)); overflow-y:auto;"><!-- PAGE: COVER -->
+   <div class="page active" id="page-0">
+    <div class="relative"><img data-template-id="cover-img" class="canva-image w-full h-56 object-cover" loading="lazy">
+     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/90"></div>
+    </div>
+    <div class="px-8 pb-8 -mt-14 relative text-center">
+     <h1 data-template-id="book-title" class="canva-text heading-font text-3xl mb-2"></h1>
+     <p data-template-id="book-subtitle" class="canva-text italic opacity-75 mb-1"></p>
+     <p data-template-id="book-tags" class="canva-text text-sm opacity-60 mb-4"></p>
+     <p data-template-id="book-motto" class="canva-text text-sm italic opacity-70 mb-6"></p>
+     <div class="text-left max-w-xs mx-auto space-y-2 text-sm mb-6">
+      <div class="flex items-center gap-2">
+       <span>Mon objectif :</span><input id="cover-obj" class="flex-1 border-b border-rose-300 outline-none bg-transparent px-1">
+      </div>
+      <div class="flex items-center gap-2">
+       <span>Poids de départ :</span><input id="cover-weight" class="w-20 border-b border-rose-300 outline-none bg-transparent px-1 text-center"> kg
+      </div>
+      <div class="flex items-center gap-2">
+       <span>Date de départ :</span><input id="cover-date" class="w-32 border-b border-rose-300 outline-none bg-transparent px-1 text-center">
+      </div>
+     </div><button id="btn-start" class="px-6 py-3 rounded-full bg-rose-400 text-white font-medium hover:bg-rose-500 transition">Commencer <i data-lucide="arrow-right" style="width:16px;height:16px;display:inline"></i></button>
+    </div>
+   </div><!-- PAGE: BIENVENUE -->
+   <div class="page" id="page-1">
+    <div class="px-8 py-8">
+     <h2 data-template-id="welcome-title" class="canva-text heading-font text-2xl mb-4 text-center"></h2>
+     <p data-template-id="welcome-intro" class="canva-text text-sm mb-4 leading-relaxed"></p>
+     <div class="text-sm space-y-1 mb-4">
+      <p>🥗 Une alimentation simple et économique</p>
+      <p>🏃‍♀️ Une activité physique chaque jour</p>
+      <p>🕌 Le suivi de tes 5 prières</p>
+      <p>⚖️ Le suivi de ton poids et de ton ressenti</p>
+     </div>
+     <p data-template-id="welcome-encourage" class="canva-text text-sm italic mb-6"></p>
+     <h3 class="section-title text-base">Mes objectifs du mois</h3>
+     <div class="space-y-2 text-sm" id="welcome-checks"><label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Suivre mon alimentation</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Bouger régulièrement</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Boire suffisamment d'eau</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Être régulière dans mes prières</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Prendre soin de moi</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Dormir suffisamment</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Être patiente avec moi-même</label>
+     </div>
+    </div>
+   </div><!-- PAGE: REPÈRES -->
+   <div class="page" id="page-2">
+    <div class="px-8 py-8">
+     <h2 data-template-id="reperes-title" class="canva-text heading-font text-2xl mb-4"></h2>
+     <div class="space-y-4 text-sm leading-relaxed">
+      <div>
+       <h3 class="font-bold text-rose-800">🍽️ Comment suivre mon menu ?</h3>
+       <p>Les quantités de riz, pâtes et semoule sont indiquées crues lorsqu'il est précisé « cru ».</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800">🐟 Le saumon</h3>
+       <p>Prévoir environ 120 à 150 g par repas.<br>
+        → Privilégier le saumon surgelé en promotion.<br>
+        → La truite peut remplacer ponctuellement le saumon.</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800">🫒 Matières grasses</h3>
+       <p>Environ 1 cuillère à café / 5 g d'huile pour la cuisson.</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800">💧 Hydratation</h3>
+       <p>Boire régulièrement pendant la journée et adapter selon ta soif, la chaleur et ton activité.</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- PAGE: COURSES -->
+   <div class="page" id="page-3">
+    <div class="px-8 py-8">
+     <h2 data-template-id="courses-title" class="canva-text heading-font text-2xl mb-4"></h2>
+     <div class="grid grid-cols-2 gap-4 text-xs leading-relaxed">
+      <div>
+       <h3 class="font-bold text-rose-800 mb-1">Féculents</h3>
+       <p>☐ 2 kg de riz<br>
+        ☐ 1,5–2 kg de pâtes<br>
+        ☐ 1,5 kg de semoule<br>
+        ☐ 6–8 kg de pommes de terre</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800 mb-1">Protéines</h3>
+       <p>☐ 3–3,5 kg de poulet<br>
+        ☐ ~1 kg de saumon<br>
+        ☐ 8–10 boîtes de thon<br>
+        ☐ 4–5 douzaines d'œufs<br>
+        ☐ 4 boîtes de pois chiches</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800 mb-1">Produits laitiers</h3>
+       <p>☐ ~4 kg de fromage blanc<br>
+        ☐ Yaourts nature</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800 mb-1">Fruits &amp; légumes</h3>
+       <p>☐ Pommes, Bananes<br>
+        ☐ Courgettes, Haricots verts<br>
+        ☐ Salade, Légumes surgelés<br>
+        ☐ Tomates, Oignons, Ail<br>
+        ☐ Citrons</p>
+      </div>
+      <div>
+       <h3 class="font-bold text-rose-800 mb-1">Épicerie</h3>
+       <p>☐ Huile d'olive<br>
+        ☐ Curry, Paprika<br>
+        ☐ Herbes, Poivre, Sel</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- DAY PAGES (rendered dynamically) -->
+   <div class="page" id="page-day">
+    <div data-template-id="day-header" class="canva-header px-6 py-3 flex items-center justify-between"><button id="btn-prev" class="p-2 rounded-full hover:bg-white/30 transition"><i data-lucide="chevron-left" style="width:20px;height:20px"></i></button>
+     <div class="text-center"><span id="day-label" class="heading-font text-lg font-semibold"></span>
+      <div id="week-tabs" class="flex gap-1 mt-1 justify-center"></div>
+     </div><button id="btn-next" class="p-2 rounded-full hover:bg-white/30 transition"><i data-lucide="chevron-right" style="width:20px;height:20px"></i></button>
+    </div>
+    <div class="px-6 pb-6 space-y-4" id="day-content"><!-- Meals -->
+     <section>
+      <h2 data-template-id="meals-heading" class="canva-text section-title text-base flex items-center gap-2"></h2>
+      <div id="meals-grid" class="space-y-1 text-sm"></div>
+     </section><!-- Activity -->
+     <section>
+      <h2 data-template-id="activity-heading" class="canva-text section-title text-base"></h2>
+      <p id="activity-desc" class="text-sm text-rose-700 font-medium mb-1"></p><textarea id="activity-notes" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-rose-300" placeholder="Notes..."></textarea>
+     </section><!-- Prayers -->
+     <section>
+      <h2 data-template-id="prayers-heading" class="canva-text section-title text-base"></h2>
+      <div id="prayers-list" class="flex flex-wrap gap-3 text-sm"></div>
+     </section><!-- Tracking -->
+     <section>
+      <h2 data-template-id="weight-heading" class="canva-text section-title text-base"></h2>
+      <div class="grid grid-cols-3 gap-2 text-sm">
+       <div class="flex flex-col">
+        <label class="text-xs text-gray-500">Poids</label><input id="weight-input" type="number" step="0.1" class="border border-rose-200 rounded p-1 text-center text-sm" placeholder="kg">
+       </div>
+       <div class="flex flex-col">
+        <label class="text-xs text-gray-500">💧 Eau (verres)</label><input id="water-input" type="number" class="border border-rose-200 rounded p-1 text-center text-sm" placeholder="0">
+       </div>
+       <div class="flex flex-col">
+        <label class="text-xs text-gray-500">😴 Sommeil (h)</label><input id="sleep-input" type="number" step="0.5" class="border border-rose-200 rounded p-1 text-center text-sm" placeholder="0">
+       </div>
+      </div>
+      <div class="mt-2"><label class="text-xs text-gray-500">😊 Humeur</label>
+       <div id="mood-selector" class="flex gap-2 mt-1"><button type="button" class="mood-btn text-xl opacity-40 hover:opacity-100 transition" data-mood="1">😔</button> <button type="button" class="mood-btn text-xl opacity-40 hover:opacity-100 transition" data-mood="2">😐</button> <button type="button" class="mood-btn text-xl opacity-40 hover:opacity-100 transition" data-mood="3">🙂</button> <button type="button" class="mood-btn text-xl opacity-40 hover:opacity-100 transition" data-mood="4">😊</button> <button type="button" class="mood-btn text-xl opacity-40 hover:opacity-100 transition" data-mood="5">🤍</button>
+       </div>
+      </div>
+     </section><!-- Notes -->
+     <section><label class="text-xs text-gray-500">📝 Mon ressenti</label> <textarea id="notes-input" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-rose-300 mt-1" placeholder=""></textarea>
+     </section>
+     <section><label class="text-xs text-gray-500">✨ Ma victoire du jour</label> <textarea id="victory-input" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-rose-300 mt-1" placeholder=""></textarea>
+     </section>
+    </div>
+   </div><!-- WEEKLY REVIEW (rendered dynamically) -->
+   <div class="page" id="page-review">
+    <div class="px-8 py-8">
+     <h2 id="review-title" class="heading-font text-2xl text-rose-900 mb-4 text-center"></h2>
+     <div class="space-y-3 text-sm">
+      <div class="flex gap-2">
+       <span>Poids au début :</span><input id="rev-start" class="flex-1 border-b border-rose-300 bg-transparent outline-none text-center"> kg
+      </div>
+      <div class="flex gap-2">
+       <span>Poids à la fin :</span><input id="rev-end" class="flex-1 border-b border-rose-300 bg-transparent outline-none text-center"> kg
+      </div>
+      <div class="flex gap-2">
+       <span>Séances réalisées :</span><input id="rev-sessions" class="w-12 border-b border-rose-300 bg-transparent outline-none text-center"> / 7
+      </div>
+      <div class="flex gap-2">
+       <span>Jours alimentation suivie :</span><input id="rev-food" class="w-12 border-b border-rose-300 bg-transparent outline-none text-center"> / 7
+      </div>
+      <div class="flex gap-2">
+       <span>Jours 5 prières :</span><input id="rev-prayers" class="w-12 border-b border-rose-300 bg-transparent outline-none text-center"> / 7
+      </div>
+      <div class="mt-4">
+       <label class="text-xs text-gray-500">💕 Cette semaine, je suis fière de…</label><textarea id="rev-proud" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none mt-1"></textarea>
+      </div>
+      <div>
+       <label class="text-xs text-gray-500">🌱 La semaine prochaine, je veux…</label><textarea id="rev-next" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none mt-1"></textarea>
+      </div>
+      <div class="flex gap-2 items-center">
+       <span>⭐ Ma note :</span><input id="rev-note" class="w-12 border-b border-rose-300 bg-transparent outline-none text-center"> / 10
+      </div>
+     </div>
+    </div>
+   </div><!-- FINAL REVIEW -->
+   <div class="page" id="page-final">
+    <div class="px-8 py-8 text-center">
+     <h2 data-template-id="final-title" class="canva-text heading-font text-2xl mb-4"></h2>
+     <div class="text-left max-w-sm mx-auto space-y-3 text-sm">
+      <div class="flex gap-2">
+       <span>Poids de départ :</span><input id="fin-start" class="flex-1 border-b border-rose-300 bg-transparent outline-none text-center"> kg
+      </div>
+      <div class="flex gap-2">
+       <span>Poids final :</span><input id="fin-end" class="flex-1 border-b border-rose-300 bg-transparent outline-none text-center"> kg
+      </div>
+      <div class="flex gap-2">
+       <span>Évolution :</span><input id="fin-evol" class="flex-1 border-b border-rose-300 bg-transparent outline-none text-center"> kg
+      </div>
+      <h3 class="font-bold text-rose-800 mt-4">Ce que j'ai réussi à changer :</h3>
+      <div class="space-y-1"><label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Mon alimentation</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Mon activité physique</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Mon hydratation</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Mon sommeil</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Ma régularité</label> <label class="flex items-center gap-2"><input type="checkbox" class="accent-rose-400"> Mes habitudes</label>
+      </div>
+      <div class="mt-3">
+       <label class="text-xs text-gray-500">🌷 Ce dont je suis la plus fière</label><textarea id="fin-proud" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none mt-1"></textarea>
+      </div>
+      <div>
+       <label class="text-xs text-gray-500">🤍 Ce que je veux continuer</label><textarea id="fin-continue" rows="2" class="w-full border border-rose-200 rounded-lg p-2 text-sm resize-none mt-1"></textarea>
+      </div>
+      <p class="italic text-rose-700 text-center mt-4">« Je n'ai pas besoin d'être parfaite. J'ai seulement besoin de continuer. »</p>
+      <div class="mt-4">
+       <h3 class="font-bold text-rose-800">🌙 Nouvel objectif</h3><input id="fin-obj" class="w-full border-b border-rose-300 bg-transparent outline-none mt-1" placeholder="Mon prochain objectif...">
+      </div>
+      <p data-template-id="final-closing" class="canva-text text-center mt-4 font-medium"></p>
+     </div>
+    </div>
+   </div><!-- NAVIGATION BAR -->
+   <div class="px-6 py-3 border-t border-rose-100 flex items-center justify-between text-xs text-gray-400" id="nav-bar" style="display:none;"><button id="nav-prev" class="px-3 py-1 rounded bg-rose-100 text-rose-700 hover:bg-rose-200 transition">← Précédent</button> <span id="nav-indicator"></span> <button id="nav-next" class="px-3 py-1 rounded bg-rose-100 text-rose-700 hover:bg-rose-200 transition">Suivant →</button>
+   </div>
+  </div>
+  <script src="/_sdk/9d3258af1f44fbf1.editing_sdk.js" integrity="sha512-3+HAndrk+HZiTGp2ISu+/bgYK1Xci+cLW89chzrkSCXjd9L9cNh/u9apmMgkep6XBKvCauldOAnZkyNhCjybeA=="></script>
+  <script>
+const JOURS=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+const PRAYERS=['Fajr/Sobh','Dhuhr','Asr','Maghrib','Isha'];
+
+const MEALS=[
+ // Week 1
+ [{b:"2 œufs + 50g pain + 1 banane",l:"130g poulet + 60g riz cru + 200g légumes",c:"150g fromage blanc + 1 pomme",d:"2 œufs + 180g pommes de terre + 200g légumes"},{b:"2 œufs + 50g pain + 1 pomme",l:"120g saumon + 180g pommes de terre + 200g haricots verts",c:"1 yaourt + 1 banane",d:"2 œufs + 200g courgettes + 40g pain"},{b:"150g fromage blanc + 1 banane + 30g pain",l:"150g poulet + 60g semoule + 200g légumes",c:"1 pomme + 1 yaourt",d:"2 œufs + 180g pommes de terre + salade"},{b:"2 œufs + 50g pain + 1 pomme",l:"60g riz + 130g poulet + 200g légumes",c:"150g fromage blanc + 1 banane",d:"2 œufs + 200g légumes + 40g pain"},{b:"2 œufs + 50g pain + 1 banane",l:"70g pâtes + 120g thon + tomates + courgettes",c:"1 pomme + 1 yaourt",d:"120g saumon + 180g pommes de terre + légumes"},{b:"150g fromage blanc + 1 fruit + 30g pain",l:"150g poulet + 60g semoule + légumes",c:"1 fruit + 1 yaourt",d:"2 œufs + 200g légumes + 40g pain"},{b:"2 œufs + 50g pain + 1 pomme",l:"150g poulet + 200g pommes de terre + légumes",c:"150g fromage blanc + 1 banane",d:"Soupe de légumes + 2 œufs + 40g pain"}],
+ // Week 2
+ [{b:"2 œufs + 50g pain + pomme",l:"130g poulet + 60g riz + légumes",c:"Yaourt + banane",d:"Omelette 2 œufs + 180g pommes de terre"},{b:"Fromage blanc 150g + banane + 30g pain",l:"Saumon 120-150g + 60g riz + 200g courgettes",c:"Pomme + yaourt",d:"2 œufs + haricots verts + 40g pain"},{b:"2 œufs + pain + banane",l:"150g poulet + 60g semoule + légumes",c:"Fromage blanc + pomme",d:"120g pois chiches + 2 œufs + légumes"},{b:"2 œufs + pomme + pain",l:"60g riz + 130g poulet + légumes",c:"Banane + yaourt",d:"Omelette 2 œufs + légumes + pain"},{b:"Fromage blanc + banane + 30g pain",l:"70g pâtes + 120g thon + tomates",c:"Pomme + yaourt",d:"180g pommes de terre + 2 œufs + légumes"},{b:"2 œufs + pain + pomme",l:"150g poulet + 60g riz + légumes",c:"Fromage blanc + fruit",d:"Saumon 120g + 200g légumes + 150g pommes de terre"},{b:"2 œufs + pain + banane",l:"150g poulet + 60g semoule + légumes",c:"Yaourt + pomme",d:"Soupe de légumes + 2 œufs + 40g pain"}],
+ // Week 3
+ [{b:"2 œufs + 50g pain + pomme",l:"Poulet curry 130g + 60g riz + légumes",c:"Fromage blanc + banane",d:"Omelette + 180g pommes de terre + légumes"},{b:"Fromage blanc 150g + banane + pain",l:"70g pâtes + thon + tomate",c:"Yaourt + pomme",d:"2 œufs façon shakshuka + 40g pain"},{b:"2 œufs + pain + fruit",l:"150g poulet + 60g semoule + légumes",c:"Fromage blanc + fruit",d:"Pois chiches 120g + 2 œufs + légumes"},{b:"2 œufs + pomme + pain",l:"Saumon 120-150g + 60g riz + 200g légumes",c:"Yaourt + banane",d:"2 œufs + 180g pommes de terre + salade"},{b:"Fromage blanc + banane + pain",l:"70g pâtes + 130g poulet + courgettes",c:"Pomme + yaourt",d:"120g thon + salade + 180g pommes de terre"},{b:"2 œufs + pain + pomme",l:"150g poulet + 60g riz + légumes",c:"Fromage blanc + banane",d:"Saumon 120g + 200g légumes + 40g pain"},{b:"2 œufs + pain + banane",l:"Couscous léger : 130g poulet + 60g semoule + légumes + 50g pois chiches",c:"Yaourt + fruit",d:"Soupe + 2 œufs + 40g pain"}],
+ // Week 4
+ [{b:"2 œufs + pain + pomme",l:"130g poulet + 60g riz + légumes",c:"Fromage blanc + banane",d:"2 œufs + pommes de terre + légumes"},{b:"Fromage blanc + banane + pain",l:"Saumon 120g + 180g pommes de terre + haricots verts",c:"Yaourt + pomme",d:"Omelette + légumes + 40g pain"},{b:"2 œufs + pain + pomme",l:"150g poulet + 60g semoule + légumes",c:"Fromage blanc + fruit",d:"Pois chiches 120g + 2 œufs + légumes"},{b:"2 œufs + banane + pain",l:"60g riz + 130g poulet + légumes",c:"Yaourt + pomme",d:"2 œufs + 180g pommes de terre + salade"},{b:"Fromage blanc + fruit + pain",l:"70g pâtes + thon + courgettes",c:"Banane + yaourt",d:"130g poulet + légumes + 40g pain"},{b:"2 œufs + pain + pomme",l:"Saumon 120-150g + 60g riz + 200g légumes",c:"Fromage blanc + banane",d:"Pois chiches 120g + 2 œufs + légumes"},{b:"2 œufs + pain + banane",l:"150g poulet + 200g pommes de terre + légumes",c:"Yaourt + pomme",d:"Soupe de légumes + omelette 2 œufs + 40g pain"}]
+];
+
+const ACTIVITIES=[
+ ["Marche douce — 30 min","Jambes & Fessiers — 20 min\n3×12 squats, 3×12 ponts fessiers, 3×10 fentes/jambe, 3×15 élévations mollets","Marche active — 35 min\n10-15 min à rythme soutenu","Haut du corps — 20 min\n3×10 pompes mur, 3×12 élévations bras, 3×12 tirages sac léger, 3×20s gainage","Danse 💃 — 25-30 min","Full body — 25 min\n12 squats, 12 ponts, 10 pompes mur, 20 montées genoux, 20s gainage → 3 tours","Récupération 🌿 — 20-30 min marche + 10 min étirements"],
+ ["Marche active — 35 min","Jambes/fessiers — 25 min","Vélo doux ou marche — 30 min","Haut du corps + gainage — 20-25 min","Danse — 30 min","Full body — 25-30 min","Marche tranquille + étirements — 30 min"],
+ ["Marche — 40 min","Jambes/fessiers — 25 min","Cardio doux — 30 min","Haut du corps + gainage — 25 min","Marche active — 35 min","Full body — 30 min","Récupération + marche — 20-30 min"],
+ ["Marche active — 40 min","Jambes/fessiers — 25-30 min","Danse/cardio doux — 35 min","Haut du corps + gainage — 25 min","Marche — 40 min","Full body — 30 min","Récupération active + étirements — 30 min"]
+];
+
+// Total pages: 0=cover,1=welcome,2=reperes,3=courses, 4-10=week1 days, 11=review1, 12-18=week2, 19=review2, 20-26=week3, 27=review3, 28-34=week4, 35=review4, 36=final
+const TOTAL_PAGES = 37;
+const STATIC_PAGES = ['page-0','page-1','page-2','page-3'];
+
+// State
+let currentPage = 0;
+const dayState = Array.from({length:28},()=>({prayers:[false,false,false,false,false],weight:'',water:'',sleep:'',mood:0,notes:'',victory:'',activity:''}));
+const reviewState = Array.from({length:4},()=>({start:'',end:'',sessions:'',food:'',prayers:'',proud:'',next:'',note:''}));
+const finalState = {start:'',end:'',evol:'',proud:'',cont:'',obj:''};
+
+function getDayIndex(pageNum){
+    // pages 4-10 = days 0-6, 12-18=days 7-13, 20-26=days 14-20, 28-34=days 21-27
+    if(pageNum>=4&&pageNum<=10) return pageNum-4;
+    if(pageNum>=12&&pageNum<=18) return pageNum-12+7;
+    if(pageNum>=20&&pageNum<=26) return pageNum-20+14;
+    if(pageNum>=28&&pageNum<=34) return pageNum-28+21;
+    return -1;
+}
+function getReviewIndex(pageNum){
+    if(pageNum===11) return 0;
+    if(pageNum===19) return 1;
+    if(pageNum===27) return 2;
+    if(pageNum===35) return 3;
+    return -1;
+}
+
+function saveCurrentPage(){
+    const di = getDayIndex(currentPage);
+    if(di>=0){
+        const s=dayState[di];
+        s.weight=document.getElementById('weight-input').value;
+        s.water=document.getElementById('water-input').value;
+        s.sleep=document.getElementById('sleep-input').value;
+        s.notes=document.getElementById('notes-input').value;
+        s.victory=document.getElementById('victory-input').value;
+        s.activity=document.getElementById('activity-notes').value;
+        document.querySelectorAll('#prayers-list input[type=checkbox]').forEach((cb,i)=>{s.prayers[i]=cb.checked;});
+    }
+    const ri = getReviewIndex(currentPage);
+    if(ri>=0){
+        const r=reviewState[ri];
+        r.start=document.getElementById('rev-start').value;
+        r.end=document.getElementById('rev-end').value;
+        r.sessions=document.getElementById('rev-sessions').value;
+        r.food=document.getElementById('rev-food').value;
+        r.prayers=document.getElementById('rev-prayers').value;
+        r.proud=document.getElementById('rev-proud').value;
+        r.next=document.getElementById('rev-next').value;
+        r.note=document.getElementById('rev-note').value;
+    }
+    if(currentPage===36){
+        finalState.start=document.getElementById('fin-start').value;
+        finalState.end=document.getElementById('fin-end').value;
+        finalState.evol=document.getElementById('fin-evol').value;
+        finalState.proud=document.getElementById('fin-proud').value;
+        finalState.cont=document.getElementById('fin-continue').value;
+        finalState.obj=document.getElementById('fin-obj').value;
+    }
+}
+
+function showPage(num){
+    saveCurrentPage();
+    currentPage=num;
+    // Hide all
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const nav=document.getElementById('nav-bar');
+
+    if(num<4){
+        document.getElementById(STATIC_PAGES[num]).classList.add('active');
+        nav.style.display = num===0?'none':'flex';
+    } else if(num===36){
+        document.getElementById('page-final').classList.add('active');
+        nav.style.display='flex';
+    } else {
+        const ri=getReviewIndex(num);
+        if(ri>=0){
+            renderReview(ri);
+            document.getElementById('page-review').classList.add('active');
+        } else {
+            renderDay(getDayIndex(num));
+            document.getElementById('page-day').classList.add('active');
+        }
+        nav.style.display='flex';
+    }
+    document.getElementById('nav-indicator').textContent=`${num+1} / ${TOTAL_PAGES}`;
+}
+
+function renderDay(di){
+    const week=Math.floor(di/7), dow=di%7;
+    document.getElementById('day-label').textContent=`Jour ${di+1} • ${JOURS[dow]}`;
+    // Week tabs
+    const tabs=document.getElementById('week-tabs');
+    tabs.innerHTML='';
+    for(let i=0;i<4;i++){
+        const btn=document.createElement('button');
+        btn.textContent=`S${i+1}`;
+        btn.className=`px-2 py-0.5 rounded-full text-xs font-medium transition ${i===week?'bg-rose-400 text-white':'bg-rose-100 text-rose-600 hover:bg-rose-200'}`;
+        btn.onclick=()=>{showPage(4+i*8+i*0);showPage(i===0?4:i===1?12:i===2?20:28);};
+        tabs.appendChild(btn);
+    }
+    // Meals
+    const meal=MEALS[week][dow];
+    const grid=document.getElementById('meals-grid');
+    grid.innerHTML='';
+    [['🌅 Petit-déj',meal.b],['🍽️ Déjeuner',meal.l],['🍎 Collation',meal.c],['🌙 Dîner',meal.d]].forEach(([lbl,val])=>{
+        const row=document.createElement('div');
+        row.className='meal-row';
+        row.innerHTML=`<span class="font-medium text-rose-700 whitespace-nowrap min-w-[85px] text-xs">${lbl}</span><span class="text-gray-700 text-xs">${val}</span>`;
+        grid.appendChild(row);
+    });
+    // Activity
+    document.getElementById('activity-desc').textContent=ACTIVITIES[week][dow];
+    // Prayers
+    const pList=document.getElementById('prayers-list');
+    pList.innerHTML='';
+    PRAYERS.forEach((p,i)=>{
+        const id=`pr-${i}`;
+        const wrap=document.createElement('div');
+        wrap.className='flex items-center gap-1';
+        wrap.innerHTML=`<input type="checkbox" id="${id}" class="prayer-check accent-rose-400 w-4 h-4" ${dayState[di].prayers[i]?'checked':''}><label for="${id}" class="cursor-pointer text-xs">${p}</label>`;
+        wrap.querySelector('input').onchange=()=>{dayState[di].prayers[i]=wrap.querySelector('input').checked;};
+        pList.appendChild(wrap);
+    });
+    // Restore state
+    const s=dayState[di];
+    document.getElementById('weight-input').value=s.weight;
+    document.getElementById('water-input').value=s.water;
+    document.getElementById('sleep-input').value=s.sleep;
+    document.getElementById('notes-input').value=s.notes;
+    document.getElementById('victory-input').value=s.victory;
+    document.getElementById('activity-notes').value=s.activity;
+    // Mood
+    document.querySelectorAll('.mood-btn').forEach(btn=>{
+        btn.style.opacity=parseInt(btn.dataset.mood)===s.mood?'1':'0.4';
+    });
+}
+
+function renderReview(ri){
+    document.getElementById('review-title').textContent=`🌷 Bilan Semaine ${ri+1}`;
+    const r=reviewState[ri];
+    document.getElementById('rev-start').value=r.start;
+    document.getElementById('rev-end').value=r.end;
+    document.getElementById('rev-sessions').value=r.sessions;
+    document.getElementById('rev-food').value=r.food;
+    document.getElementById('rev-prayers').value=r.prayers;
+    document.getElementById('rev-proud').value=r.proud;
+    document.getElementById('rev-next').value=r.next;
+    document.getElementById('rev-note').value=r.note;
+}
+
+// Mood buttons
+document.getElementById('mood-selector').addEventListener('click',e=>{
+    const btn=e.target.closest('.mood-btn');
+    if(!btn) return;
+    const di=getDayIndex(currentPage);
+    if(di<0) return;
+    dayState[di].mood=parseInt(btn.dataset.mood);
+    document.querySelectorAll('.mood-btn').forEach(b=>{b.style.opacity=b===btn?'1':'0.4';});
+});
+
+// Navigation
+document.getElementById('btn-start').onclick=()=>showPage(1);
+document.getElementById('nav-prev').onclick=()=>{if(currentPage>0)showPage(currentPage-1);};
+document.getElementById('nav-next').onclick=()=>{if(currentPage<TOTAL_PAGES-1)showPage(currentPage+1);};
+document.getElementById('btn-prev').onclick=()=>{if(currentPage>0)showPage(currentPage-1);};
+document.getElementById('btn-next').onclick=()=>{if(currentPage<TOTAL_PAGES-1)showPage(currentPage+1);};
+
+lucide.createIcons();
+</script>
+ </body>
+</html>
