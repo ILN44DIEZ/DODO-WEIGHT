@@ -525,6 +525,49 @@
                 var(--red);
         }
 
+        .food-day-navigation {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:8px;
+            margin:10px 0 12px;
+        }
+
+        .food-day-navigation button {
+            width:40px;
+            height:40px;
+            border:0;
+            border-radius:12px;
+            background:white;
+            color:var(--rose-dark);
+            font-size:20px;
+            box-shadow:0 3px 10px rgba(0,0,0,.05);
+        }
+
+        .food-day-title {
+            flex:1;
+            text-align:center;
+        }
+
+        .food-day-title strong {
+            display:block;
+            color:var(--rose-dark);
+            font-size:16px;
+        }
+
+        .food-day-title span {
+            display:block;
+            color:var(--muted);
+            font-size:10px;
+            margin-top:2px;
+        }
+
+        .daily-target {
+            margin-top:8px;
+            color:var(--muted);
+            font-size:9px;
+        }
+
         /* ================================================= */
         /* REPAS */
         /* ================================================= */
@@ -576,88 +619,6 @@
             line-height: 1.45;
 
             color: #59454a;
-        }
-
-        /* ================================================= */
-        /* MACROS REPAS */
-        /* ================================================= */
-
-        .meal-macros {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 5px;
-
-            margin-top: 7px;
-        }
-
-        .macro {
-            display: inline-flex;
-
-            align-items: center;
-
-            padding: 3px 6px;
-
-            border-radius: 999px;
-
-            background: #fff1f2;
-
-            color: #9f1239;
-
-            font-size: 9px;
-
-            font-weight: 700;
-
-            white-space: nowrap;
-        }
-
-        .day-total {
-            margin-top: 12px;
-
-            padding: 11px 12px;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff1f2,
-                    #fff7f8
-                );
-
-            border:
-                1px solid #fecdd3;
-        }
-
-        .day-total-title {
-            font-size: 11px;
-
-            font-weight: 700;
-
-            color: #9f1239;
-
-            margin-bottom: 7px;
-        }
-
-        .day-total-values {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 6px;
-        }
-
-        .macro-legend {
-            margin-top: 8px;
-
-            text-align: left;
-
-            color: var(--muted);
-
-            font-size: 9px;
-
-            line-height: 1.4;
         }
 
         /* ================================================= */
@@ -1129,6 +1090,59 @@
             font-weight: 700;
         }
 
+
+        /* ================================================= */
+        /* MACROS REPAS */
+        /* ================================================= */
+
+        .meal-macros {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 7px;
+        }
+
+        .macro {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 6px;
+            border-radius: 999px;
+            background: #fff1f2;
+            color: #9f1239;
+            font-size: 9px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .day-total {
+            margin-top: 12px;
+            padding: 11px 12px;
+            border-radius: 12px;
+            background: linear-gradient(135deg,#fff1f2,#fff7f8);
+            border: 1px solid #fecdd3;
+        }
+
+        .day-total-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #9f1239;
+            margin-bottom: 7px;
+        }
+
+        .day-total-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .macro-legend {
+            margin-top: 8px;
+            text-align: left;
+            color: var(--muted);
+            font-size: 9px;
+            line-height: 1.4;
+        }
+
         @media(min-width:700px){
 
             body {
@@ -1158,6 +1172,10 @@
 <body>
 
 
+<!-- ===================================================== -->
+<!-- ECRAN DE DEPART -->
+<!-- ===================================================== -->
+
 <div id="setup">
 
     <div class="setup-card">
@@ -1176,6 +1194,7 @@
             ton poids et ton bien-être.
         </p>
 
+
         <div class="field">
 
             <label>
@@ -1189,6 +1208,7 @@
             >
 
         </div>
+
 
         <div class="field">
 
@@ -1205,6 +1225,7 @@
 
         </div>
 
+
         <div class="field">
 
             <label>
@@ -1220,6 +1241,7 @@
 
         </div>
 
+
         <div class="field">
 
             <label>
@@ -1233,6 +1255,7 @@
 
         </div>
 
+
         <button
             class="start-button"
             id="startButton"
@@ -1245,11 +1268,18 @@
 </div>
 
 
+
+<!-- ===================================================== -->
+<!-- APPLICATION -->
+<!-- ===================================================== -->
+
 <div
     id="app"
     class="app"
 >
 
+
+    <!-- HEADER -->
 
     <header class="top">
 
@@ -1271,10 +1301,16 @@
         <div
             id="dateLabel"
             class="date-label"
-        ></div>
+        >
+        </div>
 
     </header>
 
+
+
+    <!-- ================================================= -->
+    <!-- ALIMENTATION -->
+    <!-- ================================================= -->
 
     <main
         id="foodPage"
@@ -1306,6 +1342,8 @@
         </div>
 
 
+        <!-- SOUS ONGLETS -->
+
         <div class="subtabs">
 
             <button
@@ -1325,6 +1363,8 @@
         </div>
 
 
+        <!-- MENUS -->
+
         <div id="menusSection">
 
             <div class="card">
@@ -1336,27 +1376,60 @@
                     </h2>
 
                     <small>
-                        Portions pesées
+                        ≈ 1 200–1 400 Kcal / jour
                     </small>
+
+                </div>
+
+
+                <div class="food-day-navigation">
+
+                    <button
+                        id="foodPrev"
+                        type="button"
+                        aria-label="Jour précédent"
+                    >
+                        ←
+                    </button>
+
+                    <div class="food-day-title">
+                        <strong id="foodDayTitle">Lundi</strong>
+                        <span id="foodDaySubtitle">Jour 1</span>
+                    </div>
+
+                    <button
+                        id="foodNext"
+                        type="button"
+                        aria-label="Jour suivant"
+                    >
+                        →
+                    </button>
 
                 </div>
 
                 <div
                     id="weekTabs"
                     class="week-tabs"
-                ></div>
+                >
+                </div>
 
             </div>
 
-            <div id="dayIntensity"></div>
+
+            <div id="dayIntensity">
+            </div>
+
 
             <div
                 id="meals"
                 class="card"
-            ></div>
+            >
+            </div>
 
         </div>
 
+
+        <!-- COURSES -->
 
         <div
             id="shoppingSection"
@@ -1379,6 +1452,7 @@
                     </button>
 
                 </div>
+
 
                 <div
                     class="week-tabs"
@@ -1415,6 +1489,7 @@
 
                 </div>
 
+
                 <div
                     id="shoppingCount"
                     class="shopping-count"
@@ -1424,15 +1499,22 @@
 
             </div>
 
+
             <div
                 id="shoppingList"
                 class="card"
-            ></div>
+            >
+            </div>
 
         </div>
 
     </main>
 
+
+
+    <!-- ================================================= -->
+    <!-- ACTIVITE -->
+    <!-- ================================================= -->
 
     <main
         id="activityPage"
@@ -1445,7 +1527,8 @@
                 ←
             </button>
 
-            <strong id="activityDay"></strong>
+            <strong id="activityDay">
+            </strong>
 
             <button id="activityNext">
                 →
@@ -1464,17 +1547,23 @@
 
             </div>
 
-            <div id="activityIntensity"></div>
+
+            <div id="activityIntensity">
+            </div>
+
 
             <div
                 id="activityName"
                 class="activity-name"
-            ></div>
+            >
+            </div>
+
 
             <div
                 id="activityDetails"
                 class="activity-details"
-            ></div>
+            >
+            </div>
 
         </div>
 
@@ -1488,6 +1577,7 @@
                 </h2>
 
             </div>
+
 
             <div class="input-row">
 
@@ -1505,6 +1595,7 @@
 
                 </div>
 
+
                 <div class="input-box">
 
                     <label>
@@ -1520,6 +1611,7 @@
                 </div>
 
             </div>
+
 
             <div
                 class="input-box"
@@ -1542,6 +1634,11 @@
 
     </main>
 
+
+
+    <!-- ================================================= -->
+    <!-- SUIVI POIDS -->
+    <!-- ================================================= -->
 
     <main
         id="weightPage"
@@ -1575,6 +1672,7 @@
 
             </div>
 
+
             <div class="stats">
 
                 <div class="stat">
@@ -1591,6 +1689,7 @@
 
                 </div>
 
+
                 <div class="stat">
 
                     <strong
@@ -1604,6 +1703,7 @@
                     </span>
 
                 </div>
+
 
                 <div class="stat">
 
@@ -1621,6 +1721,7 @@
 
             </div>
 
+
             <div class="progress-bar">
 
                 <div
@@ -1629,6 +1730,7 @@
                 ></div>
 
             </div>
+
 
             <div
                 id="progressText"
@@ -1650,13 +1752,15 @@
 
             </div>
 
+
             <div class="chart-wrapper">
 
                 <svg
                     id="weightChart"
                     viewBox="0 0 600 250"
                     preserveAspectRatio="none"
-                ></svg>
+                >
+                </svg>
 
             </div>
 
@@ -1672,6 +1776,7 @@
                 </h2>
 
             </div>
+
 
             <div class="input-box">
 
@@ -1701,12 +1806,19 @@
 
             </div>
 
-            <div id="history"></div>
+
+            <div id="history">
+            </div>
 
         </div>
 
     </main>
 
+
+
+    <!-- ================================================= -->
+    <!-- BIEN-ETRE -->
+    <!-- ================================================= -->
 
     <main
         id="wellbeingPage"
@@ -1730,6 +1842,8 @@
         </div>
 
 
+        <!-- PRIERES -->
+
         <div class="card">
 
             <div class="section-title">
@@ -1744,13 +1858,17 @@
 
             </div>
 
+
             <div
                 id="prayers"
                 class="prayer-grid"
-            ></div>
+            >
+            </div>
 
         </div>
 
+
+        <!-- HUMEUR -->
 
         <div class="card">
 
@@ -1761,6 +1879,7 @@
                 </h2>
 
             </div>
+
 
             <div class="moods">
 
@@ -1804,6 +1923,8 @@
         </div>
 
 
+        <!-- SOMMEIL / EAU -->
+
         <div class="card">
 
             <div class="section-title">
@@ -1813,6 +1934,7 @@
                 </h2>
 
             </div>
+
 
             <div class="input-row">
 
@@ -1830,6 +1952,7 @@
                     >
 
                 </div>
+
 
                 <div class="input-box">
 
@@ -1850,6 +1973,8 @@
         </div>
 
 
+        <!-- RESSENTI -->
+
         <div class="card">
 
             <div class="section-title">
@@ -1859,6 +1984,7 @@
                 </h2>
 
             </div>
+
 
             <textarea
                 id="feeling"
@@ -1870,6 +1996,8 @@
         </div>
 
 
+        <!-- VICTOIRE -->
+
         <div class="card">
 
             <div class="section-title">
@@ -1879,6 +2007,7 @@
                 </h2>
 
             </div>
+
 
             <textarea
                 id="victory"
@@ -1891,6 +2020,11 @@
 
     </main>
 
+
+
+    <!-- ================================================= -->
+    <!-- BARRE DU BAS -->
+    <!-- ================================================= -->
 
     <nav
         class="bottom-nav"
@@ -1910,6 +2044,7 @@
 
         </button>
 
+
         <button
             data-page="activityPage"
         >
@@ -1922,6 +2057,7 @@
 
         </button>
 
+
         <button
             data-page="weightPage"
         >
@@ -1933,6 +2069,7 @@
             Poids
 
         </button>
+
 
         <button
             data-page="wellbeingPage"
@@ -1985,11 +2122,14 @@ const PRAYERS = [
 
 const MEALS = [
 
+    /* SEMAINE 1 */
+
     [
+
         {
             i: "green",
             b: "2 œufs + 30 g pain complet + 1 fruit",
-            l: "130 g poulet + 40 g riz complet cru + 250 g légumes",
+            l: "130 g poulet + 50 g riz complet cru + 250 g légumes",
             c: "150 g fromage blanc + quelques fruits rouges",
             d: "2 œufs + 250 g courgettes + salade"
         },
@@ -2005,7 +2145,7 @@ const MEALS = [
         {
             i: "green",
             b: "2 œufs + 30 g pain complet + 1 pomme",
-            l: "130 g poulet + 40 g semoule crue + 250 g légumes",
+            l: "130 g poulet + 50 g semoule crue + 250 g légumes",
             c: "150 g fromage blanc",
             d: "2 œufs + 200 g courgettes + salade"
         },
@@ -2041,9 +2181,13 @@ const MEALS = [
             c: "150 g fromage blanc",
             d: "Soupe de légumes + 2 œufs"
         }
+
     ],
 
+    /* SEMAINE 2 */
+
     [
+
         {
             i: "green",
             b: "2 œufs + 30 g pain complet + pomme",
@@ -2099,9 +2243,13 @@ const MEALS = [
             c: "Yaourt + pomme",
             d: "Soupe de légumes + 2 œufs"
         }
+
     ],
 
+    /* SEMAINE 3 */
+
     [
+
         {
             i: "green",
             b: "2 œufs + 30 g pain complet + pomme",
@@ -2153,13 +2301,17 @@ const MEALS = [
         {
             i: "green",
             b: "2 œufs + 30 g pain + banane",
-            l: "130 g poulet + 40 g semoule + légumes",
+            l: "130 g poulet + 50 g semoule + légumes",
             c: "Yaourt + fruit",
             d: "Soupe + 2 œufs"
         }
+
     ],
 
+    /* SEMAINE 4 */
+
     [
+
         {
             i: "green",
             b: "2 œufs + 30 g pain complet + pomme",
@@ -2179,7 +2331,7 @@ const MEALS = [
         {
             i: "green",
             b: "2 œufs + pain complet + pomme",
-            l: "130 g poulet + 40 g semoule + légumes",
+            l: "130 g poulet + 50 g semoule + légumes",
             c: "Fromage blanc + fruit",
             d: "Pois chiches + 2 œufs + légumes"
         },
@@ -2195,7 +2347,7 @@ const MEALS = [
         {
             i: "green",
             b: "Fromage blanc + fruit + pain complet",
-            l: "120 g thon + 40 g pâtes complètes + courgettes",
+            l: "120 g thon + 50 g pâtes complètes + courgettes",
             c: "Banane",
             d: "130 g poulet + légumes"
         },
@@ -2215,6 +2367,7 @@ const MEALS = [
             c: "Yaourt + pomme",
             d: "Soupe de légumes + omelette 2 œufs"
         }
+
     ]
 
 ];
@@ -2227,6 +2380,7 @@ const MEALS = [
 const ACTIVITIES = [
 
     [
+
         {
             intensity: "green",
             name: "Marche douce",
@@ -2287,9 +2441,11 @@ const ACTIVITIES = [
             details:
                 "20 à 30 minutes de marche + 10 minutes d'étirements."
         }
+
     ],
 
     [
+
         {
             intensity: "orange",
             name: "Marche active",
@@ -2331,9 +2487,11 @@ const ACTIVITIES = [
             name: "Marche tranquille",
             details: "30 minutes + étirements."
         }
+
     ],
 
     [
+
         {
             intensity: "orange",
             name: "Marche",
@@ -2375,9 +2533,11 @@ const ACTIVITIES = [
             name: "Récupération",
             details: "20 à 30 minutes de marche et étirements."
         }
+
     ],
 
     [
+
         {
             intensity: "orange",
             name: "Marche active",
@@ -2419,6 +2579,7 @@ const ACTIVITIES = [
             name: "Récupération active",
             details: "30 minutes + étirements."
         }
+
     ]
 
 ];
@@ -2431,6 +2592,7 @@ const ACTIVITIES = [
 const SHOPPING = [
 
     [
+
         {
             category: "🥩 Protéines",
 
@@ -2492,9 +2654,11 @@ const SHOPPING = [
                 ["Poivre", "1"]
             ]
         }
+
     ],
 
     [
+
         {
             category: "🥩 Protéines",
 
@@ -2545,9 +2709,11 @@ const SHOPPING = [
                 ["Citrons", "2"]
             ]
         }
+
     ],
 
     [
+
         {
             category: "🥩 Protéines",
 
@@ -2597,9 +2763,11 @@ const SHOPPING = [
                 ["Citrons", "2"]
             ]
         }
+
     ],
 
     [
+
         {
             category: "🥩 Protéines",
 
@@ -2649,6 +2817,7 @@ const SHOPPING = [
                 ["Citrons", "2"]
             ]
         }
+
     ]
 
 ];
@@ -3221,7 +3390,7 @@ function renderAll(){
 
 
 /* ================================================= */
-/* CALCUL DES MACROS */
+/* MENUS */
 /* ================================================= */
 
 function mealMacros(text){
@@ -3231,529 +3400,104 @@ function mealMacros(text){
     let carbs = 0;
     let fat = 0;
 
-
     function add(qty, values){
-
-        kcal +=
-            qty *
-            values.kcal /
-            100;
-
-        protein +=
-            qty *
-            values.p /
-            100;
-
-        carbs +=
-            qty *
-            values.g /
-            100;
-
-        fat +=
-            qty *
-            values.l /
-            100;
-
+        kcal += qty * values.kcal / 100;
+        protein += qty * values.p / 100;
+        carbs += qty * values.g / 100;
+        fat += qty * values.l / 100;
     }
 
+    function grams(pattern, fallback){
+        const match = text.match(pattern);
+        return match ? parseFloat(match[1]) : fallback;
+    }
 
     /*
         Valeurs moyennes approximatives.
-        Elles donnent un repère pour l'application
-        et peuvent varier selon les marques et aliments.
+        Elles servent à donner un repère dans l'application,
+        pas à remplacer les valeurs nutritionnelles de l'emballage.
     */
 
+    const eggs = (text.match(/(\d+)\s*œufs?/i) || [])[1];
+    if(eggs) add(parseFloat(eggs) * 50, {kcal:143,p:12.6,g:0.7,l:9.5});
 
-    const eggs =
-        (
-            text.match(
-                /(\d+)\s*œufs?/i
-            )
-            || []
-        )[1];
+    const chicken = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*poulet/i);
+    if(chicken) add(parseFloat(chicken[1].replace(',','.')), {kcal:120,p:26,g:0,l:2});
 
+    const salmon = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*saumon/i);
+    if(salmon) add(parseFloat(salmon[1].replace(',','.')), {kcal:208,p:20,g:0,l:13});
 
-    if(eggs){
+    const tuna = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*thon/i);
+    if(tuna) add(parseFloat(tuna[1].replace(',','.')), {kcal:116,p:26,g:0,l:1});
 
-        add(
-            parseFloat(eggs) * 50,
-            {
-                kcal: 143,
-                p: 12.6,
-                g: 0.7,
-                l: 9.5
-            }
-        );
+    const fromage = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*fromage blanc/i);
+    if(fromage) add(parseFloat(fromage[1].replace(',','.')), {kcal:65,p:8,g:4,l:3});
 
-    }
+    const yaourt = text.match(/(?:\d+\s*)?(?:yaourt|yaourts)(?:\s+nature)?/i);
+    if(yaourt) add(125, {kcal:60,p:4.5,g:5,l:2});
 
+    const pois = text.match(/(?:pois chiches\s*)(\d+(?:[.,]\d+)?)\s*g/i);
+    if(pois) add(parseFloat(pois[1].replace(',','.')), {kcal:140,p:7.5,g:22,l:2.5});
 
-    const chicken =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*poulet/i
-        );
-
-
-    if(chicken){
+    const rice = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*riz(?: complet)?/i);
+    if(rice) add(parseFloat(rice[1].replace(',','.')), {kcal:360,p:7.5,g:76,l:2.8});
 
-        add(
-            parseFloat(
-                chicken[1].replace(",",".")
-            ),
-            {
-                kcal: 120,
-                p: 26,
-                g: 0,
-                l: 2
-            }
-        );
+    const pasta = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*p[âa]tes?(?: compl[eè]tes?)?/i);
+    if(pasta) add(parseFloat(pasta[1].replace(',','.')), {kcal:350,p:13,g:68,l:2.5});
 
-    }
+    const semoule = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*semoule/i);
+    if(semoule) add(parseFloat(semoule[1].replace(',','.')), {kcal:360,p:12,g:73,l:1.5});
 
+    const potatoes = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*pommes de terre/i);
+    if(potatoes) add(parseFloat(potatoes[1].replace(',','.')), {kcal:77,p:2,g:17,l:0.1});
 
-    const salmon =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*saumon/i
-        );
+    const bread = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*pain/i);
+    if(bread) add(parseFloat(bread[1].replace(',','.')), {kcal:250,p:9,g:43,l:3.5});
 
-
-    if(salmon){
+    const oats = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*(?:flocons d'avoine|avoine)/i);
+    if(oats) add(parseFloat(oats[1].replace(',','.')), {kcal:370,p:13,g:60,l:7});
 
-        add(
-            parseFloat(
-                salmon[1].replace(",",".")
-            ),
-            {
-                kcal: 208,
-                p: 20,
-                g: 0,
-                l: 13
-            }
-        );
+    const bananaCount = (text.match(/banane/gi) || []).length;
+    if(bananaCount) add(bananaCount * 110, {kcal:89,p:1.1,g:23,l:0.3});
 
-    }
+    const appleCount = (text.match(/pomme/gi) || []).length;
+    if(appleCount) add(appleCount * 150, {kcal:52,p:0.3,g:14,l:0.2});
 
+    const fruitCount = (text.match(/\bfruit\b/gi) || []).length;
+    if(fruitCount) add(fruitCount * 120, {kcal:55,p:0.5,g:14,l:0.2});
 
-    const tuna =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*thon/i
-        );
+    const berries = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*fruits rouges/i);
+    if(berries) add(parseFloat(berries[1].replace(',','.')), {kcal:45,p:1,g:10,l:0.3});
+    else if(/fruits rouges/i.test(text)) add(80, {kcal:45,p:1,g:10,l:0.3});
 
-
-    if(tuna){
-
-        add(
-            parseFloat(
-                tuna[1].replace(",",".")
-            ),
-            {
-                kcal: 116,
-                p: 26,
-                g: 0,
-                l: 1
-            }
-        );
-
-    }
-
-
-    const fromage =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*fromage blanc/i
-        );
-
-
-    if(fromage){
-
-        add(
-            parseFloat(
-                fromage[1].replace(",",".")
-            ),
-            {
-                kcal: 65,
-                p: 8,
-                g: 4,
-                l: 3
-            }
-        );
-
-    }
-
-
-    if(
-        /(?:yaourt|yaourts)/i.test(text)
-    ){
-
-        add(
-            125,
-            {
-                kcal: 60,
-                p: 4.5,
-                g: 5,
-                l: 2
-            }
-        );
-
-    }
-
-
-    const pois =
-        text.match(
-            /(?:pois chiches\s*)(\d+(?:[.,]\d+)?)\s*g/i
-        );
-
-
-    if(pois){
-
-        add(
-            parseFloat(
-                pois[1].replace(",",".")
-            ),
-            {
-                kcal: 140,
-                p: 7.5,
-                g: 22,
-                l: 2.5
-            }
-        );
-
-    }
-
-
-    const rice =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*riz(?: complet)?/i
-        );
-
-
-    if(rice){
-
-        add(
-            parseFloat(
-                rice[1].replace(",",".")
-            ),
-            {
-                kcal: 360,
-                p: 7.5,
-                g: 76,
-                l: 2.8
-            }
-        );
-
-    }
-
-
-    const pasta =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*p[âa]tes?(?: compl[eè]tes?)?/i
-        );
-
-
-    if(pasta){
-
-        add(
-            parseFloat(
-                pasta[1].replace(",",".")
-            ),
-            {
-                kcal: 350,
-                p: 13,
-                g: 68,
-                l: 2.5
-            }
-        );
-
-    }
-
-
-    const semoule =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*semoule/i
-        );
-
-
-    if(semoule){
-
-        add(
-            parseFloat(
-                semoule[1].replace(",",".")
-            ),
-            {
-                kcal: 360,
-                p: 12,
-                g: 73,
-                l: 1.5
-            }
-        );
-
-    }
-
-
-    const potatoes =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*pommes de terre/i
-        );
-
-
-    if(potatoes){
-
-        add(
-            parseFloat(
-                potatoes[1].replace(",",".")
-            ),
-            {
-                kcal: 77,
-                p: 2,
-                g: 17,
-                l: 0.1
-            }
-        );
-
-    }
-
-
-    const bread =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*pain/i
-        );
-
-
-    if(bread){
-
-        add(
-            parseFloat(
-                bread[1].replace(",",".")
-            ),
-            {
-                kcal: 250,
-                p: 9,
-                g: 43,
-                l: 3.5
-            }
-        );
-
-    }
-
-
-    const oats =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*(?:flocons d'avoine|avoine)/i
-        );
-
-
-    if(oats){
-
-        add(
-            parseFloat(
-                oats[1].replace(",",".")
-            ),
-            {
-                kcal: 370,
-                p: 13,
-                g: 60,
-                l: 7
-            }
-        );
-
-    }
-
-
-    const bananaCount =
-        (
-            text.match(
-                /banane/gi
-            )
-            || []
-        ).length;
-
-
-    if(bananaCount){
-
-        add(
-            bananaCount * 110,
-            {
-                kcal: 89,
-                p: 1.1,
-                g: 23,
-                l: 0.3
-            }
-        );
-
-    }
-
-
-    const appleCount =
-        (
-            text.match(
-                /pomme/gi
-            )
-            || []
-        ).length;
-
-
-    if(appleCount){
-
-        add(
-            appleCount * 150,
-            {
-                kcal: 52,
-                p: 0.3,
-                g: 14,
-                l: 0.2
-            }
-        );
-
-    }
-
-
-    const fruitCount =
-        (
-            text.match(
-                /\bfruit\b/gi
-            )
-            || []
-        ).length;
-
-
-    if(fruitCount){
-
-        add(
-            fruitCount * 120,
-            {
-                kcal: 55,
-                p: 0.5,
-                g: 14,
-                l: 0.2
-            }
-        );
-
-    }
-
-
-    const berries =
-        text.match(
-            /(\d+(?:[.,]\d+)?)\s*g\s*fruits rouges/i
-        );
-
-
-    if(berries){
-
-        add(
-            parseFloat(
-                berries[1].replace(",",".")
-            ),
-            {
-                kcal: 45,
-                p: 1,
-                g: 10,
-                l: 0.3
-            }
-        );
-
-    }
-
-    else if(
-        /fruits rouges/i.test(text)
-    ){
-
-        add(
-            80,
-            {
-                kcal: 45,
-                p: 1,
-                g: 10,
-                l: 0.3
-            }
-        );
-
-    }
-
-
-    if(
-        /légumes|courgettes|haricots verts|salade|tomates/i.test(text)
-    ){
-
+    /*
+        Les légumes sont volontairement estimés à 250 g
+        lorsqu'une quantité n'est pas précisée.
+    */
+    if(/légumes|courgettes|haricots verts|salade|tomates/i.test(text)){
         let veg = 250;
-
-
-        const explicit =
-            text.match(
-                /(\d+(?:[.,]\d+)?)\s*g\s*(?:légumes|courgettes|haricots verts)/i
-            );
-
-
-        if(explicit){
-
-            veg =
-                parseFloat(
-                    explicit[1].replace(",",".")
-                );
-
-        }
-
-
-        add(
-            veg,
-            {
-                kcal: 30,
-                p: 1.7,
-                g: 5,
-                l: 0.3
-            }
-        );
-
+        const explicit = text.match(/(\d+(?:[.,]\d+)?)\s*g\s*(?:légumes|courgettes|haricots verts)/i);
+        if(explicit) veg = parseFloat(explicit[1].replace(',','.'));
+        add(veg, {kcal:30,p:1.7,g:5,l:0.3});
     }
 
-
-    if(
-        /soupe/i.test(text)
-    ){
-
-        add(
-            300,
-            {
-                kcal: 30,
-                p: 1.5,
-                g: 5,
-                l: 0.4
-            }
-        );
-
-    }
-
+    if(/soupe/i.test(text)) add(300, {kcal:30,p:1.5,g:5,l:0.4});
 
     if(kcal === 0){
-
         kcal = 300;
         protein = 20;
         carbs = 20;
         fat = 10;
-
     }
 
-
     return {
-
-        kcal:
-            Math.round(kcal),
-
-        p:
-            Math.round(protein),
-
-        g:
-            Math.round(carbs),
-
-        l:
-            Math.round(fat)
-
+        kcal: Math.round(kcal),
+        p: Math.round(protein),
+        g: Math.round(carbs),
+        l: Math.round(fat)
     };
-
 }
 
-
-/* ================================================= */
-/* MENUS */
-/* ================================================= */
 
 function renderMeals(
     week,
@@ -3763,325 +3507,230 @@ function renderMeals(
     const meal =
         MEALS[week][dayOfWeek];
 
-
     const meals = [
-
-        [
-            "🌅",
-            "Petit-déjeuner",
-            meal.b
-        ],
-
-        [
-            "🍽️",
-            "Déjeuner",
-            meal.l
-        ],
-
-        [
-            "🍎",
-            "Collation",
-            meal.c
-        ],
-
-        [
-            "🌙",
-            "Dîner",
-            meal.d
-        ]
-
+        ["🌅","Petit-déjeuner",meal.b],
+        ["🍽️","Déjeuner",meal.l],
+        ["🍎","Collation",meal.c],
+        ["🌙","Dîner",meal.d]
     ];
 
+    const macros = meals.map(
+        item => mealMacros(item[2])
+    );
 
-    const macros =
-        meals.map(
-            item =>
-                mealMacros(
-                    item[2]
-                )
-        );
+    let total = macros.reduce(
+        (sum, item) => ({
+            kcal: sum.kcal + item.kcal,
+            p: sum.p + item.p,
+            g: sum.g + item.g,
+            l: sum.l + item.l
+        }),
+        {kcal:0,p:0,g:0,l:0}
+    );
 
+    /*
+        Rehaussement automatique : les menus existants sont conservés,
+        mais un petit complément simple est ajouté lorsque la journée
+        est trop basse. La cible reste indicative, autour de 1 200–1 400 kcal.
+    */
+    const complements = [
+        {text:"+ 1 yaourt nature", kcal:60, p:5, g:5, l:2},
+        {text:"+ 1 fruit", kcal:55, p:1, g:14, l:0},
+        {text:"+ 10 g amandes", kcal:58, p:2, g:2, l:5},
+        {text:"+ 20 g pain complet", kcal:50, p:2, g:9, l:1},
+        {text:"+ 100 g pommes de terre", kcal:77, p:2, g:17, l:0},
+        {text:"+ 5 g huile d'olive", kcal:45, p:0, g:0, l:5},
+        {text:"+ 100 g fromage blanc", kcal:65, p:8, g:4, l:3}
+    ];
 
-    const total =
-        macros.reduce(
+    const target = 1300;
+    let complementText = "";
 
-            (sum,item) => ({
-
-                kcal:
-                    sum.kcal +
-                    item.kcal,
-
-                p:
-                    sum.p +
-                    item.p,
-
-                g:
-                    sum.g +
-                    item.g,
-
-                l:
-                    sum.l +
-                    item.l
-
-            }),
-
-            {
-                kcal: 0,
-                p: 0,
-                g: 0,
-                l: 0
-            }
-
-        );
-
+    if(total.kcal < 1200){
+        let guard = 0;
+        while(total.kcal < 1200 && guard < 10){
+            let best = null;
+            let bestDistance = Infinity;
+            complements.forEach(item => {
+                const next = total.kcal + item.kcal;
+                if(next <= 1380){
+                    const distance = Math.abs(target - next);
+                    if(distance < bestDistance){
+                        best = item;
+                        bestDistance = distance;
+                    }
+                }
+            });
+            if(!best) break;
+            total.kcal += best.kcal;
+            total.p += best.p;
+            total.g += best.g;
+            total.l += best.l;
+            complementText += (complementText ? " • " : "") + best.text;
+            guard++;
+        }
+    }
 
     document
-        .getElementById(
-            "meals"
-        )
+        .getElementById("meals")
         .innerHTML =
-
         meals.map(
-
-            (
-                item,
-                index
-            ) => {
-
-                const m =
-                    macros[index];
-
-
+            (item,index) => {
+                const m = macros[index];
                 return `
-
                     <div class="meal">
-
                         <div class="meal-icon">
                             ${item[0]}
                         </div>
-
                         <div>
-
                             <div class="meal-title">
                                 ${item[1]}
                             </div>
-
                             <div class="meal-text">
                                 ${item[2]}
                             </div>
-
                             <div class="meal-macros">
-
-                                <span class="macro">
-                                    G ${m.g} g
-                                </span>
-
-                                <span class="macro">
-                                    P ${m.p} g
-                                </span>
-
-                                <span class="macro">
-                                    L ${m.l} g
-                                </span>
-
-                                <span class="macro">
-                                    ${m.kcal} Kcal
-                                </span>
-
+                                <span class="macro">G ${m.g} g</span>
+                                <span class="macro">P ${m.p} g</span>
+                                <span class="macro">L ${m.l} g</span>
+                                <span class="macro">${m.kcal} Kcal</span>
                             </div>
-
                         </div>
-
                     </div>
-
                 `;
-
             }
-
-        ).join("")
-
-        +
-
+        ).join("") +
         `
+            ${complementText ? `
+                <div class="meal" style="border-top:1px solid #fce7e9;">
+                    <div class="meal-icon">➕</div>
+                    <div>
+                        <div class="meal-title">Petit complément</div>
+                        <div class="meal-text">${complementText}</div>
+                    </div>
+                </div>
+            ` : ""}
 
             <div class="day-total">
-
                 <div class="day-total-title">
                     🔢 Total calorique et macros de la journée
                 </div>
-
                 <div class="day-total-values">
-
-                    <span class="macro">
-                        G ${total.g} g
-                    </span>
-
-                    <span class="macro">
-                        P ${total.p} g
-                    </span>
-
-                    <span class="macro">
-                        L ${total.l} g
-                    </span>
-
-                    <span class="macro">
-                        ${total.kcal} Kcal
-                    </span>
-
+                    <span class="macro">G ${total.g} g</span>
+                    <span class="macro">P ${total.p} g</span>
+                    <span class="macro">L ${total.l} g</span>
+                    <span class="macro">${total.kcal} Kcal</span>
                 </div>
-
                 <div class="macro-legend">
-
-                    G = glucides •
-                    P = protéines •
-                    L = lipides •
-                    Kcal = calories
-
+                    G = glucides • P = protéines • L = lipides • Kcal = calories
                     <br>
-
-                    Valeurs approximatives selon les portions
-                    et les aliments utilisés.
-
+                    Valeurs approximatives selon les portions et les aliments utilisés.
+                    <div class="daily-target">
+                        🎯 Repère : environ 1 200 à 1 400 Kcal selon l'activité et les besoins.
+                    </div>
                 </div>
-
             </div>
-
         `;
-
 
     const intensity = {
-
         green: {
-
-            title:
-                "🟢 Journée légère",
-
-            text:
-                "Peu de glucides : priorité aux protéines et aux légumes.",
-
-            class:
-                "green"
-
+            title:"🟢 Journée légère",
+            text:"Peu de glucides : priorité aux protéines et aux légumes.",
+            class:"green"
         },
-
         orange: {
-
-            title:
-                "🟠 Journée modérée",
-
-            text:
-                "Glucides modérés pour accompagner l'activité.",
-
-            class:
-                "orange"
-
+            title:"🟠 Journée modérée",
+            text:"Glucides modérés pour accompagner l'activité.",
+            class:"orange"
         },
-
         red: {
-
-            title:
-                "🔴 Journée intense",
-
-            text:
-                "Un peu plus de glucides pour soutenir l'entraînement.",
-
-            class:
-                "red"
-
+            title:"🔴 Journée intense",
+            text:"Un peu plus de glucides pour soutenir l'entraînement.",
+            class:"red"
         }
-
     };
 
-
-    const info =
-        intensity[
-            meal.i
-        ];
-
+    const info = intensity[meal.i];
 
     document
-        .getElementById(
-            "dayIntensity"
-        )
+        .getElementById("dayIntensity")
         .innerHTML = `
-
-            <div
-                class="intensity ${info.class}"
-            >
-
+            <div class="intensity ${info.class}">
                 <span class="intensity-dot"></span>
-
                 <div>
-
-                    <strong>
-                        ${info.title}
-                    </strong>
-
+                    <strong>${info.title}</strong>
                     <br>
-
                     ${info.text}
-
                 </div>
-
             </div>
-
         `;
 
+    document.getElementById("foodDayTitle").textContent = DAYS[dayOfWeek];
+    document.getElementById("foodDaySubtitle").textContent =
+        `Jour ${dayOfWeek + 1} • Semaine ${week + 1}`;
 
     document
-        .getElementById(
-            "weekTabs"
-        )
+        .getElementById("weekTabs")
         .innerHTML =
-
-        [0,1,2,3]
-
-        .map(
-
+        [0,1,2,3].map(
             index => `
-
                 <button
-                    class="week-tab ${
-                        index === week
-                        ? "active"
-                        : ""
-                    }"
+                    class="week-tab ${index === week ? "active" : ""}"
                     data-week="${index}"
                 >
                     Semaine ${index + 1}
                 </button>
-
             `
-
         ).join("");
 
-
     document
-        .querySelectorAll(
-            "#weekTabs .week-tab"
-        )
+        .querySelectorAll("#weekTabs .week-tab")
         .forEach(
-
             button => {
-
                 button.addEventListener(
                     "click",
                     function(){
-
-                        goWeek(
-                            Number(
-                                this.dataset.week
-                            )
-                        );
-
+                        goWeek(Number(this.dataset.week));
                     }
                 );
-
             }
-
         );
-
 }
+
+
+/* ================================================= */
+/* NAVIGATION DES JOURS ALIMENTATION */
+/* ================================================= */
+
+function changeFoodDay(direction){
+
+    saveInputs();
+
+    const week = Math.floor(data.day / 7);
+    const firstDay = week * 7;
+    const lastDay = firstDay + 6;
+
+    data.day = Math.max(
+        firstDay,
+        Math.min(lastDay, data.day + direction)
+    );
+
+    renderAll();
+    save();
+}
+
+
+/* ================================================= */
+/* FLECHES DES JOURS DE REPAS */
+/* ================================================= */
+
+document.getElementById("foodPrev").addEventListener("click", function(){
+    changeFoodDay(-1);
+});
+
+document.getElementById("foodNext").addEventListener("click", function(){
+    changeFoodDay(1);
+});
 
 
 /* ================================================= */
@@ -4093,8 +3742,10 @@ function goWeek(week){
     saveInputs();
 
 
+    const dayOfWeek = data.day % 7;
+
     data.day =
-        week * 7;
+        week * 7 + dayOfWeek;
 
 
     renderAll();
@@ -4543,7 +4194,7 @@ document
 
 
 /* ================================================= */
-/* COURSES */
+/* COURSES - FONCTION PRINCIPALE */
 /* ================================================= */
 
 function showFoodSection(
@@ -4786,11 +4437,13 @@ function renderShopping(){
                                             }
                                         >
 
+
                                         <span
                                             class="shop-name"
                                         >
                                             ${item[0]}
                                         </span>
+
 
                                         <span
                                             class="shop-quantity"
@@ -5908,6 +5561,18 @@ if(
     data.setup.date
 
 ){
+
+    /*
+        La date réelle détermine automatiquement
+        le jour de l'application.
+
+        Exemple :
+
+        14/08 = Jour 1
+        15/08 = Jour 2
+        16/08 = Jour 3
+        etc.
+    */
 
     data.day =
         getAutomaticDay();
