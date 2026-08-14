@@ -7,18 +7,19 @@
 
 <meta
     name="viewport"
-    content="width=device-width,initial-scale=1,viewport-fit=cover"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
-<meta
-    name="theme-color"
-    content="#e11d48"
->
+<meta name="theme-color" content="#e11d48">
 
 <title>DODO WEIGHT</title>
 
 
 <style>
+
+/* ================================================= */
+/* BASE */
+/* ================================================= */
 
 *{
     box-sizing:border-box;
@@ -26,17 +27,21 @@
 
 :root{
     --rose:#e11d48;
-    --rose-light:#fff1f2;
-    --rose-dark:#881337;
+    --rose-dark:#9f1239;
+    --rose-soft:#fff1f2;
     --rose-border:#ffe4e6;
+    --text:#27272a;
     --muted:#71717a;
 }
 
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
-    background:#fff1f2;
-    color:#27272a;
+    background:var(--rose-soft);
+    color:var(--text);
     font-family:
         system-ui,
         -apple-system,
@@ -45,168 +50,299 @@ body{
         sans-serif;
 }
 
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+}
+
+
+/* ================================================= */
+/* APP */
+/* ================================================= */
 
 .app{
     max-width:680px;
-    margin:auto;
     min-height:100vh;
+    margin:auto;
     background:#fff;
-    padding-bottom:78px;
+    padding-bottom:82px;
 }
 
 
-/* ========================= */
+/* ================================================= */
 /* HEADER */
-/* ========================= */
+/* ================================================= */
 
 header{
-    padding:20px 20px 8px;
     position:sticky;
     top:0;
-    background:#fff;
-    z-index:5;
+    z-index:10;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    padding:18px 18px 10px;
+    border-bottom:1px solid #fff;
 }
-
 
 .header-row{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:12px;
 }
 
-
-h1,
-h2,
-h3{
-    margin:0;
+.logo-title{
+    font-family:Georgia,serif;
+    font-size:25px;
+    font-weight:700;
     color:var(--rose-dark);
 }
 
-
-h1,
-h2{
-    font-family:Georgia,serif;
-}
-
-
-h1{
-    font-size:27px;
-}
-
-
-h2{
-    font-size:22px;
-}
-
-
-h3{
-    font-size:15px;
-}
-
-
-.day{
+.day-label{
+    margin-top:3px;
+    font-size:12px;
     color:var(--muted);
-    font-size:13px;
-    margin-top:4px;
+}
+
+.day-buttons{
+    display:flex;
+    gap:6px;
+}
+
+.day-btn{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:var(--rose-soft);
+    color:var(--rose-dark);
+    font-size:20px;
 }
 
 
-/* ========================= */
-/* PAGES */
-/* ========================= */
+/* ================================================= */
+/* CONTENT */
+/* ================================================= */
 
 .content{
-    padding:12px 18px 20px;
+    padding:12px 15px 20px;
 }
-
 
 .page{
     display:none;
 }
-
 
 .page.active{
     display:block;
 }
 
 
-/* ========================= */
+/* ================================================= */
 /* CARDS */
-/* ========================= */
+/* ================================================= */
 
 .card{
     background:#fff;
     border:1px solid var(--rose-border);
     border-radius:18px;
-    padding:16px;
-    margin:12px 0;
-    box-shadow:0 4px 18px #00000008;
+    padding:15px;
+    margin:11px 0;
+    box-shadow:0 4px 18px rgba(0,0,0,.035);
 }
 
-
 .hero{
-    background:
-        linear-gradient(
-            135deg,
-            #fb7185,
-            #fda4af
-        );
-    color:white;
+    background:linear-gradient(
+        135deg,
+        #fb7185,
+        #fda4af
+    );
+    color:#fff;
     border:0;
 }
 
-
 .hero h2,
 .hero p{
-    color:white;
+    color:#fff;
 }
 
+.hero h2{
+    margin:0;
+    font-family:Georgia,serif;
+    font-size:22px;
+}
 
 .hero p{
     margin:5px 0 0;
-}
-
-
-/* ========================= */
-/* REPAS */
-/* ========================= */
-
-.meal{
-    display:flex;
-    gap:10px;
-    padding:11px 0;
-    border-bottom:1px solid var(--rose-border);
     font-size:13px;
 }
 
+
+/* ================================================= */
+/* SOUS ONGLETS */
+/* ================================================= */
+
+.subtabs{
+    display:flex;
+    gap:7px;
+    margin:12px 0;
+}
+
+.subtab{
+    flex:1;
+    padding:9px 10px;
+    border-radius:12px;
+    background:var(--rose-soft);
+    color:var(--rose-dark);
+    font-size:13px;
+    font-weight:600;
+}
+
+.subtab.active{
+    background:var(--rose);
+    color:#fff;
+}
+
+
+/* ================================================= */
+/* SEMAINES */
+/* ================================================= */
+
+.week-tabs{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    padding-bottom:2px;
+    margin:10px 0;
+}
+
+.week-tab{
+    white-space:nowrap;
+    padding:7px 12px;
+    border-radius:999px;
+    background:var(--rose-soft);
+    color:var(--rose-dark);
+    font-size:12px;
+}
+
+.week-tab.active{
+    background:var(--rose);
+    color:#fff;
+}
+
+
+/* ================================================= */
+/* REPAS */
+/* ================================================= */
+
+.meal{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px solid var(--rose-border);
+}
 
 .meal:last-child{
     border-bottom:0;
 }
 
-
-.meal b{
-    width:95px;
+.meal-icon{
+    width:28px;
     flex:none;
+    font-size:18px;
+}
+
+.meal-info{
+    flex:1;
+}
+
+.meal-title{
+    font-size:12px;
+    font-weight:700;
+    color:var(--rose-dark);
+    margin-bottom:3px;
+}
+
+.meal-text{
+    font-size:13px;
+    line-height:1.45;
+}
+
+.macro-note{
+    margin-top:3px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+
+/* ================================================= */
+/* INTENSITE */
+/* ================================================= */
+
+.intensity{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:10px 12px;
+    border-radius:13px;
+    margin-top:10px;
+    font-size:12px;
+}
+
+.intensity.green{
+    background:#f0fdf4;
+    color:#166534;
+}
+
+.intensity.orange{
+    background:#fff7ed;
+    color:#9a3412;
+}
+
+.intensity.red{
+    background:#fff1f2;
     color:#9f1239;
 }
 
-
-/* ========================= */
-/* ACTIVITE */
-/* ========================= */
-
-.activity{
-    background:var(--rose-light);
-    border-radius:14px;
-    padding:14px;
-    font-size:14px;
+.intensity-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:currentColor;
+    flex:none;
 }
 
 
-/* ========================= */
+/* ================================================= */
+/* ACTIVITE */
+/* ================================================= */
+
+.activity-box{
+    background:var(--rose-soft);
+    border-radius:14px;
+    padding:14px;
+}
+
+.activity-name{
+    color:var(--rose-dark);
+    font-weight:700;
+    font-size:14px;
+}
+
+.activity-details{
+    margin-top:5px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+
+/* ================================================= */
 /* INPUTS */
-/* ========================= */
+/* ================================================= */
 
 label.small{
     display:block;
@@ -215,22 +351,19 @@ label.small{
     margin:10px 0 5px;
 }
 
-
 input,
 textarea{
-    font:inherit;
+    width:100%;
     border:1px solid #fecdd3;
     border-radius:10px;
-    padding:9px;
-    width:100%;
     background:#fff;
+    padding:9px 10px;
+    color:var(--text);
 }
-
 
 textarea{
     resize:vertical;
 }
-
 
 input:focus,
 textarea:focus{
@@ -239,211 +372,259 @@ textarea:focus{
 }
 
 
-/* ========================= */
-/* BOUTONS */
-/* ========================= */
+/* ================================================= */
+/* COURSES */
+/* ================================================= */
 
-button{
-    border:0;
-    font:inherit;
-    cursor:pointer;
-}
-
-
-.primary{
-    background:var(--rose);
-    color:#fff;
-    border-radius:12px;
-    padding:11px 16px;
-    font-weight:600;
-}
-
-
-.secondary{
-    background:#ffe4e6;
-    color:#9f1239;
-    border-radius:10px;
-    padding:9px 13px;
-}
-
-
-.icon-btn{
-    background:#fff1f2;
-    color:#9f1239;
-    border-radius:50%;
-    width:38px;
-    height:38px;
-    font-size:18px;
-}
-
-
-/* ========================= */
-/* SEMAINES */
-/* ========================= */
-
-.tabs{
+.shopping-summary{
     display:flex;
-    gap:6px;
-    margin:12px 0;
-    overflow-x:auto;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--rose-soft);
+    border-radius:14px;
+    padding:11px 13px;
+    font-size:12px;
+    color:var(--rose-dark);
 }
 
+.clear-shopping{
+    background:#fff;
+    color:var(--rose-dark);
+    border:1px solid var(--rose-border);
+    border-radius:9px;
+    padding:6px 9px;
+    font-size:11px;
+}
 
-.tabs button{
-    padding:7px 11px;
-    border-radius:999px;
-    background:#ffe4e6;
-    color:#9f1239;
-    font-size:12px;
+.shop-category{
+    margin-top:16px;
+}
+
+.shop-category:first-child{
+    margin-top:0;
+}
+
+.shop-category-title{
+    font-size:14px;
+    font-weight:700;
+    color:var(--rose-dark);
+    margin-bottom:7px;
+}
+
+.shop-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 0;
+    border-bottom:1px solid #fff1f2;
+}
+
+.shop-item:last-child{
+    border-bottom:0;
+}
+
+.shop-item input{
+    width:18px;
+    height:18px;
+    accent-color:var(--rose);
+    flex:none;
+}
+
+.shop-name{
+    flex:1;
+    font-size:13px;
+}
+
+.shop-quantity{
+    color:var(--muted);
+    font-size:11px;
     white-space:nowrap;
 }
 
 
-.tabs button.active{
-    background:#be123c;
-    color:#fff;
-}
-
-
-/* ========================= */
-/* GRILLE */
-/* ========================= */
-
-.row{
-    display:flex;
-    gap:10px;
-}
-
-
-.row>*{
-    flex:1;
-}
-
-
-/* ========================= */
+/* ================================================= */
 /* POIDS */
-/* ========================= */
+/* ================================================= */
 
 .stats{
     display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-    gap:8px;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+    margin:12px 0;
 }
 
-
 .stat{
-    background:#fff1f2;
+    background:var(--rose-soft);
     border-radius:14px;
-    padding:12px;
+    padding:12px 7px;
     text-align:center;
 }
 
-
 .stat strong{
-    font-size:20px;
-    color:#9f1239;
+    color:var(--rose-dark);
+    font-size:19px;
 }
-
 
 .stat span{
-    font-size:11px;
+    display:block;
+    margin-top:2px;
     color:var(--muted);
+    font-size:10px;
 }
 
-
 .progress-bg{
-    height:14px;
-    background:#ffe4e6;
-    border-radius:99px;
+    width:100%;
+    height:9px;
+    background:var(--rose-border);
+    border-radius:999px;
     overflow:hidden;
 }
 
-
 .progress{
     height:100%;
-    background:#e11d48;
     width:0;
-    transition:.25s;
+    background:var(--rose);
+    border-radius:999px;
+    transition:.3s;
 }
 
-
-/* ========================= */
-/* PRIERES */
-/* ========================= */
-
-.prayers{
-    display:grid;
-    grid-template-columns:
-        1fr 1fr;
-    gap:8px;
-}
-
-
-.prayer{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:10px;
-    background:#fff1f2;
-    border-radius:12px;
-    font-size:13px;
-}
-
-
-.prayer input{
-    width:auto;
-}
-
-
-/* ========================= */
-/* HUMEUR */
-/* ========================= */
-
-.moods{
+.progress-labels{
     display:flex;
     justify-content:space-between;
+    color:var(--muted);
+    font-size:11px;
+    margin-bottom:6px;
 }
 
 
-.mood{
-    background:none;
-    font-size:27px;
-    opacity:.35;
-    padding:4px;
+/* ================================================= */
+/* COURBE */
+/* ================================================= */
+
+.chart-wrap{
+    width:100%;
+    overflow:hidden;
+}
+
+#weightChart{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.chart-line{
+    fill:none;
+    stroke:var(--rose);
+    stroke-width:3;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.chart-point{
+    fill:#fff;
+    stroke:var(--rose);
+    stroke-width:3;
+}
+
+.chart-grid{
+    stroke:#ffe4e6;
+    stroke-width:1;
+}
+
+.chart-label{
+    fill:#a1a1aa;
+    font-size:11px;
+    font-family:system-ui,sans-serif;
+}
+
+.chart-empty{
+    fill:#a1a1aa;
+    font-size:13px;
+    font-family:system-ui,sans-serif;
 }
 
 
-.mood.selected{
-    opacity:1;
-    transform:scale(1.1);
-}
-
-
-/* ========================= */
+/* ================================================= */
 /* HISTORIQUE */
-/* ========================= */
+/* ================================================= */
 
 .history-row{
     display:flex;
     justify-content:space-between;
     padding:8px 0;
     border-bottom:1px solid var(--rose-border);
+    font-size:13px;
 }
 
+.history-row:last-child{
+    border-bottom:0;
+}
 
-.empty{
-    text-align:center;
+.history-row span{
     color:var(--muted);
-    padding:30px 10px;
+}
+
+.history-row b{
+    color:var(--rose-dark);
 }
 
 
-/* ========================= */
-/* BARRE DU BAS */
-/* ========================= */
+/* ================================================= */
+/* PRIERES */
+/* ================================================= */
 
-.bottom{
+.prayers{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+}
+
+.prayer{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--rose-soft);
+    padding:10px;
+    border-radius:11px;
+    font-size:12px;
+}
+
+.prayer input{
+    width:17px;
+    height:17px;
+    accent-color:var(--rose);
+}
+
+
+/* ================================================= */
+/* HUMEUR */
+/* ================================================= */
+
+.moods{
+    display:flex;
+    justify-content:space-around;
+    margin-top:8px;
+}
+
+.mood{
+    background:none;
+    font-size:27px;
+    opacity:.3;
+    padding:5px;
+    transition:.15s;
+}
+
+.mood.selected{
+    opacity:1;
+    transform:scale(1.12);
+}
+
+
+/* ================================================= */
+/* NAVIGATION BAS */
+/* ================================================= */
+
+.bottom-nav{
     position:fixed;
     bottom:0;
     left:50%;
@@ -454,119 +635,125 @@ button{
 
     height:72px;
 
-    background:#fff;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(12px);
 
     border-top:1px solid var(--rose-border);
 
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
+    padding-bottom:env(safe-area-inset-bottom);
 
-    padding-bottom:
-        env(safe-area-inset-bottom);
-
-    z-index:20;
+    z-index:30;
 }
 
-
-.bottom button{
+.bottom-nav button{
     background:none;
     color:#71717a;
-
     font-size:10px;
-
-    padding:7px 2px;
 }
 
-
-.bottom button span{
+.bottom-nav button span{
     display:block;
-    font-size:22px;
+    font-size:21px;
     margin-bottom:2px;
 }
 
-
-.bottom button.active{
-    color:#be123c;
+.bottom-nav button.active{
+    color:var(--rose);
     font-weight:700;
 }
 
 
-/* ========================= */
-/* PAGE CONFIGURATION */
-/* ========================= */
+/* ================================================= */
+/* CONFIGURATION */
+/* ================================================= */
 
 .setup{
     min-height:100vh;
-    padding:30px 20px;
     background:#fff;
+    padding:30px 18px;
 }
-
 
 .setup-box{
     max-width:520px;
-    margin:0 auto;
+    margin:auto;
 }
 
-
-.setup .logo{
+.setup-logo{
     text-align:center;
-    font-size:60px;
-    margin:20px 0;
+    font-size:58px;
+    margin:20px 0 8px;
 }
 
+.setup-title{
+    text-align:center;
+    font-family:Georgia,serif;
+    color:var(--rose-dark);
+    font-size:28px;
+}
 
-.setup p{
+.setup-subtitle{
+    text-align:center;
     color:var(--muted);
     font-size:14px;
+    margin:7px 0 22px;
 }
 
+.setup-card{
+    background:#fff;
+    border:1px solid var(--rose-border);
+    border-radius:20px;
+    padding:18px;
+    box-shadow:0 5px 25px rgba(0,0,0,.04);
+}
 
 .field{
-    margin:14px 0;
+    margin-bottom:14px;
 }
-
 
 .field label{
     display:block;
-    font-size:12px;
     color:var(--muted);
+    font-size:12px;
     margin-bottom:5px;
 }
 
+.primary{
+    width:100%;
+    padding:12px;
+    background:var(--rose);
+    color:#fff;
+    border-radius:12px;
+    font-weight:700;
+}
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+
+/* ================================================= */
+/* RESPONSIVE */
+/* ================================================= */
 
 @media(max-width:480px){
 
-    .app{
-        padding-bottom:76px;
-    }
-
-
     .content{
-        padding:10px 14px 18px;
+        padding-left:12px;
+        padding-right:12px;
     }
-
 
     .card{
         padding:14px;
     }
 
+    .meal-text{
+        font-size:12px;
+    }
 
     .stats{
-        gap:6px;
+        gap:5px;
     }
 
-
-    .meal b{
-        width:85px;
-    }
-
-
-    .bottom{
+    .bottom-nav{
         height:70px;
     }
 
@@ -580,9 +767,9 @@ button{
 <body>
 
 
-<!-- ===================================================== -->
-<!-- CONFIGURATION INITIALE -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* CONFIGURATION */
+/* ================================================= -->
 
 <div
     id="setup"
@@ -591,22 +778,20 @@ button{
 
     <div class="setup-box">
 
-        <div class="logo">
+        <div class="setup-logo">
             🌷
         </div>
 
-
-        <h1 style="text-align:center">
+        <div class="setup-title">
             DODO WEIGHT
-        </h1>
+        </div>
 
-
-        <p style="text-align:center">
+        <div class="setup-subtitle">
             Un petit pas chaque jour. 🤍
-        </p>
+        </div>
 
 
-        <div class="card">
+        <div class="setup-card">
 
 
             <div class="field">
@@ -626,7 +811,7 @@ button{
             <div class="field">
 
                 <label>
-                    Poids de départ (kg)
+                    Poids de départ
                 </label>
 
                 <input
@@ -642,7 +827,7 @@ button{
             <div class="field">
 
                 <label>
-                    Poids objectif (kg)
+                    Poids objectif
                 </label>
 
                 <input
@@ -671,7 +856,6 @@ button{
 
             <button
                 class="primary"
-                style="width:100%"
                 onclick="finishSetup()"
             >
                 Commencer 🌷
@@ -686,9 +870,9 @@ button{
 
 
 
-<!-- ===================================================== -->
-<!-- APPLICATION -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* APPLICATION */
+/* ================================================= -->
 
 <div
     id="app"
@@ -697,38 +881,35 @@ button{
 >
 
 
-<!-- HEADER -->
-
 <header>
 
     <div class="header-row">
 
         <div>
 
-            <h1>
+            <div class="logo-title">
                 DODO WEIGHT
-            </h1>
+            </div>
 
             <div
                 id="dateLabel"
-                class="day"
+                class="day-label"
             ></div>
 
         </div>
 
 
-        <div>
+        <div class="day-buttons">
 
             <button
-                class="icon-btn"
+                class="day-btn"
                 onclick="changeDay(-1)"
             >
                 ‹
             </button>
 
-
             <button
-                class="icon-btn"
+                class="day-btn"
                 onclick="changeDay(1)"
             >
                 ›
@@ -745,9 +926,9 @@ button{
 <main class="content">
 
 
-<!-- ===================================================== -->
-<!-- ONGLET ALIMENTATION -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* ALIMENTATION */
+/* ================================================= -->
 
 <section
     id="food"
@@ -761,56 +942,158 @@ button{
             🍽️ Alimentation
         </h2>
 
-        <p id="foodGoal"></p>
+        <p id="foodGoal">
+            Mon objectif
+        </p>
+
+    </div>
+
+
+    <div class="subtabs">
+
+        <button
+            id="menuTab"
+            class="subtab active"
+            onclick="showFoodSection('menus')"
+        >
+            🍽️ Menus
+        </button>
+
+
+        <button
+            id="shoppingTab"
+            class="subtab"
+            onclick="showFoodSection('shopping')"
+        >
+            🛒 Courses
+        </button>
 
     </div>
 
 
 
-    <!-- SEMAINES -->
+    <!-- MENUS -->
+
+    <div id="menusSection">
+
+
+        <div
+            id="weekTabs"
+            class="week-tabs"
+        ></div>
+
+
+        <div class="card">
+
+            <h3>
+                Repas du jour
+            </h3>
+
+
+            <div
+                id="meals"
+            ></div>
+
+
+            <div
+                id="dayIntensity"
+            ></div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                💧 Hydratation
+            </h3>
+
+
+            <label class="small">
+                Nombre de verres
+            </label>
+
+
+            <input
+                id="water"
+                type="number"
+                min="0"
+                placeholder="0"
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- COURSES -->
 
     <div
-        class="tabs"
-        id="weekTabs"
-    ></div>
+        id="shoppingSection"
+        style="display:none"
+    >
 
 
+        <div class="week-tabs">
 
-    <!-- REPAS -->
+            <button
+                class="week-tab active"
+                id="shopWeek0"
+                onclick="setShoppingWeek(0)"
+            >
+                Semaine 1
+            </button>
 
-    <div class="card">
+            <button
+                class="week-tab"
+                id="shopWeek1"
+                onclick="setShoppingWeek(1)"
+            >
+                Semaine 2
+            </button>
 
-        <h3>
-            Repas du jour
-        </h3>
+            <button
+                class="week-tab"
+                id="shopWeek2"
+                onclick="setShoppingWeek(2)"
+            >
+                Semaine 3
+            </button>
+
+            <button
+                class="week-tab"
+                id="shopWeek3"
+                onclick="setShoppingWeek(3)"
+            >
+                Semaine 4
+            </button>
+
+        </div>
 
 
-        <div id="meals"></div>
+        <div class="shopping-summary">
 
-    </div>
+            <span id="shoppingCount">
+                0 produit coché
+            </span>
 
+            <button
+                class="clear-shopping"
+                onclick="clearShopping()"
+            >
+                Tout décocher
+            </button>
 
-
-    <!-- EAU -->
-
-    <div class="card">
-
-        <h3>
-            💧 Hydratation
-        </h3>
-
-
-        <label class="small">
-            Nombre de verres
-        </label>
+        </div>
 
 
-        <input
-            id="water"
-            type="number"
-            min="0"
-            placeholder="0"
-        >
+        <div
+            id="shoppingList"
+            class="card"
+        ></div>
+
 
     </div>
 
@@ -819,9 +1102,9 @@ button{
 
 
 
-<!-- ===================================================== -->
-<!-- ONGLET ACTIVITE -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* ACTIVITE */
+/* ================================================= */
 
 <section
     id="activityPage"
@@ -840,26 +1123,37 @@ button{
     </div>
 
 
-
-    <!-- ACTIVITE PREVUE -->
-
     <div class="card">
 
         <h3>
-            Activité prévue
+            Activité du jour
         </h3>
 
 
         <div
-            id="activity"
-            class="activity"
+            id="activityBox"
+            class="activity-box"
+        >
+
+            <div
+                id="activityName"
+                class="activity-name"
+            ></div>
+
+            <div
+                id="activityDetails"
+                class="activity-details"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="activityIntensity"
         ></div>
 
     </div>
 
-
-
-    <!-- ACTIVITE REALISEE -->
 
     <div class="card">
 
@@ -869,7 +1163,7 @@ button{
 
 
         <label class="small">
-            Durée (minutes)
+            Durée réellement réalisée
         </label>
 
 
@@ -899,9 +1193,9 @@ button{
 
 
 
-<!-- ===================================================== -->
-<!-- ONGLET POIDS -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* POIDS */
+/* ================================================= */
 
 <section
     id="weightPage"
@@ -922,9 +1216,6 @@ button{
     </div>
 
 
-
-    <!-- STATISTIQUES -->
-
     <div class="stats">
 
 
@@ -933,8 +1224,6 @@ button{
             <strong id="startStat">
                 —
             </strong>
-
-            <br>
 
             <span>
                 Départ
@@ -949,8 +1238,6 @@ button{
                 —
             </strong>
 
-            <br>
-
             <span>
                 Actuel
             </span>
@@ -964,8 +1251,6 @@ button{
                 —
             </strong>
 
-            <br>
-
             <span>
                 Restant
             </span>
@@ -976,9 +1261,6 @@ button{
     </div>
 
 
-
-    <!-- PROGRESSION -->
-
     <div class="card">
 
         <h3>
@@ -986,14 +1268,7 @@ button{
         </h3>
 
 
-        <div
-            style="
-            display:flex;
-            justify-content:space-between;
-            font-size:12px;
-            color:#71717a;
-            "
-        >
+        <div class="progress-labels">
 
             <span id="startText">
                 —
@@ -1006,10 +1281,7 @@ button{
         </div>
 
 
-        <div
-            class="progress-bg"
-            style="margin-top:8px"
-        >
+        <div class="progress-bg">
 
             <div
                 id="progress"
@@ -1019,16 +1291,37 @@ button{
         </div>
 
 
-        <p
+        <div
             id="progressText"
-            class="small"
-        ></p>
+            style="
+            color:#71717a;
+            font-size:11px;
+            margin-top:7px;
+            "
+        ></div>
 
     </div>
 
 
+    <div class="card">
 
-    <!-- PESEE -->
+        <h3>
+            📉 Évolution
+        </h3>
+
+
+        <div class="chart-wrap">
+
+            <svg
+                id="weightChart"
+                viewBox="0 0 600 250"
+                preserveAspectRatio="xMidYMid meet"
+            ></svg>
+
+        </div>
+
+    </div>
+
 
     <div class="card">
 
@@ -1038,7 +1331,7 @@ button{
 
 
         <label class="small">
-            Poids (kg)
+            Poids en kg
         </label>
 
 
@@ -1052,17 +1345,16 @@ button{
     </div>
 
 
-
-    <!-- HISTORIQUE -->
-
     <div class="card">
 
         <h3>
-            📈 Historique
+            📋 Historique
         </h3>
 
 
-        <div id="history"></div>
+        <div
+            id="history"
+        ></div>
 
     </div>
 
@@ -1071,9 +1363,9 @@ button{
 
 
 
-<!-- ===================================================== -->
-<!-- ONGLET MOI -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* MOI */
+/* ================================================= */
 
 <section
     id="mePage"
@@ -1094,9 +1386,6 @@ button{
     </div>
 
 
-
-    <!-- PRIERES -->
-
     <div class="card">
 
         <h3>
@@ -1111,9 +1400,6 @@ button{
 
     </div>
 
-
-
-    <!-- HUMEUR -->
 
     <div class="card">
 
@@ -1170,9 +1456,6 @@ button{
     </div>
 
 
-
-    <!-- SOMMEIL -->
-
     <div class="card">
 
         <h3>
@@ -1189,9 +1472,6 @@ button{
 
     </div>
 
-
-
-    <!-- RESSENTI -->
 
     <div class="card">
 
@@ -1228,16 +1508,16 @@ button{
 
 
 
-<!-- ===================================================== -->
-<!-- BARRE DE NAVIGATION -->
-<!-- ===================================================== -->
+<!-- ================================================= */
+/* NAVIGATION */
+/* ================================================= */
 
-<nav class="bottom">
+<nav class="bottom-nav">
 
 
     <button
-        data-page="food"
         class="active"
+        data-page="food"
     >
 
         <span>
@@ -1298,9 +1578,9 @@ button{
 <script>
 
 
-/* ===================================================== */
-/* DONNEES */
-/* ===================================================== */
+/* ================================================= */
+/* JOURS */
+/* ================================================= */
 
 
 const DAYS = [
@@ -1318,7 +1598,7 @@ const DAYS = [
 
 const PRAYERS = [
 
-    'Fajr/Sobh',
+    'Fajr / Sobh',
     'Dhuhr',
     'Asr',
     'Maghrib',
@@ -1328,66 +1608,333 @@ const PRAYERS = [
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* MENUS */
-/* ===================================================== */
+/* ================================================= */
+/*
+   Glucides volontairement variables :
+   🟢 léger     = peu de féculents
+   🟠 modéré    = portion modérée
+   🔴 intense   = portion un peu plus importante
+*/
 
 
 const MEALS = [
 
+/* ================================================= */
+/* SEMAINE 1 */
+/* ================================================= */
+
+[
+
+{
+b:'2 œufs + 30 g pain complet + 1 pomme',
+l:'130 g poulet + 50 g riz complet cru + 200 g courgettes + 5 g huile',
+c:'150 g skyr + 100 g fruits rouges',
+d:'150 g cabillaud + 250 g légumes + 5 g huile',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + 1 banane',
+l:'120 g saumon + 180 g pommes de terre + 200 g haricots verts',
+c:'1 pomme + 1 yaourt nature',
+d:'2 œufs + 250 g courgettes + salade',
+i:'orange'
+},
+
+{
+b:'2 œufs + 1 kiwi + 30 g pain complet',
+l:'130 g poulet + 60 g riz complet cru + 200 g légumes',
+c:'150 g skyr + 100 g fruits rouges',
+d:'150 g cabillaud + 250 g légumes',
+i:'red'
+},
+
+{
+b:'150 g fromage blanc + 1 pomme + cannelle',
+l:'130 g dinde + 50 g semoule complète crue + 200 g légumes',
+c:'1 yaourt + 1 kiwi',
+d:'2 œufs + 250 g légumes + 5 g huile',
+i:'green'
+},
+
+{
+b:'2 œufs + 40 g pain complet + 1 banane',
+l:'120 g thon au naturel + 200 g pommes de terre + tomates',
+c:'150 g skyr + fruits rouges',
+d:'130 g poulet + 250 g légumes',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + 1 banane',
+l:'130 g poulet + 70 g riz complet cru + 200 g légumes',
+c:'1 pomme + 1 yaourt',
+d:'120 g saumon + 180 g pommes de terre + légumes',
+i:'red'
+},
+
+{
+b:'2 œufs + 30 g pain complet + 1 pomme',
+l:'150 g poulet + 250 g légumes + 5 g huile',
+c:'150 g skyr + fruits rouges',
+d:'2 œufs + grande salade + 200 g courgettes',
+i:'green'
+}
+
+],
+
+
+/* ================================================= */
+/* SEMAINE 2 */
+/* ================================================= */
+
+[
+
+{
+b:'2 œufs + 30 g pain complet + 1 fruit',
+l:'130 g poulet + 50 g riz complet cru + 250 g légumes',
+c:'150 g skyr + fruits rouges',
+d:'150 g cabillaud + 250 g légumes',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + 1 banane',
+l:'120 g saumon + 180 g pommes de terre + haricots verts',
+c:'1 pomme + 1 yaourt',
+d:'2 œufs + courgettes + salade',
+i:'orange'
+},
+
+{
+b:'2 œufs + kiwi + 30 g pain complet',
+l:'130 g dinde + 60 g riz complet cru + légumes',
+c:'150 g skyr',
+d:'150 g poisson blanc + 250 g légumes',
+i:'red'
+},
+
+{
+b:'150 g skyr + 100 g fruits rouges + 30 g flocons avoine',
+l:'130 g poulet + 50 g semoule complète crue + légumes',
+c:'1 pomme',
+d:'2 œufs + légumes + 5 g huile',
+i:'green'
+},
+
+{
+b:'2 œufs + 40 g pain complet + 1 pomme',
+l:'120 g thon + 200 g pommes de terre + tomates',
+c:'150 g fromage blanc + kiwi',
+d:'130 g poulet + 250 g légumes',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + banane',
+l:'130 g poulet + 70 g riz complet cru + légumes',
+c:'1 yaourt + fruit',
+d:'120 g saumon + 200 g légumes + 150 g pommes de terre',
+i:'red'
+},
+
+{
+b:'2 œufs + fruit',
+l:'150 g poulet + grande salade + 5 g huile',
+c:'150 g skyr + fruits rouges',
+d:'2 œufs + 250 g légumes',
+i:'green'
+}
+
+],
+
+
+/* ================================================= */
+/* SEMAINE 3 */
+/* ================================================= */
+
+[
+
+{
+b:'2 œufs + 30 g pain complet + pomme',
+l:'130 g poulet curry + 50 g riz complet cru + légumes',
+c:'150 g skyr + fruits rouges',
+d:'150 g poisson blanc + 250 g légumes',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + banane',
+l:'120 g thon + 60 g pâtes complètes crues + tomates',
+c:'1 pomme + yaourt',
+d:'2 œufs façon shakshuka + légumes',
+i:'red'
+},
+
+{
+b:'2 œufs + kiwi + 30 g pain complet',
+l:'130 g poulet + 60 g semoule complète crue + légumes',
+c:'150 g skyr',
+d:'120 g pois chiches + 2 œufs + légumes',
+i:'orange'
+},
+
+{
+b:'150 g skyr + fruits rouges + 30 g flocons avoine',
+l:'120 g saumon + 180 g pommes de terre + légumes',
+c:'1 banane',
+d:'2 œufs + grande salade + courgettes',
+i:'green'
+},
+
+{
+b:'2 œufs + 40 g pain complet + pomme',
+l:'130 g poulet + 50 g riz complet cru + courgettes',
+c:'150 g fromage blanc',
+d:'120 g thon + salade + 180 g pommes de terre',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + banane',
+l:'130 g poulet + 70 g riz complet cru + légumes',
+c:'1 yaourt + fruit',
+d:'120 g saumon + 200 g légumes + 40 g pain complet',
+i:'red'
+},
+
+{
+b:'2 œufs + fruit',
+l:'130 g poulet + 50 g semoule complète crue + légumes + 50 g pois chiches',
+c:'150 g skyr',
+d:'Soupe de légumes + 2 œufs',
+i:'green'
+}
+
+],
+
+
+/* ================================================= */
+/* SEMAINE 4 */
+/* ================================================= */
+
+[
+
+{
+b:'2 œufs + 30 g pain complet + pomme',
+l:'130 g poulet + 50 g riz complet cru + légumes',
+c:'150 g skyr + fruits rouges',
+d:'2 œufs + 250 g légumes + 5 g huile',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + banane',
+l:'120 g saumon + 180 g pommes de terre + haricots verts',
+c:'1 pomme + yaourt',
+d:'Omelette 2 œufs + légumes',
+i:'orange'
+},
+
+{
+b:'2 œufs + kiwi + 30 g pain complet',
+l:'130 g poulet + 60 g semoule complète crue + légumes',
+c:'150 g skyr',
+d:'120 g pois chiches + 2 œufs + légumes',
+i:'red'
+},
+
+{
+b:'150 g skyr + fruits rouges + 30 g avoine',
+l:'130 g dinde + 50 g riz complet cru + légumes',
+c:'1 pomme',
+d:'2 œufs + 250 g légumes',
+i:'green'
+},
+
+{
+b:'2 œufs + 40 g pain complet + pomme',
+l:'120 g thon + 200 g pommes de terre + courgettes',
+c:'150 g fromage blanc',
+d:'130 g poulet + 250 g légumes',
+i:'orange'
+},
+
+{
+b:'150 g fromage blanc + banane',
+l:'120 g saumon + 70 g riz complet cru + légumes',
+c:'1 yaourt + fruit',
+d:'120 g pois chiches + 2 œufs + légumes',
+i:'red'
+},
+
+{
+b:'2 œufs + fruit',
+l:'150 g poulet + grande salade + légumes',
+c:'150 g skyr + fruits rouges',
+d:'Soupe de légumes + omelette 2 œufs',
+i:'green'
+}
+
+]
+
+];
+
+
+
+/* ================================================= */
+/* ACTIVITES */
+/* ================================================= */
+
+
+const ACTIVITIES = [
 
 /* SEMAINE 1 */
 
 [
+{
+name:'Marche douce',
+details:'30 minutes à rythme confortable.',
+intensity:'green'
+},
 
-[
-'2 œufs + 50g pain + 1 banane',
-'130g poulet + 60g riz cru + 200g légumes',
-'150g fromage blanc + 1 pomme',
-'2 œufs + 180g pommes de terre + 200g légumes'
-],
+{
+name:'Jambes & fessiers',
+details:'20 min : 3×12 squats, 3×12 ponts fessiers, 3×10 fentes/jambe.',
+intensity:'orange'
+},
 
-[
-'2 œufs + 50g pain + 1 pomme',
-'120g saumon + 180g pommes de terre + 200g haricots verts',
-'1 yaourt + 1 banane',
-'2 œufs + 200g courgettes + 40g pain'
-],
+{
+name:'Marche active',
+details:'35 minutes avec 10 à 15 minutes à rythme soutenu.',
+intensity:'orange'
+},
 
-[
-'150g fromage blanc + 1 banane + 30g pain',
-'150g poulet + 60g semoule + 200g légumes',
-'1 pomme + 1 yaourt',
-'2 œufs + 180g pommes de terre + salade'
-],
+{
+name:'Haut du corps',
+details:'20 min : pompes murales, élévations bras, tirages avec sac léger, gainage.',
+intensity:'orange'
+},
 
-[
-'2 œufs + 50g pain + 1 pomme',
-'60g riz + 130g poulet + 200g légumes',
-'150g fromage blanc + 1 banane',
-'2 œufs + 200g légumes + 40g pain'
-],
+{
+name:'Danse 💃',
+details:'25 à 30 minutes à rythme modéré.',
+intensity:'orange'
+},
 
-[
-'2 œufs + 50g pain + 1 banane',
-'70g pâtes + 120g thon + tomates + courgettes',
-'1 pomme + 1 yaourt',
-'120g saumon + 180g pommes de terre + légumes'
-],
+{
+name:'Full body',
+details:'25 min : squats, ponts fessiers, pompes murales, montées de genoux, gainage.',
+intensity:'red'
+},
 
-[
-'150g fromage blanc + 1 fruit + 30g pain',
-'150g poulet + 60g semoule + légumes',
-'1 fruit + 1 yaourt',
-'2 œufs + 200g légumes + 40g pain'
-],
-
-[
-'2 œufs + 50g pain + 1 pomme',
-'150g poulet + 200g pommes de terre + légumes',
-'150g fromage blanc + 1 banane',
-'Soupe de légumes + 2 œufs + 40g pain'
-]
+{
+name:'Récupération 🌿',
+details:'20 à 30 min de marche tranquille + étirements.',
+intensity:'green'
+}
 
 ],
 
@@ -1395,55 +1942,47 @@ const MEALS = [
 /* SEMAINE 2 */
 
 [
+{
+name:'Marche active',
+details:'35 minutes.',
+intensity:'orange'
+},
 
-[
-'2 œufs + 50g pain + pomme',
-'130g poulet + 60g riz + légumes',
-'Yaourt + banane',
-'Omelette 2 œufs + 180g pommes de terre'
-],
+{
+name:'Jambes & fessiers',
+details:'25 minutes.',
+intensity:'orange'
+},
 
-[
-'Fromage blanc 150g + banane + 30g pain',
-'Saumon 120-150g + 60g riz + 200g courgettes',
-'Pomme + yaourt',
-'2 œufs + haricots verts + 40g pain'
-],
+{
+name:'Vélo doux',
+details:'30 minutes ou marche équivalente.',
+intensity:'orange'
+},
 
-[
-'2 œufs + pain + banane',
-'150g poulet + 60g semoule + légumes',
-'Fromage blanc + pomme',
-'120g pois chiches + 2 œufs + légumes'
-],
+{
+name:'Haut du corps + gainage',
+details:'20 à 25 minutes.',
+intensity:'orange'
+},
 
-[
-'2 œufs + pomme + pain',
-'60g riz + 130g poulet + légumes',
-'Banane + yaourt',
-'Omelette 2 œufs + légumes + pain'
-],
+{
+name:'Danse 💃',
+details:'30 minutes.',
+intensity:'orange'
+},
 
-[
-'Fromage blanc + banane + 30g pain',
-'70g pâtes + 120g thon + tomates',
-'Pomme + yaourt',
-'180g pommes de terre + 2 œufs + légumes'
-],
+{
+name:'Full body',
+details:'25 à 30 minutes.',
+intensity:'red'
+},
 
-[
-'2 œufs + pain + pomme',
-'150g poulet + 60g riz + légumes',
-'Fromage blanc + fruit',
-'Saumon 120g + 200g légumes + 150g pommes de terre'
-],
-
-[
-'2 œufs + pain + banane',
-'150g poulet + 60g semoule + légumes',
-'Yaourt + pomme',
-'Soupe de légumes + 2 œufs + 40g pain'
-]
+{
+name:'Marche tranquille',
+details:'30 minutes + étirements.',
+intensity:'green'
+}
 
 ],
 
@@ -1451,55 +1990,47 @@ const MEALS = [
 /* SEMAINE 3 */
 
 [
+{
+name:'Marche',
+details:'40 minutes.',
+intensity:'orange'
+},
 
-[
-'2 œufs + 50g pain + pomme',
-'Poulet curry 130g + 60g riz + légumes',
-'Fromage blanc + banane',
-'Omelette + 180g pommes de terre + légumes'
-],
+{
+name:'Jambes & fessiers',
+details:'25 minutes.',
+intensity:'orange'
+},
 
-[
-'Fromage blanc 150g + banane + pain',
-'70g pâtes + thon + tomate',
-'Yaourt + pomme',
-'2 œufs façon shakshuka + 40g pain'
-],
+{
+name:'Cardio doux',
+details:'30 minutes.',
+intensity:'red'
+},
 
-[
-'2 œufs + pain + fruit',
-'150g poulet + 60g semoule + légumes',
-'Fromage blanc + fruit',
-'Pois chiches 120g + 2 œufs + légumes'
-],
+{
+name:'Haut du corps + gainage',
+details:'25 minutes.',
+intensity:'orange'
+},
 
-[
-'2 œufs + pomme + pain',
-'Saumon 120-150g + 60g riz + 200g légumes',
-'Yaourt + banane',
-'2 œufs + 180g pommes de terre + salade'
-],
+{
+name:'Marche active',
+details:'35 minutes.',
+intensity:'orange'
+},
 
-[
-'Fromage blanc + banane + pain',
-'70g pâtes + 130g poulet + courgettes',
-'Pomme + yaourt',
-'120g thon + salade + 180g pommes de terre'
-],
+{
+name:'Full body',
+details:'30 minutes.',
+intensity:'red'
+},
 
-[
-'2 œufs + pain + pomme',
-'150g poulet + 60g riz + légumes',
-'Fromage blanc + banane',
-'Saumon 120g + 200g légumes + 40g pain'
-],
-
-[
-'2 œufs + pain + banane',
-'Couscous léger : 130g poulet + 60g semoule + légumes + 50g pois chiches',
-'Yaourt + fruit',
-'Soupe + 2 œufs + 40g pain'
-]
+{
+name:'Récupération',
+details:'20 à 30 minutes de marche.',
+intensity:'green'
+}
 
 ],
 
@@ -1507,55 +2038,47 @@ const MEALS = [
 /* SEMAINE 4 */
 
 [
+{
+name:'Marche active',
+details:'40 minutes.',
+intensity:'orange'
+},
 
-[
-'2 œufs + pain + pomme',
-'130g poulet + 60g riz + légumes',
-'Fromage blanc + banane',
-'2 œufs + pommes de terre + légumes'
-],
+{
+name:'Jambes & fessiers',
+details:'25 à 30 minutes.',
+intensity:'orange'
+},
 
-[
-'Fromage blanc + banane + pain',
-'Saumon 120g + 180g pommes de terre + haricots verts',
-'Yaourt + pomme',
-'Omelette + légumes + 40g pain'
-],
+{
+name:'Danse / cardio doux',
+details:'35 minutes.',
+intensity:'red'
+},
 
-[
-'2 œufs + pain + pomme',
-'150g poulet + 60g semoule + légumes',
-'Fromage blanc + fruit',
-'Pois chiches 120g + 2 œufs + légumes'
-],
+{
+name:'Haut du corps + gainage',
+details:'25 minutes.',
+intensity:'orange'
+},
 
-[
-'2 œufs + banane + pain',
-'60g riz + 130g poulet + légumes',
-'Yaourt + pomme',
-'2 œufs + 180g pommes de terre + salade'
-],
+{
+name:'Marche',
+details:'40 minutes.',
+intensity:'orange'
+},
 
-[
-'Fromage blanc + fruit + pain',
-'70g pâtes + thon + courgettes',
-'Banane + yaourt',
-'130g poulet + légumes + 40g pain'
-],
+{
+name:'Full body',
+details:'30 minutes.',
+intensity:'red'
+},
 
-[
-'2 œufs + pain + pomme',
-'Saumon 120-150g + 60g riz + 200g légumes',
-'Fromage blanc + banane',
-'Pois chiches 120g + 2 œufs + légumes'
-],
-
-[
-'2 œufs + pain + banane',
-'150g poulet + 200g pommes de terre + légumes',
-'Yaourt + pomme',
-'Soupe de légumes + omelette 2 œufs + 40g pain'
-]
+{
+name:'Récupération active',
+details:'30 minutes + étirements.',
+intensity:'green'
+}
 
 ]
 
@@ -1563,64 +2086,323 @@ const MEALS = [
 
 
 
-/* ===================================================== */
-/* ACTIVITES */
-/* ===================================================== */
+/* ================================================= */
+/* COURSES */
+/* ================================================= */
+/*
+   1 personne
+   7 jours
+   quantités réalistes
+   maximum 10 produits / catégorie
+*/
 
 
-const ACTIVITIES = [
+const SHOPPING = [
 
+
+/* ================================================= */
+/* SEMAINE 1 */
+/* ================================================= */
 
 [
-'Marche douce — 30 min',
-'Jambes & fessiers — 20 min',
-'Marche active — 35 min',
-'Haut du corps — 20 min',
-'Danse 💃 — 25-30 min',
-'Full body — 25 min',
-'Récupération 🌿 — marche + étirements'
+
+{
+category:'🥩 Protéines',
+items:[
+['Blanc de poulet','700 g'],
+['Saumon','250 g'],
+['Thon au naturel','2 boîtes'],
+['Œufs','10'],
+['Cabillaud','300 g'],
+['Pois chiches','1 boîte']
+]
+},
+
+{
+category:'🥦 Légumes',
+items:[
+['Courgettes','700 g'],
+['Haricots verts','500 g'],
+['Brocoli','500 g'],
+['Tomates','500 g'],
+['Salade','1 sachet'],
+['Légumes surgelés','1 kg']
+]
+},
+
+{
+category:'🍎 Fruits',
+items:[
+['Pommes','4'],
+['Bananes','4'],
+['Kiwis','3'],
+['Fruits rouges surgelés','300 g']
+]
+},
+
+{
+category:'🍚 Féculents',
+items:[
+['Riz complet','500 g'],
+['Pommes de terre','1 kg'],
+['Semoule complète','250 g'],
+['Pain complet','1 petit pain'],
+['Flocons d’avoine','250 g']
+]
+},
+
+{
+category:'🥛 Produits laitiers',
+items:[
+['Skyr','750 g'],
+['Fromage blanc','500 g'],
+['Yaourts nature','4']
+]
+},
+
+{
+category:'🫒 Épicerie',
+items:[
+['Huile d’olive','1 petite bouteille'],
+['Moutarde','1 pot'],
+['Curry','1 pot'],
+['Paprika','1 pot'],
+['Herbes de Provence','1 pot']
+]
+}
+
 ],
 
 
+/* ================================================= */
+/* SEMAINE 2 */
+/* ================================================= */
+
 [
-'Marche active — 35 min',
-'Jambes/fessiers — 25 min',
-'Vélo doux ou marche — 30 min',
-'Haut du corps + gainage — 20-25 min',
-'Danse — 30 min',
-'Full body — 25-30 min',
-'Marche tranquille + étirements — 30 min'
+
+{
+category:'🥩 Protéines',
+items:[
+['Blanc de poulet','700 g'],
+['Dinde','300 g'],
+['Saumon','250 g'],
+['Thon au naturel','2 boîtes'],
+['Œufs','10'],
+['Poisson blanc','300 g']
+]
+},
+
+{
+category:'🥦 Légumes',
+items:[
+['Courgettes','700 g'],
+['Haricots verts','500 g'],
+['Brocoli','500 g'],
+['Tomates','500 g'],
+['Poivrons','400 g'],
+['Légumes surgelés','1 kg']
+]
+},
+
+{
+category:'🍎 Fruits',
+items:[
+['Pommes','4'],
+['Bananes','4'],
+['Kiwis','3'],
+['Fruits rouges','300 g']
+]
+},
+
+{
+category:'🍚 Féculents',
+items:[
+['Riz complet','500 g'],
+['Pommes de terre','1 kg'],
+['Semoule complète','250 g'],
+['Pain complet','1 petit pain'],
+['Flocons d’avoine','250 g']
+]
+},
+
+{
+category:'🥛 Produits laitiers',
+items:[
+['Skyr','750 g'],
+['Fromage blanc','500 g'],
+['Yaourts nature','4']
+]
+},
+
+{
+category:'🫒 Épicerie',
+items:[
+['Huile d’olive','1 petite bouteille'],
+['Moutarde','1 pot'],
+['Curry','1 pot'],
+['Paprika','1 pot'],
+['Ail','1 tête']
+]
+}
+
 ],
 
 
+/* ================================================= */
+/* SEMAINE 3 */
+/* ================================================= */
+
 [
-'Marche — 40 min',
-'Jambes/fessiers — 25 min',
-'Cardio doux — 30 min',
-'Haut du corps + gainage — 25 min',
-'Marche active — 35 min',
-'Full body — 30 min',
-'Récupération + marche — 20-30 min'
+
+{
+category:'🥩 Protéines',
+items:[
+['Blanc de poulet','700 g'],
+['Saumon','250 g'],
+['Thon au naturel','2 boîtes'],
+['Œufs','10'],
+['Poisson blanc','300 g'],
+['Pois chiches','1 boîte']
+]
+},
+
+{
+category:'🥦 Légumes',
+items:[
+['Courgettes','700 g'],
+['Brocoli','500 g'],
+['Tomates','600 g'],
+['Épinards','400 g'],
+['Salade','1 sachet'],
+['Légumes surgelés','1 kg']
+]
+},
+
+{
+category:'🍎 Fruits',
+items:[
+['Pommes','4'],
+['Bananes','4'],
+['Kiwis','3'],
+['Fruits rouges','300 g']
+]
+},
+
+{
+category:'🍚 Féculents',
+items:[
+['Riz complet','500 g'],
+['Pommes de terre','1 kg'],
+['Pâtes complètes','250 g'],
+['Semoule complète','250 g'],
+['Pain complet','1 petit pain'],
+['Flocons d’avoine','250 g']
+]
+},
+
+{
+category:'🥛 Produits laitiers',
+items:[
+['Skyr','750 g'],
+['Fromage blanc','500 g'],
+['Yaourts nature','4']
+]
+},
+
+{
+category:'🫒 Épicerie',
+items:[
+['Huile d’olive','1 petite bouteille'],
+['Curry','1 pot'],
+['Paprika','1 pot'],
+['Herbes','1 pot'],
+['Cannelle','1 pot']
+]
+}
+
 ],
 
 
+/* ================================================= */
+/* SEMAINE 4 */
+/* ================================================= */
+
 [
-'Marche active — 40 min',
-'Jambes/fessiers — 25-30 min',
-'Danse/cardio doux — 35 min',
-'Haut du corps + gainage — 25 min',
-'Marche — 40 min',
-'Full body — 30 min',
-'Récupération active + étirements — 30 min'
+
+{
+category:'🥩 Protéines',
+items:[
+['Blanc de poulet','700 g'],
+['Dinde','300 g'],
+['Saumon','250 g'],
+['Thon au naturel','2 boîtes'],
+['Œufs','10'],
+['Pois chiches','1 boîte']
+]
+},
+
+{
+category:'🥦 Légumes',
+items:[
+['Courgettes','700 g'],
+['Haricots verts','500 g'],
+['Brocoli','500 g'],
+['Tomates','500 g'],
+['Salade','1 sachet'],
+['Légumes surgelés','1 kg']
+]
+},
+
+{
+category:'🍎 Fruits',
+items:[
+['Pommes','4'],
+['Bananes','4'],
+['Kiwis','3'],
+['Fruits rouges','300 g']
+]
+},
+
+{
+category:'🍚 Féculents',
+items:[
+['Riz complet','500 g'],
+['Pommes de terre','1 kg'],
+['Semoule complète','250 g'],
+['Pain complet','1 petit pain'],
+['Flocons d’avoine','250 g']
+]
+},
+
+{
+category:'🥛 Produits laitiers',
+items:[
+['Skyr','750 g'],
+['Fromage blanc','500 g'],
+['Yaourts nature','4']
+]
+},
+
+{
+category:'🫒 Épicerie',
+items:[
+['Huile d’olive','1 petite bouteille'],
+['Moutarde','1 pot'],
+['Curry','1 pot'],
+['Paprika','1 pot'],
+['Herbes de Provence','1 pot']
+]
+}
+
 ]
 
 ];
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* ETAT */
-/* ===================================================== */
+/* ================================================= */
 
 
 function newDay(){
@@ -1652,37 +2434,49 @@ function newDay(){
 }
 
 
-
 let data =
-    JSON.parse(
-        localStorage.getItem(
-            'dodoWeight'
-        ) || 'null'
-    )
+
+JSON.parse(
+    localStorage.getItem('dodoWeight')
     ||
-    {
+    'null'
+)
 
-        setup:{
-            goal:'',
-            start:'',
-            target:'',
-            date:''
-        },
+||
 
-        days:Array.from(
-            {length:28},
-            newDay
-        ),
+{
 
-        day:0
+    setup:{
+        goal:'',
+        start:'',
+        target:'',
+        date:''
+    },
 
-    };
+    days:Array.from(
+        {length:28},
+        newDay
+    ),
+
+    day:0,
+
+    shopping:[
+        [],
+        [],
+        [],
+        []
+    ]
+
+};
+
+
+let shoppingWeek = 0;
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* SAUVEGARDE */
-/* ===================================================== */
+/* ================================================= */
 
 
 function save(){
@@ -1696,9 +2490,9 @@ function save(){
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* CONFIGURATION */
-/* ===================================================== */
+/* ================================================= */
 
 
 function finishSetup(){
@@ -1753,15 +2547,14 @@ function showApp(){
 
 
 
-/* ===================================================== */
-/* CHANGEMENT DE JOUR */
-/* ===================================================== */
+/* ================================================= */
+/* JOUR */
+/* ================================================= */
 
 
 function changeDay(direction){
 
     saveInputs();
-
 
     data.day =
         Math.max(
@@ -1772,7 +2565,6 @@ function changeDay(direction){
             )
         );
 
-
     renderAll();
 
     save();
@@ -1781,19 +2573,84 @@ function changeDay(direction){
 
 
 
-/* ===================================================== */
-/* ALLER A UNE SEMAINE */
-/* ===================================================== */
+/* ================================================= */
+/* SOUS ONGLETS ALIMENTATION */
+/* ================================================= */
+
+
+function showFoodSection(section){
+
+    const menus =
+        document.getElementById(
+            'menusSection'
+        );
+
+    const shopping =
+        document.getElementById(
+            'shoppingSection'
+        );
+
+
+    const menuTab =
+        document.getElementById(
+            'menuTab'
+        );
+
+    const shoppingTab =
+        document.getElementById(
+            'shoppingTab'
+        );
+
+
+    if(section === 'menus'){
+
+        menus.style.display='block';
+
+        shopping.style.display='none';
+
+        menuTab.classList.add(
+            'active'
+        );
+
+        shoppingTab.classList.remove(
+            'active'
+        );
+
+    }
+
+    else{
+
+        menus.style.display='none';
+
+        shopping.style.display='block';
+
+        menuTab.classList.remove(
+            'active'
+        );
+
+        shoppingTab.classList.add(
+            'active'
+        );
+
+        renderShopping();
+
+    }
+
+}
+
+
+
+/* ================================================= */
+/* SEMAINE MENU */
+/* ================================================= */
 
 
 function goWeek(week){
 
     saveInputs();
 
-
     data.day =
         week * 7;
-
 
     renderAll();
 
@@ -1803,9 +2660,9 @@ function goWeek(week){
 
 
 
-/* ===================================================== */
-/* RENDU PRINCIPAL */
-/* ===================================================== */
+/* ================================================= */
+/* RENDU GENERAL */
+/* ================================================= */
 
 
 function renderAll(){
@@ -1815,10 +2672,12 @@ function renderAll(){
 
 
     const week =
-        Math.floor(d / 7);
+        Math.floor(
+            d / 7
+        );
 
 
-    const dayOfWeek =
+    const dow =
         d % 7;
 
 
@@ -1829,34 +2688,75 @@ function renderAll(){
     document
         .getElementById('dateLabel')
         .textContent =
-        `Semaine ${week+1} • ${DAYS[dayOfWeek]} • Jour ${d+1}`;
+        `Semaine ${week+1} • ${DAYS[dow]} • Jour ${d+1}`;
 
 
     document
         .getElementById('foodGoal')
         .textContent =
-        data.setup.goal ||
+        data.setup.goal
+        ||
         'Mon objectif du jour';
 
 
     document
         .getElementById('activityDay')
         .textContent =
-        `${DAYS[dayOfWeek]} • Semaine ${week+1}`;
+        `${DAYS[dow]} • Semaine ${week+1}`;
 
 
 
-    /* ========================= */
-    /* REPAS */
-    /* ========================= */
+    renderMeals(
+        week,
+        dow
+    );
+
+
+    renderActivity(
+        week,
+        dow
+    );
+
+
+    renderPrayers(
+        state
+    );
+
+
+    renderInputs(
+        state
+    );
+
+
+    renderWeight();
+
+
+    renderShopping();
+
+}
+
+
+
+/* ================================================= */
+/* MENUS */
+/* ================================================= */
+
+
+function renderMeals(
+    week,
+    dow
+){
+
+    const day =
+        MEALS[week][dow];
 
 
     const labels = [
 
-        '🌅 Petit-déj',
-        '🍽️ Déjeuner',
-        '🍎 Collation',
-        '🌙 Dîner'
+        ['🌅','Petit-déjeuner'],
+        ['🍽️','Déjeuner'],
+        ['🍎','Collation'],
+        ['🌙','Dîner']
 
     ];
 
@@ -1865,24 +2765,40 @@ function renderAll(){
         .getElementById('meals')
         .innerHTML =
 
-        MEALS[week][dayOfWeek]
+
+        day
+
+        .slice(
+            0,
+            4
+        )
 
         .map(
 
             (meal,index) =>
 
             `
+
             <div class="meal">
 
-                <b>
-                    ${labels[index]}
-                </b>
+                <div class="meal-icon">
+                    ${labels[index][0]}
+                </div>
 
-                <span>
-                    ${meal}
-                </span>
+                <div class="meal-info">
+
+                    <div class="meal-title">
+                        ${labels[index][1]}
+                    </div>
+
+                    <div class="meal-text">
+                        ${meal}
+                    </div>
+
+                </div>
 
             </div>
+
             `
 
         )
@@ -1890,22 +2806,58 @@ function renderAll(){
         .join('');
 
 
+    const intensity =
+        day.i;
 
-    /* ========================= */
-    /* ACTIVITE */
-    /* ========================= */
+
+    const intensityData = {
+
+        green:{
+            label:'🟢 Journée légère',
+            text:'Glucides réduits : priorité aux protéines et légumes.',
+            class:'green'
+        },
+
+        orange:{
+            label:'🟠 Journée modérée',
+            text:'Glucides modérés pour accompagner l’activité.',
+            class:'orange'
+        },
+
+        red:{
+            label:'🔴 Journée intense',
+            text:'Glucides légèrement augmentés pour soutenir l’entraînement.',
+            class:'red'
+        }
+
+    };
+
+
+    const info =
+        intensityData[intensity];
 
 
     document
-        .getElementById('activity')
-        .textContent =
-        ACTIVITIES[week][dayOfWeek];
+        .getElementById('dayIntensity')
+        .innerHTML =
 
+        `
 
+        <div class="intensity ${info.class}">
 
-    /* ========================= */
-    /* SEMAINES */
-    /* ========================= */
+            <span class="intensity-dot"></span>
+
+            <span>
+                <strong>
+                    ${info.label}
+                </strong>
+                <br>
+                ${info.text}
+            </span>
+
+        </div>
+
+        `;
 
 
     document
@@ -1916,38 +2868,117 @@ function renderAll(){
 
         .map(
 
-            weekIndex =>
+            index =>
 
             `
+
             <button
-                class="${weekIndex===week?'active':''}"
-                onclick="goWeek(${weekIndex})"
+                class="week-tab ${index===week?'active':''}"
+                onclick="goWeek(${index})"
             >
-                Semaine ${weekIndex+1}
+                Semaine ${index+1}
             </button>
+
             `
 
         )
 
         .join('');
 
+}
 
 
-    /* ========================= */
-    /* CHAMPS ALIMENTATION */
-    /* ========================= */
 
+/* ================================================= */
+/* ACTIVITE */
+/* ================================================= */
+
+
+function renderActivity(
+    week,
+    dow
+){
+
+    const activity =
+        ACTIVITIES[week][dow];
+
+
+    document
+        .getElementById('activityName')
+        .textContent =
+        activity.name;
+
+
+    document
+        .getElementById('activityDetails')
+        .textContent =
+        activity.details;
+
+
+    const labels = {
+
+        green:{
+            label:'🟢 Intensité légère',
+            text:'Journée de récupération ou activité douce.',
+            class:'green'
+        },
+
+        orange:{
+            label:'🟠 Intensité modérée',
+            text:'Les glucides sont modérés pour accompagner l’effort.',
+            class:'orange'
+        },
+
+        red:{
+            label:'🔴 Intensité élevée',
+            text:'Les glucides sont légèrement augmentés aujourd’hui.',
+            class:'red'
+        }
+
+    };
+
+
+    const info =
+        labels[activity.intensity];
+
+
+    document
+        .getElementById('activityIntensity')
+        .innerHTML =
+
+        `
+
+        <div class="intensity ${info.class}">
+
+            <span class="intensity-dot"></span>
+
+            <span>
+                <strong>
+                    ${info.label}
+                </strong>
+                <br>
+                ${info.text}
+            </span>
+
+        </div>
+
+        `;
+
+}
+
+
+
+/* ================================================= */
+/* INPUTS */
+/* ================================================= */
+
+
+function renderInputs(state){
 
     document
         .getElementById('water')
         .value =
         state.water;
-
-
-
-    /* ========================= */
-    /* CHAMPS ACTIVITE */
-    /* ========================= */
 
 
     document
@@ -1962,64 +2993,10 @@ function renderAll(){
         state.activityNotes;
 
 
-
-    /* ========================= */
-    /* POIDS */
-    /* ========================= */
-
-
     document
         .getElementById('weight')
         .value =
         state.weight;
-
-
-
-    /* ========================= */
-    /* PRIERES */
-    /* ========================= */
-
-
-    document
-        .getElementById('prayers')
-        .innerHTML =
-
-        PRAYERS
-
-        .map(
-
-            (prayer,index) =>
-
-            `
-            <label class="prayer">
-
-                <input
-                    type="checkbox"
-                    ${state.prayers[index]?'checked':''}
-
-                    onchange="
-                        data.days[${d}]
-                        .prayers[${index}]
-                        = this.checked;
-
-                        save();
-                    "
-                >
-
-                ${prayer}
-
-            </label>
-            `
-
-        )
-
-        .join('');
-
-
-
-    /* ========================= */
-    /* MOI */
-    /* ========================= */
 
 
     document
@@ -2040,7 +3017,6 @@ function renderAll(){
         state.victory;
 
 
-
     document
         .querySelectorAll('.mood')
         .forEach(
@@ -2059,21 +3035,600 @@ function renderAll(){
 
         );
 
+}
 
 
-    /* ========================= */
-    /* POIDS */
-    /* ========================= */
 
-    renderWeight();
+/* ================================================= */
+/* PRIERES */
+/* ================================================= */
+
+
+function renderPrayers(state){
+
+    const d =
+        data.day;
+
+
+    document
+        .getElementById('prayers')
+        .innerHTML =
+
+        PRAYERS
+
+        .map(
+
+            (prayer,index) =>
+
+            `
+
+            <label class="prayer">
+
+                <input
+                    type="checkbox"
+                    ${state.prayers[index]?'checked':''}
+
+                    onchange="
+                        data.days[${d}]
+                        .prayers[${index}]
+                        =this.checked;
+                        save();
+                    "
+                >
+
+                ${prayer}
+
+            </label>
+
+            `
+
+        )
+
+        .join('');
 
 }
 
 
 
-/* ===================================================== */
-/* CALCUL POIDS */
-/* ===================================================== */
+/* ================================================= */
+/* COURSES */
+/* ================================================= */
+
+
+function setShoppingWeek(week){
+
+    shoppingWeek =
+        week;
+
+
+    for(
+        let i=0;
+        i<4;
+        i++
+    ){
+
+        document
+            .getElementById(
+                'shopWeek'+i
+            )
+            .classList.toggle(
+                'active',
+                i===week
+            );
+
+    }
+
+
+    renderShopping();
+
+}
+
+
+
+function shoppingKey(
+    week,
+    category,
+    index
+){
+
+    return `${week}_${category}_${index}`;
+
+}
+
+
+
+function renderShopping(){
+
+    const container =
+        document.getElementById(
+            'shoppingList'
+        );
+
+
+    if(!container){
+        return;
+    }
+
+
+    const selected =
+        data.shopping[
+            shoppingWeek
+        ]
+        ||
+        [];
+
+
+    let count =
+        selected.length;
+
+
+    document
+        .getElementById(
+            'shoppingCount'
+        )
+        .textContent =
+
+        count === 0
+
+        ?
+
+        '0 produit coché'
+
+        :
+
+        `${count} produit${count>1?'s':''} coché${count>1?'s':''}`;
+
+
+    container.innerHTML =
+
+        SHOPPING[shoppingWeek]
+
+        .map(
+
+            (category,categoryIndex) =>
+
+            `
+
+            <div class="shop-category">
+
+                <div class="shop-category-title">
+                    ${category.category}
+                </div>
+
+
+                ${
+
+                category.items
+
+                .map(
+
+                    (item,index) => {
+
+                        const key =
+                            shoppingKey(
+                                shoppingWeek,
+                                categoryIndex,
+                                index
+                            );
+
+
+                        const checked =
+                            selected.includes(
+                                key
+                            );
+
+
+                        return `
+
+                        <label class="shop-item">
+
+                            <input
+                                type="checkbox"
+                                ${checked?'checked':''}
+                                onchange="
+                                    toggleShopping(
+                                        '${key}'
+                                    )
+                                "
+                            >
+
+                            <span class="shop-name">
+                                ${item[0]}
+                            </span>
+
+                            <span class="shop-quantity">
+                                ${item[1]}
+                            </span>
+
+                        </label>
+
+                        `;
+
+                    }
+
+                )
+
+                .join('')
+
+                }
+
+            </div>
+
+            `
+
+        )
+
+        .join('');
+
+}
+
+
+
+function toggleShopping(key){
+
+    if(
+        !data.shopping[shoppingWeek]
+    ){
+
+        data.shopping[shoppingWeek] =
+            [];
+
+    }
+
+
+    const list =
+        data.shopping[
+            shoppingWeek
+        ];
+
+
+    const index =
+        list.indexOf(
+            key
+        );
+
+
+    if(index >= 0){
+
+        list.splice(
+            index,
+            1
+        );
+
+    }
+
+    else{
+
+        list.push(
+            key
+        );
+
+    }
+
+
+    save();
+
+    renderShopping();
+
+}
+
+
+
+function clearShopping(){
+
+    data.shopping[
+        shoppingWeek
+    ] = [];
+
+
+    save();
+
+    renderShopping();
+
+}
+
+
+
+/* ================================================= */
+/* COURBE DE POIDS */
+/* ================================================= */
+
+
+function renderWeightChart(){
+
+    const svg =
+        document.getElementById(
+            'weightChart'
+        );
+
+
+    if(!svg){
+        return;
+    }
+
+
+    const weights =
+
+        data.days
+
+        .map(
+
+            (day,index) => ({
+
+                day:index+1,
+
+                value:
+                    parseFloat(
+                        day.weight
+                    )
+
+            })
+
+        )
+
+        .filter(
+
+            item =>
+            Number.isFinite(
+                item.value
+            )
+
+        );
+
+
+    svg.innerHTML='';
+
+
+    if(
+        weights.length === 0
+    ){
+
+        svg.innerHTML =
+
+        `
+
+        <text
+            x="300"
+            y="130"
+            text-anchor="middle"
+            class="chart-empty"
+        >
+            Ajoute une pesée pour voir ta progression
+        </text>
+
+        `;
+
+        return;
+
+    }
+
+
+    const width = 600;
+
+    const height = 250;
+
+    const left = 45;
+
+    const right = 18;
+
+    const top = 18;
+
+    const bottom = 35;
+
+
+    const chartWidth =
+        width-left-right;
+
+
+    const chartHeight =
+        height-top-bottom;
+
+
+    let min =
+        Math.min(
+            ...weights.map(
+                x=>x.value
+            )
+        );
+
+
+    let max =
+        Math.max(
+            ...weights.map(
+                x=>x.value
+            )
+        );
+
+
+    if(
+        min === max
+    ){
+
+        min -= 1;
+
+        max += 1;
+
+    }
+
+    else{
+
+        min -= .5;
+
+        max += .5;
+
+    }
+
+
+    function x(index){
+
+        if(
+            weights.length === 1
+        ){
+
+            return left +
+                chartWidth/2;
+
+        }
+
+
+        return left +
+
+            (
+                index /
+                (weights.length-1)
+            )
+
+            *
+            chartWidth;
+
+    }
+
+
+    function y(value){
+
+        return top +
+
+            (
+                (max-value)
+                /
+                (max-min)
+            )
+
+            *
+            chartHeight;
+
+    }
+
+
+    /* grille très légère */
+
+    for(
+        let i=0;
+        i<=2;
+        i++
+    ){
+
+        const yy =
+            top +
+            (i/2)
+            *
+            chartHeight;
+
+
+        const value =
+            max -
+            (
+                (max-min)
+                *
+                (i/2)
+            );
+
+
+        svg.innerHTML +=
+
+        `
+
+        <line
+            x1="${left}"
+            y1="${yy}"
+            x2="${width-right}"
+            y2="${yy}"
+            class="chart-grid"
+        />
+
+        <text
+            x="${left-7}"
+            y="${yy+4}"
+            text-anchor="end"
+            class="chart-label"
+        >
+            ${value.toFixed(1)}
+        </text>
+
+        `;
+
+    }
+
+
+    let points='';
+
+
+    weights.forEach(
+
+        (item,index)=>{
+
+            points +=
+
+                `${x(index)},${y(item.value)} `;
+
+        }
+
+    );
+
+
+    if(
+        weights.length > 1
+    ){
+
+        svg.innerHTML +=
+
+        `
+
+        <polyline
+            points="${points}"
+            class="chart-line"
+        />
+
+        `;
+
+    }
+
+
+    weights.forEach(
+
+        (item,index)=>{
+
+            const xx =
+                x(index);
+
+
+            const yy =
+                y(item.value);
+
+
+            svg.innerHTML +=
+
+            `
+
+            <circle
+                cx="${xx}"
+                cy="${yy}"
+                r="5"
+                class="chart-point"
+            />
+
+            <text
+                x="${xx}"
+                y="${height-10}"
+                text-anchor="middle"
+                class="chart-label"
+            >
+                J${item.day}
+            </text>
+
+            `;
+
+        }
+
+    );
+
+}
+
+
+
+/* ================================================= */
+/* POIDS */
+/* ================================================= */
 
 
 function renderWeight(){
@@ -2096,9 +3651,10 @@ function renderWeight(){
 
         .map(
 
-            (day,index) => ({
+            (day,index)=>({
 
                 index,
+
                 value:
                     parseFloat(
                         day.weight
@@ -2111,9 +3667,9 @@ function renderWeight(){
         .filter(
 
             item =>
-                Number.isFinite(
-                    item.value
-                )
+            Number.isFinite(
+                item.value
+            )
 
         );
 
@@ -2125,29 +3681,12 @@ function renderWeight(){
         ?
 
         weights[
-            weights.length - 1
+            weights.length-1
         ].value
 
         :
 
         start;
-
-
-
-    let lost = null;
-
-
-    if(
-        Number.isFinite(start)
-        &&
-        Number.isFinite(current)
-    ){
-
-        lost =
-            start - current;
-
-    }
-
 
 
     let remaining = null;
@@ -2162,14 +3701,13 @@ function renderWeight(){
         remaining =
             Math.max(
                 0,
-                current - target
+                current-target
             );
 
     }
 
 
-
-    let progress = 0;
+    let progress=0;
 
 
     if(
@@ -2183,9 +3721,9 @@ function renderWeight(){
         progress =
 
             (
-                (start - current)
+                (start-current)
                 /
-                (start - target)
+                (start-target)
             )
             *
             100;
@@ -2203,7 +3741,6 @@ function renderWeight(){
     }
 
 
-
     document
         .getElementById('startStat')
         .textContent =
@@ -2217,7 +3754,6 @@ function renderWeight(){
         :
 
         '—';
-
 
 
     document
@@ -2235,7 +3771,6 @@ function renderWeight(){
         '—';
 
 
-
     document
         .getElementById('leftStat')
         .textContent =
@@ -2249,7 +3784,6 @@ function renderWeight(){
         :
 
         '—';
-
 
 
     document
@@ -2267,7 +3801,6 @@ function renderWeight(){
         'Départ';
 
 
-
     document
         .getElementById('targetText')
         .textContent =
@@ -2283,15 +3816,21 @@ function renderWeight(){
         'Objectif';
 
 
-
     document
         .getElementById('progress')
         .style.width =
         progress+'%';
 
 
+    if(
+        Number.isFinite(current)
+        &&
+        Number.isFinite(start)
+    ){
 
-    if(lost !== null){
+        const lost =
+            start-current;
+
 
         document
             .getElementById('progressText')
@@ -2305,7 +3844,7 @@ function renderWeight(){
 
             :
 
-            `+${Math.abs(lost).toFixed(1)} kg • ${progress.toFixed(0)} % de l'objectif`;
+            `+${Math.abs(lost).toFixed(1)} kg depuis le départ`;
 
     }
 
@@ -2314,73 +3853,86 @@ function renderWeight(){
         document
             .getElementById('progressText')
             .textContent =
-            'Ajoute une pesée pour voir ta progression.';
+            'Ajoute une pesée pour suivre ta progression.';
 
     }
 
 
+    /* historique */
 
-    /* ========================= */
-    /* HISTORIQUE */
-    /* ========================= */
-
-
-    if(!weights.length){
+    if(
+        weights.length === 0
+    ){
 
         document
             .getElementById('history')
             .innerHTML =
 
             `
-            <div class="empty">
-                Aucune pesée enregistrée pour le moment.
+
+            <div class="history-row">
+
+                <span>
+                    Aucune pesée
+                </span>
+
+                <b>
+                    —
+                </b>
+
             </div>
+
             `;
 
-        return;
+    }
+
+    else{
+
+        document
+            .getElementById('history')
+            .innerHTML =
+
+            weights
+
+            .slice()
+            .reverse()
+
+            .map(
+
+                item =>
+
+                `
+
+                <div class="history-row">
+
+                    <span>
+                        Jour ${item.index+1}
+                    </span>
+
+                    <b>
+                        ${item.value.toFixed(1)} kg
+                    </b>
+
+                </div>
+
+                `
+
+            )
+
+            .join('');
 
     }
 
 
-
-    document
-        .getElementById('history')
-        .innerHTML =
-
-        weights
-
-        .slice()
-        .reverse()
-
-        .map(
-
-            item =>
-
-            `
-            <div class="history-row">
-
-                <span>
-                    Jour ${item.index+1}
-                </span>
-
-                <b>
-                    ${item.value.toFixed(1)} kg
-                </b>
-
-            </div>
-            `
-
-        )
-
-        .join('');
+    renderWeightChart();
 
 }
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* SAUVEGARDE DES CHAMPS */
-/* ===================================================== */
+/* ================================================= */
 
 
 function saveInputs(){
@@ -2437,9 +3989,9 @@ function saveInputs(){
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* SAUVEGARDE AUTOMATIQUE */
-/* ===================================================== */
+/* ================================================= */
 
 
 [
@@ -2456,61 +4008,75 @@ function saveInputs(){
 
 .forEach(
 
-    id =>
+    id => {
 
-    document
-        .getElementById(id)
-        .addEventListener(
+        document
+            .getElementById(id)
+            .addEventListener(
 
-            'input',
+                'input',
 
-            () => {
+                () => {
 
-                saveInputs();
+                    saveInputs();
 
-                renderWeight();
+                    if(
+                        id === 'weight'
+                    ){
 
-            }
+                        renderWeight();
 
-        )
+                    }
+
+                }
+
+            );
+
+    }
 
 );
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* HUMEUR */
-/* ===================================================== */
+/* ================================================= */
 
 
 document
     .querySelectorAll('.mood')
     .forEach(
 
-        button =>
+        button => {
 
-        button.onclick = () => {
+            button.onclick = () => {
 
-            data.days[data.day].mood =
-                +button.dataset.mood;
+                data.days[
+                    data.day
+                ].mood =
+                    +button.dataset.mood;
 
 
-            document
-                .querySelectorAll('.mood')
-                .forEach(
-                    item =>
-                    item.classList.remove(
-                        'selected'
-                    )
+                document
+                    .querySelectorAll('.mood')
+                    .forEach(
+
+                        item =>
+                        item.classList.remove(
+                            'selected'
+                        )
+
+                    );
+
+
+                button.classList.add(
+                    'selected'
                 );
 
 
-            button.classList.add(
-                'selected'
-            );
+                save();
 
-
-            save();
+            };
 
         }
 
@@ -2518,69 +4084,72 @@ document
 
 
 
-/* ===================================================== */
-/* NAVIGATION BAS */
-/* ===================================================== */
+/* ================================================= */
+/* NAVIGATION PRINCIPALE */
+/* ================================================= */
 
 
 document
-    .querySelectorAll('.bottom button')
+    .querySelectorAll(
+        '.bottom-nav button'
+    )
     .forEach(
 
-        button =>
+        button => {
 
-        button.onclick = () => {
+            button.onclick = () => {
+
+                saveInputs();
 
 
-            saveInputs();
-
-
-            document
-                .querySelectorAll(
-                    '.bottom button'
-                )
-                .forEach(
-
-                    item =>
-                    item.classList.remove(
-                        'active'
+                document
+                    .querySelectorAll(
+                        '.bottom-nav button'
                     )
+                    .forEach(
 
-                );
+                        item =>
+                        item.classList.remove(
+                            'active'
+                        )
 
-
-            button.classList.add(
-                'active'
-            );
-
-
-            document
-                .querySelectorAll(
-                    '.page'
-                )
-                .forEach(
-
-                    page =>
-                    page.classList.remove(
-                        'active'
-                    )
-
-                );
+                    );
 
 
-            document
-                .getElementById(
-                    button.dataset.page
-                )
-                .classList.add(
+                button.classList.add(
                     'active'
                 );
 
 
-            window.scrollTo(
-                0,
-                0
-            );
+                document
+                    .querySelectorAll(
+                        '.page'
+                    )
+                    .forEach(
+
+                        page =>
+                        page.classList.remove(
+                            'active'
+                        )
+
+                    );
+
+
+                document
+                    .getElementById(
+                        button.dataset.page
+                    )
+                    .classList.add(
+                        'active'
+                    );
+
+
+                window.scrollTo(
+                    0,
+                    0
+                );
+
+            };
 
         }
 
@@ -2588,9 +4157,9 @@ document
 
 
 
-/* ===================================================== */
+/* ================================================= */
 /* INITIALISATION */
-/* ===================================================== */
+/* ================================================= */
 
 
 document
@@ -2620,11 +4189,11 @@ document
 
 if(
 
+    data.setup.goal
+    ||
     data.setup.start
     ||
     data.setup.target
-    ||
-    data.setup.goal
 
 ){
 
