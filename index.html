@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
- 
+
 <head>
 
     <meta charset="UTF-8">
@@ -14,9 +14,8 @@
         name="theme-color"
         content="#fda4af"
     >
- 
-    <title>DODO WEIGHT</title>
 
+    <title>DODO WEIGHT</title>
 
     <style>
 
@@ -24,9 +23,7 @@
             box-sizing: border-box;
         }
 
-
         :root {
-
             --rose: #fb7185;
             --rose-dark: #be123c;
             --rose-soft: #fff1f2;
@@ -45,28 +42,18 @@
 
             --red: #dc2626;
             --red-soft: #fef2f2;
-
         }
-
 
         html,
         body {
-
             margin: 0;
             padding: 0;
-
             width: 100%;
             min-height: 100%;
-
         }
 
-
         body {
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
 
             background:
                 linear-gradient(
@@ -83,42 +70,29 @@
                     78px +
                     env(safe-area-inset-bottom)
                 );
-
         }
-
 
         button,
         input,
         textarea {
-
             font: inherit;
-
         }
-
 
         button {
-
             cursor: pointer;
-
         }
-
 
         .app {
-
             width: 100%;
             max-width: 620px;
-
             margin: 0 auto;
-
         }
 
-
         /* ================================================= */
-        /* ECRAN DE CONFIGURATION */
+        /* CONFIGURATION */
         /* ================================================= */
 
         #setup {
-
             min-height: 100vh;
 
             display: flex;
@@ -127,12 +101,9 @@
             justify-content: center;
 
             padding: 20px;
-
         }
 
-
         .setup-card {
-
             width: 100%;
             max-width: 430px;
 
@@ -145,23 +116,15 @@
             box-shadow:
                 0 15px 50px
                 rgba(190, 18, 60, .10);
-
         }
-
 
         .logo {
-
             text-align: center;
-
             font-size: 42px;
-
             margin-bottom: 5px;
-
         }
 
-
         .setup-title {
-
             text-align: center;
 
             font-size: 28px;
@@ -171,12 +134,9 @@
             margin: 0;
 
             color: var(--rose-dark);
-
         }
 
-
         .setup-subtitle {
-
             text-align: center;
 
             color: var(--muted);
@@ -187,19 +147,13 @@
 
             margin:
                 8px 0 25px;
-
         }
-
 
         .field {
-
             margin-bottom: 16px;
-
         }
 
-
         .field label {
-
             display: block;
 
             font-size: 13px;
@@ -209,12 +163,9 @@
             margin-bottom: 6px;
 
             color: var(--text);
-
         }
 
-
         .field input {
-
             width: 100%;
 
             border: 1px solid
@@ -227,24 +178,18 @@
             outline: none;
 
             background: #fffafa;
-
         }
 
-
         .field input:focus {
-
             border-color:
                 var(--rose);
 
             box-shadow:
                 0 0 0 3px
                 rgba(251, 113, 133, .12);
-
         }
 
-
         .start-button {
-
             width: 100%;
 
             border: 0;
@@ -269,60 +214,42 @@
             box-shadow:
                 0 8px 20px
                 rgba(244, 63, 94, .20);
-
         }
-
 
         .start-button:active {
-
             transform: scale(.98);
-
         }
-
 
         /* ================================================= */
         /* APPLICATION */
         /* ================================================= */
 
         #app {
-
             display: none;
-
         }
-
 
         .top {
-
             padding:
                 20px 18px 10px;
-
         }
 
-
         .brand {
-
             display: flex;
 
             justify-content: space-between;
 
             align-items: center;
-
         }
 
-
         .brand h1 {
-
             margin: 0;
 
             color: var(--rose-dark);
 
             font-size: 24px;
-
         }
 
-
         .today-button {
-
             border: 0;
 
             background: white;
@@ -338,44 +265,32 @@
             box-shadow:
                 0 2px 10px
                 rgba(0,0,0,.05);
-
         }
 
-
         .date-label {
-
             color: var(--muted);
 
             font-size: 12px;
 
             margin-top: 5px;
-
         }
 
-
         .page {
-
             display: none;
 
             padding:
                 10px 15px 20px;
-
         }
-
 
         .page.active {
-
             display: block;
-
         }
-
 
         /* ================================================= */
         /* CARTES */
         /* ================================================= */
 
         .card {
-
             background: white;
 
             border-radius: 18px;
@@ -391,12 +306,9 @@
             border:
                 1px solid
                 rgba(251, 113, 133, .10);
-
         }
 
-
         .section-title {
-
             display: flex;
 
             align-items: center;
@@ -406,88 +318,64 @@
             gap: 10px;
 
             margin-bottom: 12px;
-
         }
 
-
         .section-title h2 {
-
             margin: 0;
 
             font-size: 18px;
-
         }
 
-
         .section-title small {
-
             color: var(--muted);
 
             font-size: 11px;
-
         }
-
 
         /* ================================================= */
         /* OBJECTIF */
         /* ================================================= */
 
         .goal-card {
-
             background:
                 linear-gradient(
                     135deg,
                     #fff1f2,
                     #fff7f8
                 );
-
         }
 
-
         .goal-main {
-
             display: flex;
 
             align-items: center;
 
             justify-content: space-between;
-
         }
 
-
         .goal-main strong {
-
             display: block;
 
             font-size: 24px;
 
             color: var(--rose-dark);
-
         }
 
-
         .goal-main span {
-
             color: var(--muted);
 
             font-size: 12px;
-
         }
-
 
         .goal-emoji {
-
             font-size: 34px;
-
         }
 
-
         /* ================================================= */
-        /* ONGLETS ALIMENTATION */
+        /* SOUS ONGLETS ALIMENTATION */
         /* ================================================= */
 
         .subtabs {
-
             display: flex;
 
             gap: 7px;
@@ -499,12 +387,9 @@
             padding: 4px;
 
             border-radius: 13px;
-
         }
 
-
         .subtab {
-
             flex: 1;
 
             border: 0;
@@ -520,12 +405,9 @@
             font-size: 12px;
 
             font-weight: 700;
-
         }
 
-
         .subtab.active {
-
             background: white;
 
             color: var(--rose-dark);
@@ -533,12 +415,9 @@
             box-shadow:
                 0 2px 8px
                 rgba(0,0,0,.05);
-
         }
 
-
         .week-tabs {
-
             display: flex;
 
             gap: 6px;
@@ -546,12 +425,9 @@
             overflow-x: auto;
 
             padding-bottom: 4px;
-
         }
 
-
         .week-tab {
-
             flex: 0 0 auto;
 
             border: 1px solid
@@ -566,24 +442,22 @@
             border-radius: 999px;
 
             font-size: 11px;
-
         }
 
-
         .week-tab.active {
-
             background: var(--rose);
 
             color: white;
 
             border-color:
                 var(--rose);
-
         }
 
+        /* ================================================= */
+        /* INTENSITE */
+        /* ================================================= */
 
         .intensity {
-
             display: flex;
 
             align-items: flex-start;
@@ -599,12 +473,9 @@
             font-size: 11px;
 
             line-height: 1.45;
-
         }
 
-
         .intensity-dot {
-
             width: 9px;
             height: 9px;
 
@@ -613,72 +484,52 @@
             flex-shrink: 0;
 
             margin-top: 4px;
-
         }
 
-
         .intensity.green {
-
             background:
                 var(--green-soft);
 
             color:
                 #3f6212;
-
         }
 
-
-        .intensity.green
-        .intensity-dot {
-
+        .intensity.green .intensity-dot {
             background:
                 var(--green);
-
         }
 
-
         .intensity.orange {
-
             background:
                 var(--orange-soft);
 
             color:
                 #9a3412;
-
         }
 
-
-        .intensity.orange
-        .intensity-dot {
-
+        .intensity.orange .intensity-dot {
             background:
                 var(--orange);
-
         }
 
-
         .intensity.red {
-
             background:
                 var(--red-soft);
 
             color:
                 #991b1b;
-
         }
 
-
-        .intensity.red
-        .intensity-dot {
-
+        .intensity.red .intensity-dot {
             background:
                 var(--red);
-
         }
 
+        /* ================================================= */
+        /* REPAS */
+        /* ================================================= */
 
         .meal {
-
             display: flex;
 
             gap: 11px;
@@ -687,19 +538,13 @@
 
             border-bottom:
                 1px solid #fce7e9;
-
         }
-
 
         .meal:last-child {
-
             border-bottom: 0;
-
         }
 
-
         .meal-icon {
-
             width: 35px;
             height: 35px;
 
@@ -713,12 +558,9 @@
             border-radius: 10px;
 
             flex-shrink: 0;
-
         }
 
-
         .meal-title {
-
             font-weight: 700;
 
             font-size: 12px;
@@ -726,43 +568,31 @@
             color: var(--rose-dark);
 
             margin-bottom: 3px;
-
         }
 
-
         .meal-text {
-
             font-size: 12px;
 
             line-height: 1.45;
 
             color: #59454a;
-
         }
-
 
         /* ================================================= */
         /* COURSES */
         /* ================================================= */
 
         .shopping-count {
-
             font-size: 11px;
 
             color: var(--muted);
-
         }
-
 
         .shop-category {
-
             margin-bottom: 18px;
-
         }
 
-
         .shop-category-title {
-
             font-size: 13px;
 
             font-weight: 700;
@@ -770,12 +600,9 @@
             color: var(--rose-dark);
 
             margin-bottom: 7px;
-
         }
 
-
         .shop-item {
-
             display: flex;
 
             align-items: center;
@@ -788,38 +615,26 @@
                 1px solid #f8eeee;
 
             font-size: 12px;
-
         }
-
 
         .shop-item input {
-
             accent-color:
                 var(--rose);
-
         }
-
 
         .shop-name {
-
             flex: 1;
-
         }
 
-
         .shop-quantity {
-
             color: var(--muted);
 
             font-size: 11px;
 
             text-align: right;
-
         }
 
-
         .clear-button {
-
             border: 0;
 
             background: #fff1f2;
@@ -831,16 +646,13 @@
             padding: 7px 9px;
 
             font-size: 10px;
-
         }
-
 
         /* ================================================= */
         /* ACTIVITE */
         /* ================================================= */
 
         .activity-name {
-
             font-size: 21px;
 
             font-weight: 700;
@@ -848,35 +660,26 @@
             color: var(--rose-dark);
 
             margin-bottom: 7px;
-
         }
 
-
         .activity-details {
-
             font-size: 13px;
 
             line-height: 1.55;
 
             white-space: pre-line;
-
         }
 
-
         .input-row {
-
             display: grid;
 
             grid-template-columns:
                 1fr 1fr;
 
             gap: 10px;
-
         }
 
-
         .input-box label {
-
             display: block;
 
             font-size: 11px;
@@ -884,14 +687,11 @@
             color: var(--muted);
 
             margin-bottom: 5px;
-
         }
-
 
         .input-box input,
         .input-box textarea,
         .textarea {
-
             width: 100%;
 
             border: 1px solid
@@ -906,35 +706,26 @@
             background: #fffafa;
 
             font-size: 13px;
-
         }
-
 
         textarea {
-
             resize: vertical;
-
         }
-
 
         /* ================================================= */
         /* POIDS */
         /* ================================================= */
 
         .stats {
-
             display: grid;
 
             grid-template-columns:
                 repeat(3,1fr);
 
             gap: 8px;
-
         }
 
-
         .stat {
-
             background: #fff7f8;
 
             border-radius: 13px;
@@ -942,32 +733,23 @@
             padding: 12px 7px;
 
             text-align: center;
-
         }
 
-
         .stat strong {
-
             display: block;
 
             color: var(--rose-dark);
 
             font-size: 18px;
-
         }
 
-
         .stat span {
-
             font-size: 10px;
 
             color: var(--muted);
-
         }
 
-
         .progress-bar {
-
             height: 10px;
 
             background: #ffe4e6;
@@ -977,12 +759,9 @@
             overflow: hidden;
 
             margin: 12px 0 5px;
-
         }
 
-
         .progress {
-
             height: 100%;
 
             width: 0%;
@@ -998,52 +777,37 @@
 
             transition:
                 width .4s ease;
-
         }
 
-
         .progress-text {
-
             text-align: center;
 
             color: var(--muted);
 
             font-size: 11px;
-
         }
 
-
         .chart-wrapper {
-
             width: 100%;
 
             overflow: hidden;
-
         }
 
-
         #weightChart {
-
             width: 100%;
 
             height: 240px;
 
             display: block;
-
         }
 
-
         .chart-grid {
-
             stroke: #fce7e9;
 
             stroke-width: 1;
-
         }
 
-
         .chart-line {
-
             fill: none;
 
             stroke: #fb7185;
@@ -1053,41 +817,29 @@
             stroke-linecap: round;
 
             stroke-linejoin: round;
-
         }
 
-
         .chart-point {
-
             fill: white;
 
             stroke: #f43f5e;
 
             stroke-width: 3;
-
         }
 
-
         .chart-label {
-
             fill: #9f7d83;
 
             font-size: 10px;
-
         }
 
-
         .chart-empty {
-
             fill: #9f7d83;
 
             font-size: 12px;
-
         }
 
-
         .history-row {
-
             display: flex;
 
             align-items: center;
@@ -1100,35 +852,26 @@
                 1px solid #f8eeee;
 
             font-size: 12px;
-
         }
-
 
         .history-row:last-child {
-
             border-bottom: 0;
-
         }
-
 
         /* ================================================= */
         /* BIEN-ETRE */
         /* ================================================= */
 
         .prayer-grid {
-
             display: grid;
 
             grid-template-columns:
                 repeat(2,1fr);
 
             gap: 8px;
-
         }
 
-
         .prayer {
-
             display: flex;
 
             align-items: center;
@@ -1142,32 +885,23 @@
             border-radius: 10px;
 
             font-size: 11px;
-
         }
-
 
         .prayer input {
-
             accent-color:
                 var(--rose);
-
         }
 
-
         .moods {
-
             display: flex;
 
             justify-content:
                 space-between;
 
             gap: 5px;
-
         }
 
-
         .mood {
-
             border: 0;
 
             background: #fff5f6;
@@ -1181,12 +915,9 @@
             opacity: .45;
 
             transition: .2s;
-
         }
 
-
         .mood.selected {
-
             opacity: 1;
 
             background: #ffe4e6;
@@ -1197,16 +928,51 @@
             box-shadow:
                 0 3px 10px
                 rgba(244,63,94,.12);
-
         }
 
+        /* ================================================= */
+        /* NAVIGATION JOUR */
+        /* ================================================= */
+
+        .day-navigation {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 8px;
+
+            margin-bottom: 10px;
+        }
+
+        .day-navigation button {
+            border: 0;
+
+            background: white;
+
+            color: var(--rose-dark);
+
+            border-radius: 10px;
+
+            padding: 8px 11px;
+
+            box-shadow:
+                0 2px 8px
+                rgba(0,0,0,.04);
+        }
+
+        .day-navigation strong {
+            font-size: 12px;
+
+            text-align: center;
+        }
 
         /* ================================================= */
-        /* NAVIGATION MOBILE */
+        /* NAVIGATION BASSE */
         /* ================================================= */
 
         .bottom-nav {
-
             position: fixed;
 
             z-index: 100;
@@ -1242,12 +1008,9 @@
 
             grid-template-columns:
                 repeat(4,1fr);
-
         }
 
-
         .bottom-nav button {
-
             border: 0;
 
             background: transparent;
@@ -1267,93 +1030,30 @@
             align-items: center;
 
             gap: 3px;
-
         }
 
-
         .bottom-nav button span {
-
             font-size: 21px;
 
             line-height: 1;
-
         }
 
-
         .bottom-nav button.active {
-
             color: var(--rose-dark);
 
             background:
                 #fff1f2;
 
             font-weight: 700;
-
         }
-
-
-        /* ================================================= */
-        /* NAVIGATION JOUR */
-        /* ================================================= */
-
-        .day-navigation {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 8px;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .day-navigation button {
-
-            border: 0;
-
-            background: white;
-
-            color: var(--rose-dark);
-
-            border-radius: 10px;
-
-            padding: 8px 11px;
-
-            box-shadow:
-                0 2px 8px
-                rgba(0,0,0,.04);
-
-        }
-
-
-        .day-navigation strong {
-
-            font-size: 12px;
-
-            text-align: center;
-
-        }
-
-
-        /* ================================================= */
-        /* DESKTOP */
-        /* ================================================= */
 
         @media(min-width:700px){
 
             body {
-
                 padding-bottom: 0;
-
             }
 
-
             .bottom-nav {
-
                 bottom: 15px;
 
                 border:
@@ -1364,7 +1064,6 @@
                 width: calc(
                     100% - 30px
                 );
-
             }
 
         }
@@ -1378,7 +1077,7 @@
 
 
 <!-- ===================================================== -->
-<!-- CONFIGURATION -->
+<!-- ECRAN DE DEPART -->
 <!-- ===================================================== -->
 
 <div id="setup">
@@ -1409,7 +1108,7 @@
             <input
                 id="sGoal"
                 type="text"
-                placeholder="Ex : perdre 10 kg"
+                placeholder="Ex : Perdre 10 kg"
             >
 
         </div>
@@ -1425,7 +1124,7 @@
                 id="sStart"
                 type="number"
                 step="0.1"
-                placeholder="Ex : 75"
+                placeholder="Ex : 71"
             >
 
         </div>
@@ -1441,7 +1140,7 @@
                 id="sTarget"
                 type="number"
                 step="0.1"
-                placeholder="Ex : 65"
+                placeholder="Ex : 61"
             >
 
         </div>
@@ -1463,7 +1162,7 @@
 
         <button
             class="start-button"
-            onclick="finishSetup()"
+            id="startButton"
         >
             Commencer 🌸
         </button>
@@ -1496,7 +1195,7 @@
 
             <button
                 class="today-button"
-                onclick="goToday()"
+                id="todayButton"
             >
                 Aujourd'hui
             </button>
@@ -1533,7 +1232,7 @@
                     </span>
 
                     <strong id="foodGoal">
-                        Perdre du poids
+                        —
                     </strong>
 
                 </div>
@@ -1547,14 +1246,13 @@
         </div>
 
 
+        <!-- SOUS ONGLETS -->
+
         <div class="subtabs">
 
             <button
                 id="menuTab"
                 class="subtab active"
-                onclick="
-                    showFoodSection('menus')
-                "
             >
                 🍽️ Menus
             </button>
@@ -1562,9 +1260,6 @@
             <button
                 id="shoppingTab"
                 class="subtab"
-                onclick="
-                    showFoodSection('shopping')
-                "
             >
                 🛒 Courses
             </button>
@@ -1600,9 +1295,7 @@
             </div>
 
 
-            <div
-                id="dayIntensity"
-            >
+            <div id="dayIntensity">
             </div>
 
 
@@ -1632,9 +1325,7 @@
 
                     <button
                         class="clear-button"
-                        onclick="
-                            clearShopping()
-                        "
+                        id="clearShoppingButton"
                     >
                         Réinitialiser
                     </button>
@@ -1650,9 +1341,6 @@
                     <button
                         id="shopWeek0"
                         class="week-tab active"
-                        onclick="
-                            setShoppingWeek(0)
-                        "
                     >
                         S1
                     </button>
@@ -1660,9 +1348,6 @@
                     <button
                         id="shopWeek1"
                         class="week-tab"
-                        onclick="
-                            setShoppingWeek(1)
-                        "
                     >
                         S2
                     </button>
@@ -1670,9 +1355,6 @@
                     <button
                         id="shopWeek2"
                         class="week-tab"
-                        onclick="
-                            setShoppingWeek(2)
-                        "
                     >
                         S3
                     </button>
@@ -1680,9 +1362,6 @@
                     <button
                         id="shopWeek3"
                         class="week-tab"
-                        onclick="
-                            setShoppingWeek(3)
-                        "
                     >
                         S4
                     </button>
@@ -1723,22 +1402,14 @@
 
         <div class="day-navigation">
 
-            <button
-                onclick="
-                    changeDay(-1)
-                "
-            >
+            <button id="activityPrev">
                 ←
             </button>
 
             <strong id="activityDay">
             </strong>
 
-            <button
-                onclick="
-                    changeDay(1)
-                "
-            >
+            <button id="activityNext">
                 →
             </button>
 
@@ -1756,9 +1427,7 @@
             </div>
 
 
-            <div
-                id="activityIntensity"
-            >
+            <div id="activityIntensity">
             </div>
 
 
@@ -1857,11 +1526,7 @@
 
         <div class="day-navigation">
 
-            <button
-                onclick="
-                    changeDay(-1)
-                "
-            >
+            <button id="weightPrev">
                 ←
             </button>
 
@@ -1869,11 +1534,7 @@
                 Suivi du jour
             </strong>
 
-            <button
-                onclick="
-                    changeDay(1)
-                "
-            >
+            <button id="weightNext">
                 →
             </button>
 
@@ -2025,9 +1686,7 @@
             </div>
 
 
-            <div
-                id="history"
-            >
+            <div id="history">
             </div>
 
         </div>
@@ -2047,11 +1706,7 @@
 
         <div class="day-navigation">
 
-            <button
-                onclick="
-                    changeDay(-1)
-                "
-            >
+            <button id="wellbeingPrev">
                 ←
             </button>
 
@@ -2059,11 +1714,7 @@
                 Mon bien-être
             </strong>
 
-            <button
-                onclick="
-                    changeDay(1)
-                "
-            >
+            <button id="wellbeingNext">
                 →
             </button>
 
@@ -2251,7 +1902,7 @@
 
 
     <!-- ================================================= -->
-    <!-- NAVIGATION BASSE -->
+    <!-- BARRE DU BAS -->
     <!-- ================================================= -->
 
     <nav
@@ -2321,7 +1972,7 @@
 <script>
 
 /* ================================================= */
-/* DONNEES GENERALES */
+/* JOURS */
 /* ================================================= */
 
 const DAYS = [
@@ -2347,17 +1998,6 @@ const PRAYERS = [
 /* ================================================= */
 /* MENUS */
 /* ================================================= */
-
-/*
-    i = intensité de la journée
-
-    green  = légère
-    orange = modérée
-    red    = intense
-
-    Les glucides sont donc modulés selon
-    l'activité du jour.
-*/
 
 const MEALS = [
 
@@ -2423,7 +2063,6 @@ const MEALS = [
 
     ],
 
-
     /* SEMAINE 2 */
 
     [
@@ -2486,7 +2125,6 @@ const MEALS = [
 
     ],
 
-
     /* SEMAINE 3 */
 
     [
@@ -2548,7 +2186,6 @@ const MEALS = [
         }
 
     ],
-
 
     /* SEMAINE 4 */
 
@@ -2632,19 +2269,30 @@ const ACTIVITIES = [
         {
             intensity: "orange",
             name: "Jambes & fessiers",
-            details: "20 minutes\n3 × 12 squats\n3 × 12 ponts fessiers\n3 × 10 fentes par jambe\n3 × 15 élévations mollets"
+            details:
+                "20 minutes\n" +
+                "3 × 12 squats\n" +
+                "3 × 12 ponts fessiers\n" +
+                "3 × 10 fentes par jambe\n" +
+                "3 × 15 élévations mollets"
         },
 
         {
             intensity: "orange",
             name: "Marche active",
-            details: "35 minutes avec 10 à 15 minutes à rythme soutenu."
+            details:
+                "35 minutes avec 10 à 15 minutes à rythme soutenu."
         },
 
         {
             intensity: "orange",
             name: "Haut du corps",
-            details: "20 minutes\n3 × 10 pompes mur\n3 × 12 élévations bras\n3 × 12 tirages avec sac léger\n3 × 20 secondes gainage"
+            details:
+                "20 minutes\n" +
+                "3 × 10 pompes mur\n" +
+                "3 × 12 élévations bras\n" +
+                "3 × 12 tirages avec sac léger\n" +
+                "3 × 20 secondes gainage"
         },
 
         {
@@ -2656,17 +2304,24 @@ const ACTIVITIES = [
         {
             intensity: "red",
             name: "Full body",
-            details: "25 minutes\n12 squats\n12 ponts fessiers\n10 pompes mur\n20 montées de genoux\n20 secondes gainage\n→ 3 tours"
+            details:
+                "25 minutes\n" +
+                "12 squats\n" +
+                "12 ponts fessiers\n" +
+                "10 pompes mur\n" +
+                "20 montées de genoux\n" +
+                "20 secondes gainage\n" +
+                "→ 3 tours"
         },
 
         {
             intensity: "green",
             name: "Récupération 🌿",
-            details: "20 à 30 minutes de marche + 10 minutes d'étirements."
+            details:
+                "20 à 30 minutes de marche + 10 minutes d'étirements."
         }
 
     ],
-
 
     [
 
@@ -2714,7 +2369,6 @@ const ACTIVITIES = [
 
     ],
 
-
     [
 
         {
@@ -2760,7 +2414,6 @@ const ACTIVITIES = [
         }
 
     ],
-
 
     [
 
@@ -2812,13 +2465,8 @@ const ACTIVITIES = [
 
 
 /* ================================================= */
-/* LISTES DE COURSES */
+/* COURSES */
 /* ================================================= */
-
-/*
-    Quantités adaptées à UNE personne
-    pour environ une semaine.
-*/
 
 const SHOPPING = [
 
@@ -2826,6 +2474,7 @@ const SHOPPING = [
 
         {
             category: "🥩 Protéines",
+
             items: [
                 ["Poulet", "900 g"],
                 ["Saumon", "300 g"],
@@ -2839,6 +2488,7 @@ const SHOPPING = [
 
         {
             category: "🍚 Féculents",
+
             items: [
                 ["Riz complet", "300 g"],
                 ["Pâtes complètes", "250 g"],
@@ -2850,6 +2500,7 @@ const SHOPPING = [
 
         {
             category: "🥦 Légumes",
+
             items: [
                 ["Courgettes", "1 kg"],
                 ["Haricots verts", "500 g"],
@@ -2862,6 +2513,7 @@ const SHOPPING = [
 
         {
             category: "🍎 Fruits",
+
             items: [
                 ["Pommes", "5"],
                 ["Bananes", "4"],
@@ -2872,6 +2524,7 @@ const SHOPPING = [
 
         {
             category: "🫒 Épicerie",
+
             items: [
                 ["Huile d'olive", "1 petite bouteille"],
                 ["Curry", "1"],
@@ -2883,11 +2536,11 @@ const SHOPPING = [
 
     ],
 
-
     [
 
         {
             category: "🥩 Protéines",
+
             items: [
                 ["Poulet", "900 g"],
                 ["Saumon", "300 g"],
@@ -2901,6 +2554,7 @@ const SHOPPING = [
 
         {
             category: "🍚 Féculents",
+
             items: [
                 ["Riz complet", "300 g"],
                 ["Pâtes complètes", "250 g"],
@@ -2913,6 +2567,7 @@ const SHOPPING = [
 
         {
             category: "🥦 Légumes",
+
             items: [
                 ["Courgettes", "1 kg"],
                 ["Haricots verts", "500 g"],
@@ -2925,6 +2580,7 @@ const SHOPPING = [
 
         {
             category: "🍎 Fruits",
+
             items: [
                 ["Pommes", "5"],
                 ["Bananes", "4"],
@@ -2935,11 +2591,11 @@ const SHOPPING = [
 
     ],
 
-
     [
 
         {
             category: "🥩 Protéines",
+
             items: [
                 ["Poulet", "900 g"],
                 ["Saumon", "300 g"],
@@ -2953,6 +2609,7 @@ const SHOPPING = [
 
         {
             category: "🍚 Féculents",
+
             items: [
                 ["Riz complet", "300 g"],
                 ["Pâtes complètes", "250 g"],
@@ -2964,6 +2621,7 @@ const SHOPPING = [
 
         {
             category: "🥦 Légumes",
+
             items: [
                 ["Courgettes", "1 kg"],
                 ["Haricots verts", "500 g"],
@@ -2976,6 +2634,7 @@ const SHOPPING = [
 
         {
             category: "🍎 Fruits",
+
             items: [
                 ["Pommes", "5"],
                 ["Bananes", "4"],
@@ -2986,11 +2645,11 @@ const SHOPPING = [
 
     ],
 
-
     [
 
         {
             category: "🥩 Protéines",
+
             items: [
                 ["Poulet", "900 g"],
                 ["Saumon", "300 g"],
@@ -3004,6 +2663,7 @@ const SHOPPING = [
 
         {
             category: "🍚 Féculents",
+
             items: [
                 ["Riz complet", "300 g"],
                 ["Pâtes complètes", "250 g"],
@@ -3015,6 +2675,7 @@ const SHOPPING = [
 
         {
             category: "🥦 Légumes",
+
             items: [
                 ["Courgettes", "1 kg"],
                 ["Haricots verts", "500 g"],
@@ -3027,6 +2688,7 @@ const SHOPPING = [
 
         {
             category: "🍎 Fruits",
+
             items: [
                 ["Pommes", "5"],
                 ["Bananes", "4"],
@@ -3082,15 +2744,10 @@ function createData(){
     return {
 
         setup: {
-
             goal: "",
-
             start: "",
-
             target: "",
-
             date: ""
-
         },
 
         day: 0,
@@ -3112,21 +2769,31 @@ function createData(){
 }
 
 
-let data;
+let data = null;
 
 
 try {
 
-    data =
-        JSON.parse(
-            localStorage.getItem(
-                "dodoWeight"
-            )
+    const saved =
+        localStorage.getItem(
+            "dodoWeight"
         );
+
+    if(saved){
+
+        data =
+            JSON.parse(
+                saved
+            );
+
+    }
 
 } catch(error){
 
-    data = null;
+    console.error(
+        "Erreur de lecture des données :",
+        error
+    );
 
 }
 
@@ -3142,10 +2809,6 @@ if(
 
 }
 
-
-/* ================================================= */
-/* SECURITE ANCIENNES DONNEES */
-/* ================================================= */
 
 while(
     data.days.length < 28
@@ -3192,10 +2855,21 @@ let shoppingWeek = 0;
 
 function save(){
 
-    localStorage.setItem(
-        "dodoWeight",
-        JSON.stringify(data)
-    );
+    try {
+
+        localStorage.setItem(
+            "dodoWeight",
+            JSON.stringify(data)
+        );
+
+    } catch(error){
+
+        console.error(
+            "Impossible de sauvegarder :",
+            error
+        );
+
+    }
 
 }
 
@@ -3301,7 +2975,7 @@ function setDefaultDate(){
 
         const month =
             String(
-                today.getMonth()+1
+                today.getMonth() + 1
             ).padStart(
                 2,
                 "0"
@@ -3333,26 +3007,34 @@ function finishSetup(){
 
     const goal =
         document
-        .getElementById("sGoal")
+        .getElementById(
+            "sGoal"
+        )
         .value
         .trim();
 
 
     const start =
         document
-        .getElementById("sStart")
+        .getElementById(
+            "sStart"
+        )
         .value;
 
 
     const target =
         document
-        .getElementById("sTarget")
+        .getElementById(
+            "sTarget"
+        )
         .value;
 
 
     const date =
         document
-        .getElementById("sDate")
+        .getElementById(
+            "sDate"
+        )
         .value;
 
 
@@ -3425,13 +3107,17 @@ function finishSetup(){
 function showApp(){
 
     document
-        .getElementById("setup")
+        .getElementById(
+            "setup"
+        )
         .style.display =
         "none";
 
 
     document
-        .getElementById("app")
+        .getElementById(
+            "app"
+        )
         .style.display =
         "block";
 
@@ -3442,7 +3128,7 @@ function showApp(){
 
 
 /* ================================================= */
-/* JOUR ACTUEL */
+/* RETOUR AU JOUR ACTUEL */
 /* ================================================= */
 
 function goToday(){
@@ -3463,7 +3149,7 @@ function goToday(){
 
 
 /* ================================================= */
-/* CHANGEMENT JOUR */
+/* CHANGER DE JOUR */
 /* ================================================= */
 
 function changeDay(direction){
@@ -3512,14 +3198,11 @@ function renderAll(){
     let date =
         data.setup.date
         ?
-
         new Date(
             data.setup.date +
             "T00:00:00"
         )
-
         :
-
         new Date();
 
 
@@ -3536,8 +3219,8 @@ function renderAll(){
         .textContent =
 
         `${formatDate(date)}
-        • Semaine ${week+1}
-        • Jour ${dayIndex+1}`;
+        • Semaine ${week + 1}
+        • Jour ${dayIndex + 1}`;
 
 
     document
@@ -3556,7 +3239,7 @@ function renderAll(){
         .textContent =
 
         `${formatDate(date)}
-        • Jour ${dayIndex+1}`;
+        • Jour ${dayIndex + 1}`;
 
 
     renderMeals(
@@ -3635,22 +3318,22 @@ function renderMeals(
 
         meals.map(
 
-            meal => `
+            item => `
 
                 <div class="meal">
 
                     <div class="meal-icon">
-                        ${meal[0]}
+                        ${item[0]}
                     </div>
 
                     <div>
 
                         <div class="meal-title">
-                            ${meal[1]}
+                            ${item[1]}
                         </div>
 
                         <div class="meal-text">
-                            ${meal[2]}
+                            ${item[2]}
                         </div>
 
                     </div>
@@ -3759,22 +3442,46 @@ function renderMeals(
                         ? "active"
                         : ""
                     }"
-                    onclick="
-                        goWeek(${index})
-                    "
+                    data-week="${index}"
                 >
-                    Semaine ${index+1}
+                    Semaine ${index + 1}
                 </button>
 
             `
 
         ).join("");
 
+
+    document
+        .querySelectorAll(
+            "#weekTabs .week-tab"
+        )
+        .forEach(
+
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        goWeek(
+                            Number(
+                                this.dataset.week
+                            )
+                        );
+
+                    }
+                );
+
+            }
+
+        );
+
 }
 
 
 /* ================================================= */
-/* SEMAINE */
+/* CHANGER DE SEMAINE */
 /* ================================================= */
 
 function goWeek(week){
@@ -4122,21 +3829,13 @@ function renderPrayers(){
 
                     <input
                         type="checkbox"
+                        class="prayer-check"
+                        data-prayer="${index}"
                         ${
                             state.prayers[index]
                             ? "checked"
                             : ""
                         }
-
-                        onchange="
-                            data.days[
-                                data.day
-                            ].prayers[
-                                ${index}
-                            ] = this.checked;
-
-                            save();
-                        "
                     >
 
                     ${prayer}
@@ -4146,6 +3845,42 @@ function renderPrayers(){
             `
 
         ).join("");
+
+
+    document
+        .querySelectorAll(
+            ".prayer-check"
+        )
+        .forEach(
+
+            checkbox => {
+
+                checkbox.addEventListener(
+                    "change",
+                    function(){
+
+                        const index =
+                            Number(
+                                this.dataset.prayer
+                            );
+
+
+                        data.days[
+                            data.day
+                        ].prayers[
+                            index
+                        ] =
+                            this.checked;
+
+
+                        save();
+
+                    }
+                );
+
+            }
+
+        );
 
 }
 
@@ -4164,13 +3899,13 @@ document
 
             button.addEventListener(
                 "click",
-                () => {
+                function(){
 
                     data.days[
                         data.day
                     ].mood =
                         Number(
-                            button.dataset.mood
+                            this.dataset.mood
                         );
 
 
@@ -4188,7 +3923,7 @@ document
                         );
 
 
-                    button.classList.add(
+                    this.classList.add(
                         "selected"
                     );
 
@@ -4204,7 +3939,87 @@ document
 
 
 /* ================================================= */
-/* COURSES */
+/* COURSES - FONCTION PRINCIPALE */
+/* ================================================= */
+
+function showFoodSection(
+    section
+){
+
+    const menus =
+        document.getElementById(
+            "menusSection"
+        );
+
+
+    const shopping =
+        document.getElementById(
+            "shoppingSection"
+        );
+
+
+    const menuTab =
+        document.getElementById(
+            "menuTab"
+        );
+
+
+    const shoppingTab =
+        document.getElementById(
+            "shoppingTab"
+        );
+
+
+    if(section === "shopping"){
+
+        menus.style.display =
+            "none";
+
+
+        shopping.style.display =
+            "block";
+
+
+        menuTab.classList.remove(
+            "active"
+        );
+
+
+        shoppingTab.classList.add(
+            "active"
+        );
+
+
+        renderShopping();
+
+    }
+
+    else{
+
+        menus.style.display =
+            "block";
+
+
+        shopping.style.display =
+            "none";
+
+
+        menuTab.classList.add(
+            "active"
+        );
+
+
+        shoppingTab.classList.remove(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* ================================================= */
+/* COURSES - SEMAINE */
 /* ================================================= */
 
 function setShoppingWeek(
@@ -4244,15 +4059,23 @@ function setShoppingWeek(
 }
 
 
+/* ================================================= */
+/* CLE COURSES */
+/* ================================================= */
+
 function getShoppingKey(
     category,
     item
 ){
 
-    return `${shoppingWeek}_${category}_${item}`;
+    return `${category}_${item}`;
 
 }
 
+
+/* ================================================= */
+/* AFFICHER COURSES */
+/* ================================================= */
 
 function renderShopping(){
 
@@ -4285,9 +4108,15 @@ function renderShopping(){
         )
         .textContent =
 
-        `${count}
-        produit${count > 1 ? "s" : ""}
-        coché${count > 1 ? "s" : ""}`;
+        `${count} produit${
+            count > 1
+            ? "s"
+            : ""
+        } coché${
+            count > 1
+            ? "s"
+            : ""
+        }`;
 
 
     container.innerHTML =
@@ -4344,17 +4173,13 @@ function renderShopping(){
 
                                         <input
                                             type="checkbox"
+                                            class="shopping-check"
+                                            data-key="${key}"
                                             ${
                                                 checked
                                                 ? "checked"
                                                 : ""
                                             }
-
-                                            onchange="
-                                                toggleShopping(
-                                                    '${key}'
-                                                )
-                                            "
                                         >
 
 
@@ -4386,8 +4211,36 @@ function renderShopping(){
 
         ).join("");
 
+
+    document
+        .querySelectorAll(
+            ".shopping-check"
+        )
+        .forEach(
+
+            checkbox => {
+
+                checkbox.addEventListener(
+                    "change",
+                    function(){
+
+                        toggleShopping(
+                            this.dataset.key
+                        );
+
+                    }
+                );
+
+            }
+
+        );
+
 }
 
+
+/* ================================================= */
+/* COCHER COURSE */
+/* ================================================= */
 
 function toggleShopping(
     key
@@ -4412,7 +4265,9 @@ function toggleShopping(
             1
         );
 
-    } else {
+    }
+
+    else{
 
         list.push(
             key
@@ -4428,6 +4283,10 @@ function toggleShopping(
 
 }
 
+
+/* ================================================= */
+/* REINITIALISER COURSES */
+/* ================================================= */
 
 function clearShopping(){
 
@@ -4728,7 +4587,7 @@ function renderWeight(){
 
 
 /* ================================================= */
-/* COURBE */
+/* COURBE DE POIDS */
 /* ================================================= */
 
 function renderWeightChart(){
@@ -4961,7 +4820,6 @@ function renderWeightChart(){
         ) => {
 
             points +=
-
                 `${x(index)},${y(item.value)} `;
 
         }
@@ -5041,7 +4899,7 @@ document
 
             button.addEventListener(
                 "click",
-                () => {
+                function(){
 
                     saveInputs();
 
@@ -5060,7 +4918,7 @@ document
                         );
 
 
-                    button.classList.add(
+                    this.classList.add(
                         "active"
                     );
 
@@ -5081,7 +4939,7 @@ document
 
                     document
                         .getElementById(
-                            button.dataset.page
+                            this.dataset.page
                         )
                         .classList.add(
                             "active"
@@ -5102,12 +4960,217 @@ document
 
 
 /* ================================================= */
+/* BOUTONS MENUS / COURSES */
+/* ================================================= */
+
+document
+    .getElementById(
+        "menuTab"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            showFoodSection(
+                "menus"
+            );
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "shoppingTab"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            showFoodSection(
+                "shopping"
+            );
+
+        }
+    );
+
+
+/* ================================================= */
+/* BOUTONS SEMAINES COURSES */
+/* ================================================= */
+
+for(
+    let i = 0;
+    i < 4;
+    i++
+){
+
+    document
+        .getElementById(
+            "shopWeek" + i
+        )
+        .addEventListener(
+            "click",
+            function(){
+
+                setShoppingWeek(
+                    i
+                );
+
+            }
+        );
+
+}
+
+
+/* ================================================= */
+/* RESET COURSES */
+/* ================================================= */
+
+document
+    .getElementById(
+        "clearShoppingButton"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            clearShopping();
+
+        }
+    );
+
+
+/* ================================================= */
+/* BOUTON COMMENCER */
+/* ================================================= */
+
+document
+    .getElementById(
+        "startButton"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            finishSetup();
+
+        }
+    );
+
+
+/* ================================================= */
+/* BOUTON AUJOURD'HUI */
+/* ================================================= */
+
+document
+    .getElementById(
+        "todayButton"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            goToday();
+
+        }
+    );
+
+
+/* ================================================= */
+/* NAVIGATION JOURS */
+/* ================================================= */
+
+document
+    .getElementById(
+        "activityPrev"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            changeDay(-1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "activityNext"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            changeDay(1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "weightPrev"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            changeDay(-1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "weightNext"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            changeDay(1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "wellbeingPrev"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            changeDay(-1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "wellbeingNext"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            changeDay(1);
+
+        }
+    );
+
+
+/* ================================================= */
 /* SAUVEGARDE AUTOMATIQUE */
 /* ================================================= */
 
 [
     "water",
-    "waterWellbeing",
     "activityMinutes",
     "activityNotes",
     "weight",
@@ -5134,7 +5197,7 @@ document
 
         element.addEventListener(
             "input",
-            () => {
+            function(){
 
                 saveInputs();
 
@@ -5182,13 +5245,15 @@ document
 
 
 /* ================================================= */
-/* INITIALISATION */
+/* DATE DE DEPART PAR DEFAUT */
 /* ================================================= */
 
 setDefaultDate();
 
 
-/* Restaurer les informations */
+/* ================================================= */
+/* RESTAURATION CONFIGURATION */
+/* ================================================= */
 
 document
     .getElementById(
@@ -5243,15 +5308,11 @@ if(
 ){
 
     /*
-        Très important :
-
-        Chaque ouverture de l'application
-        recalcule automatiquement le jour
-        selon la date réelle.
+        La date réelle détermine automatiquement
+        le jour de l'application.
 
         Exemple :
 
-        Départ 14/08
         14/08 = Jour 1
         15/08 = Jour 2
         16/08 = Jour 3
