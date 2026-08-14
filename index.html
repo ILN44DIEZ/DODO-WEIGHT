@@ -1,765 +1,1375 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
-
-<meta name="theme-color" content="#e11d48">
-
-<title>DODO WEIGHT</title>
-
-
-<style>
-
-/* ================================================= */
-/* BASE */
-/* ================================================= */
-
-*{
-    box-sizing:border-box;
-}
-
-:root{
-    --rose:#e11d48;
-    --rose-dark:#9f1239;
-    --rose-soft:#fff1f2;
-    --rose-border:#ffe4e6;
-    --text:#27272a;
-    --muted:#71717a;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    background:var(--rose-soft);
-    color:var(--text);
-    font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-}
-
-button,
-input,
-textarea{
-    font:inherit;
-}
-
-button{
-    border:0;
-    cursor:pointer;
-}
-
-
-/* ================================================= */
-/* APP */
-/* ================================================= */
-
-.app{
-    max-width:680px;
-    min-height:100vh;
-    margin:auto;
-    background:#fff;
-    padding-bottom:82px;
-}
-
-
-/* ================================================= */
-/* HEADER */
-/* ================================================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:10;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(10px);
-    padding:18px 18px 10px;
-    border-bottom:1px solid #fff;
-}
-
-.header-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-}
-
-.logo-title{
-    font-family:Georgia,serif;
-    font-size:25px;
-    font-weight:700;
-    color:var(--rose-dark);
-}
-
-.day-label{
-    margin-top:3px;
-    font-size:12px;
-    color:var(--muted);
-}
-
-.day-buttons{
-    display:flex;
-    gap:6px;
-}
-
-.day-btn{
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:var(--rose-soft);
-    color:var(--rose-dark);
-    font-size:20px;
-}
-
-
-/* ================================================= */
-/* CONTENT */
-/* ================================================= */
-
-.content{
-    padding:12px 15px 20px;
-}
-
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
-
-/* ================================================= */
-/* CARDS */
-/* ================================================= */
-
-.card{
-    background:#fff;
-    border:1px solid var(--rose-border);
-    border-radius:18px;
-    padding:15px;
-    margin:11px 0;
-    box-shadow:0 4px 18px rgba(0,0,0,.035);
-}
-
-.hero{
-    background:linear-gradient(
-        135deg,
-        #fb7185,
-        #fda4af
-    );
-    color:#fff;
-    border:0;
-}
-
-.hero h2,
-.hero p{
-    color:#fff;
-}
-
-.hero h2{
-    margin:0;
-    font-family:Georgia,serif;
-    font-size:22px;
-}
-
-.hero p{
-    margin:5px 0 0;
-    font-size:13px;
-}
-
-
-/* ================================================= */
-/* SOUS ONGLETS */
-/* ================================================= */
-
-.subtabs{
-    display:flex;
-    gap:7px;
-    margin:12px 0;
-}
-
-.subtab{
-    flex:1;
-    padding:9px 10px;
-    border-radius:12px;
-    background:var(--rose-soft);
-    color:var(--rose-dark);
-    font-size:13px;
-    font-weight:600;
-}
-
-.subtab.active{
-    background:var(--rose);
-    color:#fff;
-}
-
-
-/* ================================================= */
-/* SEMAINES */
-/* ================================================= */
-
-.week-tabs{
-    display:flex;
-    gap:6px;
-    overflow-x:auto;
-    padding-bottom:2px;
-    margin:10px 0;
-}
-
-.week-tab{
-    white-space:nowrap;
-    padding:7px 12px;
-    border-radius:999px;
-    background:var(--rose-soft);
-    color:var(--rose-dark);
-    font-size:12px;
-}
-
-.week-tab.active{
-    background:var(--rose);
-    color:#fff;
-}
-
-
-/* ================================================= */
-/* REPAS */
-/* ================================================= */
-
-.meal{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    padding:11px 0;
-    border-bottom:1px solid var(--rose-border);
-}
-
-.meal:last-child{
-    border-bottom:0;
-}
-
-.meal-icon{
-    width:28px;
-    flex:none;
-    font-size:18px;
-}
-
-.meal-info{
-    flex:1;
-}
-
-.meal-title{
-    font-size:12px;
-    font-weight:700;
-    color:var(--rose-dark);
-    margin-bottom:3px;
-}
-
-.meal-text{
-    font-size:13px;
-    line-height:1.45;
-}
-
-.macro-note{
-    margin-top:3px;
-    font-size:11px;
-    color:var(--muted);
-}
-
-
-/* ================================================= */
-/* INTENSITE */
-/* ================================================= */
-
-.intensity{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    padding:10px 12px;
-    border-radius:13px;
-    margin-top:10px;
-    font-size:12px;
-}
-
-.intensity.green{
-    background:#f0fdf4;
-    color:#166534;
-}
-
-.intensity.orange{
-    background:#fff7ed;
-    color:#9a3412;
-}
-
-.intensity.red{
-    background:#fff1f2;
-    color:#9f1239;
-}
-
-.intensity-dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:currentColor;
-    flex:none;
-}
-
-
-/* ================================================= */
-/* ACTIVITE */
-/* ================================================= */
-
-.activity-box{
-    background:var(--rose-soft);
-    border-radius:14px;
-    padding:14px;
-}
-
-.activity-name{
-    color:var(--rose-dark);
-    font-weight:700;
-    font-size:14px;
-}
-
-.activity-details{
-    margin-top:5px;
-    font-size:13px;
-    line-height:1.5;
-}
-
-
-/* ================================================= */
-/* INPUTS */
-/* ================================================= */
-
-label.small{
-    display:block;
-    color:var(--muted);
-    font-size:12px;
-    margin:10px 0 5px;
-}
-
-input,
-textarea{
-    width:100%;
-    border:1px solid #fecdd3;
-    border-radius:10px;
-    background:#fff;
-    padding:9px 10px;
-    color:var(--text);
-}
-
-textarea{
-    resize:vertical;
-}
-
-input:focus,
-textarea:focus{
-    outline:2px solid #fda4af;
-    outline-offset:1px;
-}
-
-
-/* ================================================= */
-/* COURSES */
-/* ================================================= */
-
-.shopping-summary{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:var(--rose-soft);
-    border-radius:14px;
-    padding:11px 13px;
-    font-size:12px;
-    color:var(--rose-dark);
-}
-
-.clear-shopping{
-    background:#fff;
-    color:var(--rose-dark);
-    border:1px solid var(--rose-border);
-    border-radius:9px;
-    padding:6px 9px;
-    font-size:11px;
-}
-
-.shop-category{
-    margin-top:16px;
-}
-
-.shop-category:first-child{
-    margin-top:0;
-}
-
-.shop-category-title{
-    font-size:14px;
-    font-weight:700;
-    color:var(--rose-dark);
-    margin-bottom:7px;
-}
-
-.shop-item{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    padding:8px 0;
-    border-bottom:1px solid #fff1f2;
-}
-
-.shop-item:last-child{
-    border-bottom:0;
-}
-
-.shop-item input{
-    width:18px;
-    height:18px;
-    accent-color:var(--rose);
-    flex:none;
-}
-
-.shop-name{
-    flex:1;
-    font-size:13px;
-}
-
-.shop-quantity{
-    color:var(--muted);
-    font-size:11px;
-    white-space:nowrap;
-}
-
-
-/* ================================================= */
-/* POIDS */
-/* ================================================= */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:7px;
-    margin:12px 0;
-}
-
-.stat{
-    background:var(--rose-soft);
-    border-radius:14px;
-    padding:12px 7px;
-    text-align:center;
-}
-
-.stat strong{
-    color:var(--rose-dark);
-    font-size:19px;
-}
-
-.stat span{
-    display:block;
-    margin-top:2px;
-    color:var(--muted);
-    font-size:10px;
-}
-
-.progress-bg{
-    width:100%;
-    height:9px;
-    background:var(--rose-border);
-    border-radius:999px;
-    overflow:hidden;
-}
-
-.progress{
-    height:100%;
-    width:0;
-    background:var(--rose);
-    border-radius:999px;
-    transition:.3s;
-}
-
-.progress-labels{
-    display:flex;
-    justify-content:space-between;
-    color:var(--muted);
-    font-size:11px;
-    margin-bottom:6px;
-}
-
-
-/* ================================================= */
-/* COURBE */
-/* ================================================= */
-
-.chart-wrap{
-    width:100%;
-    overflow:hidden;
-}
-
-#weightChart{
-    width:100%;
-    height:auto;
-    display:block;
-}
-
-.chart-line{
-    fill:none;
-    stroke:var(--rose);
-    stroke-width:3;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-}
-
-.chart-point{
-    fill:#fff;
-    stroke:var(--rose);
-    stroke-width:3;
-}
-
-.chart-grid{
-    stroke:#ffe4e6;
-    stroke-width:1;
-}
-
-.chart-label{
-    fill:#a1a1aa;
-    font-size:11px;
-    font-family:system-ui,sans-serif;
-}
-
-.chart-empty{
-    fill:#a1a1aa;
-    font-size:13px;
-    font-family:system-ui,sans-serif;
-}
-
-
-/* ================================================= */
-/* HISTORIQUE */
-/* ================================================= */
-
-.history-row{
-    display:flex;
-    justify-content:space-between;
-    padding:8px 0;
-    border-bottom:1px solid var(--rose-border);
-    font-size:13px;
-}
-
-.history-row:last-child{
-    border-bottom:0;
-}
-
-.history-row span{
-    color:var(--muted);
-}
-
-.history-row b{
-    color:var(--rose-dark);
-}
-
-
-/* ================================================= */
-/* PRIERES */
-/* ================================================= */
-
-.prayers{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
-}
-
-.prayer{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:var(--rose-soft);
-    padding:10px;
-    border-radius:11px;
-    font-size:12px;
-}
-
-.prayer input{
-    width:17px;
-    height:17px;
-    accent-color:var(--rose);
-}
-
-
-/* ================================================= */
-/* HUMEUR */
-/* ================================================= */
-
-.moods{
-    display:flex;
-    justify-content:space-around;
-    margin-top:8px;
-}
-
-.mood{
-    background:none;
-    font-size:27px;
-    opacity:.3;
-    padding:5px;
-    transition:.15s;
-}
-
-.mood.selected{
-    opacity:1;
-    transform:scale(1.12);
-}
-
-
-/* ================================================= */
-/* NAVIGATION BAS */
-/* ================================================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-
-    width:100%;
-    max-width:680px;
-
-    height:72px;
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(12px);
-
-    border-top:1px solid var(--rose-border);
-
-    padding-bottom:env(safe-area-inset-bottom);
-
-    z-index:30;
-}
-
-.bottom-nav button{
-    background:none;
-    color:#71717a;
-    font-size:10px;
-}
-
-.bottom-nav button span{
-    display:block;
-    font-size:21px;
-    margin-bottom:2px;
-}
-
-.bottom-nav button.active{
-    color:var(--rose);
-    font-weight:700;
-}
-
-
-/* ================================================= */
-/* CONFIGURATION */
-/* ================================================= */
-
-.setup{
-    min-height:100vh;
-    background:#fff;
-    padding:30px 18px;
-}
-
-.setup-box{
-    max-width:520px;
-    margin:auto;
-}
-
-.setup-logo{
-    text-align:center;
-    font-size:58px;
-    margin:20px 0 8px;
-}
-
-.setup-title{
-    text-align:center;
-    font-family:Georgia,serif;
-    color:var(--rose-dark);
-    font-size:28px;
-}
-
-.setup-subtitle{
-    text-align:center;
-    color:var(--muted);
-    font-size:14px;
-    margin:7px 0 22px;
-}
-
-.setup-card{
-    background:#fff;
-    border:1px solid var(--rose-border);
-    border-radius:20px;
-    padding:18px;
-    box-shadow:0 5px 25px rgba(0,0,0,.04);
-}
-
-.field{
-    margin-bottom:14px;
-}
-
-.field label{
-    display:block;
-    color:var(--muted);
-    font-size:12px;
-    margin-bottom:5px;
-}
-
-.primary{
-    width:100%;
-    padding:12px;
-    background:var(--rose);
-    color:#fff;
-    border-radius:12px;
-    font-weight:700;
-}
-
-
-/* ================================================= */
-/* RESPONSIVE */
-/* ================================================= */
-
-@media(max-width:480px){
-
-    .content{
-        padding-left:12px;
-        padding-right:12px;
-    }
-
-    .card{
-        padding:14px;
-    }
-
-    .meal-text{
-        font-size:12px;
-    }
-
-    .stats{
-        gap:5px;
-    }
-
-    .bottom-nav{
-        height:70px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#fda4af"
+    >
+
+    <title>DODO WEIGHT</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --rose: #fb7185;
+            --rose-dark: #be123c;
+            --rose-soft: #fff1f2;
+            --rose-border: #fecdd3;
+
+            --cream: #fffaf9;
+
+            --text: #4a3035;
+            --muted: #8b6f75;
+
+            --green: #65a30d;
+            --green-soft: #f0fdf4;
+
+            --orange: #ea580c;
+            --orange-soft: #fff7ed;
+
+            --red: #dc2626;
+            --red-soft: #fef2f2;
+
+        }
+
+
+        html,
+        body {
+
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            min-height: 100%;
+
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff1f2 0%,
+                    #fffaf9 55%,
+                    #ffffff 100%
+                );
+
+            color: var(--text);
+
+            padding-bottom:
+                calc(
+                    78px +
+                    env(safe-area-inset-bottom)
+                );
+
+        }
+
+
+        button,
+        input,
+        textarea {
+
+            font: inherit;
+
+        }
+
+
+        button {
+
+            cursor: pointer;
+
+        }
+
+
+        .app {
+
+            width: 100%;
+            max-width: 620px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* ================================================= */
+        /* ECRAN DE CONFIGURATION */
+        /* ================================================= */
+
+        #setup {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+        }
+
+
+        .setup-card {
+
+            width: 100%;
+            max-width: 430px;
+
+            background: white;
+
+            border-radius: 26px;
+
+            padding: 30px 24px;
+
+            box-shadow:
+                0 15px 50px
+                rgba(190, 18, 60, .10);
+
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .setup-title {
+
+            text-align: center;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            margin: 0;
+
+            color: var(--rose-dark);
+
+        }
+
+
+        .setup-subtitle {
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin:
+                8px 0 25px;
+
+        }
+
+
+        .field {
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .field label {
+
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 6px;
+
+            color: var(--text);
+
+        }
+
+
+        .field input {
+
+            width: 100%;
+
+            border: 1px solid
+                var(--rose-border);
+
+            border-radius: 12px;
+
+            padding: 12px 13px;
+
+            outline: none;
+
+            background: #fffafa;
+
+        }
+
+
+        .field input:focus {
+
+            border-color:
+                var(--rose);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(251, 113, 133, .12);
+
+        }
+
+
+        .start-button {
+
+            width: 100%;
+
+            border: 0;
+
+            border-radius: 14px;
+
+            padding: 14px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fb7185,
+                    #f43f5e
+                );
+
+            font-weight: 700;
+
+            margin-top: 8px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(244, 63, 94, .20);
+
+        }
+
+
+        .start-button:active {
+
+            transform: scale(.98);
+
+        }
+
+
+        /* ================================================= */
+        /* APPLICATION */
+        /* ================================================= */
+
+        #app {
+
+            display: none;
+
+        }
+
+
+        .top {
+
+            padding:
+                20px 18px 10px;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .brand h1 {
+
+            margin: 0;
+
+            color: var(--rose-dark);
+
+            font-size: 24px;
+
+        }
+
+
+        .today-button {
+
+            border: 0;
+
+            background: white;
+
+            color: var(--rose-dark);
+
+            border-radius: 10px;
+
+            padding: 7px 10px;
+
+            font-size: 11px;
+
+            box-shadow:
+                0 2px 10px
+                rgba(0,0,0,.05);
+
+        }
+
+
+        .date-label {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        .page {
+
+            display: none;
+
+            padding:
+                10px 15px 20px;
+
+        }
+
+
+        .page.active {
+
+            display: block;
+
+        }
+
+
+        /* ================================================= */
+        /* CARTES */
+        /* ================================================= */
+
+        .card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 16px;
+
+            margin-bottom: 12px;
+
+            box-shadow:
+                0 4px 20px
+                rgba(100, 40, 50, .06);
+
+            border:
+                1px solid
+                rgba(251, 113, 133, .10);
+
+        }
+
+
+        .section-title {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .section-title h2 {
+
+            margin: 0;
+
+            font-size: 18px;
+
+        }
+
+
+        .section-title small {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        /* ================================================= */
+        /* OBJECTIF */
+        /* ================================================= */
+
+        .goal-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff1f2,
+                    #fff7f8
+                );
+
+        }
+
+
+        .goal-main {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .goal-main strong {
+
+            display: block;
+
+            font-size: 24px;
+
+            color: var(--rose-dark);
+
+        }
+
+
+        .goal-main span {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+        }
+
+
+        .goal-emoji {
+
+            font-size: 34px;
+
+        }
+
+
+        /* ================================================= */
+        /* ONGLETS ALIMENTATION */
+        /* ================================================= */
+
+        .subtabs {
+
+            display: flex;
+
+            gap: 7px;
+
+            margin-bottom: 12px;
+
+            background: #fff5f6;
+
+            padding: 4px;
+
+            border-radius: 13px;
+
+        }
+
+
+        .subtab {
+
+            flex: 1;
+
+            border: 0;
+
+            background: transparent;
+
+            color: var(--muted);
+
+            border-radius: 10px;
+
+            padding: 9px 6px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        .subtab.active {
+
+            background: white;
+
+            color: var(--rose-dark);
+
+            box-shadow:
+                0 2px 8px
+                rgba(0,0,0,.05);
+
+        }
+
+
+        .week-tabs {
+
+            display: flex;
+
+            gap: 6px;
+
+            overflow-x: auto;
+
+            padding-bottom: 4px;
+
+        }
+
+
+        .week-tab {
+
+            flex: 0 0 auto;
+
+            border: 1px solid
+                var(--rose-border);
+
+            background: white;
+
+            color: var(--rose-dark);
+
+            padding: 7px 11px;
+
+            border-radius: 999px;
+
+            font-size: 11px;
+
+        }
+
+
+        .week-tab.active {
+
+            background: var(--rose);
+
+            color: white;
+
+            border-color:
+                var(--rose);
+
+        }
+
+
+        .intensity {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            border-radius: 12px;
+
+            padding: 10px;
+
+            margin-bottom: 12px;
+
+            font-size: 11px;
+
+            line-height: 1.45;
+
+        }
+
+
+        .intensity-dot {
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            flex-shrink: 0;
+
+            margin-top: 4px;
+
+        }
+
+
+        .intensity.green {
+
+            background:
+                var(--green-soft);
+
+            color:
+                #3f6212;
+
+        }
+
+
+        .intensity.green
+        .intensity-dot {
+
+            background:
+                var(--green);
+
+        }
+
+
+        .intensity.orange {
+
+            background:
+                var(--orange-soft);
+
+            color:
+                #9a3412;
+
+        }
+
+
+        .intensity.orange
+        .intensity-dot {
+
+            background:
+                var(--orange);
+
+        }
+
+
+        .intensity.red {
+
+            background:
+                var(--red-soft);
+
+            color:
+                #991b1b;
+
+        }
+
+
+        .intensity.red
+        .intensity-dot {
+
+            background:
+                var(--red);
+
+        }
+
+
+        .meal {
+
+            display: flex;
+
+            gap: 11px;
+
+            padding: 11px 0;
+
+            border-bottom:
+                1px solid #fce7e9;
+
+        }
+
+
+        .meal:last-child {
+
+            border-bottom: 0;
+
+        }
+
+
+        .meal-icon {
+
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--rose-soft);
+
+            border-radius: 10px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .meal-title {
+
+            font-weight: 700;
+
+            font-size: 12px;
+
+            color: var(--rose-dark);
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .meal-text {
+
+            font-size: 12px;
+
+            line-height: 1.45;
+
+            color: #59454a;
+
+        }
+
+
+        /* ================================================= */
+        /* COURSES */
+        /* ================================================= */
+
+        .shopping-count {
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+        }
+
+
+        .shop-category {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .shop-category-title {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: var(--rose-dark);
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .shop-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 0;
+
+            border-bottom:
+                1px solid #f8eeee;
+
+            font-size: 12px;
+
+        }
+
+
+        .shop-item input {
+
+            accent-color:
+                var(--rose);
+
+        }
+
+
+        .shop-name {
+
+            flex: 1;
+
+        }
+
+
+        .shop-quantity {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            text-align: right;
+
+        }
+
+
+        .clear-button {
+
+            border: 0;
+
+            background: #fff1f2;
+
+            color: var(--rose-dark);
+
+            border-radius: 9px;
+
+            padding: 7px 9px;
+
+            font-size: 10px;
+
+        }
+
+
+        /* ================================================= */
+        /* ACTIVITE */
+        /* ================================================= */
+
+        .activity-name {
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            color: var(--rose-dark);
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .activity-details {
+
+            font-size: 13px;
+
+            line-height: 1.55;
+
+            white-space: pre-line;
+
+        }
+
+
+        .input-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 10px;
+
+        }
+
+
+        .input-box label {
+
+            display: block;
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .input-box input,
+        .input-box textarea,
+        .textarea {
+
+            width: 100%;
+
+            border: 1px solid
+                var(--rose-border);
+
+            border-radius: 10px;
+
+            padding: 10px;
+
+            outline: none;
+
+            background: #fffafa;
+
+            font-size: 13px;
+
+        }
+
+
+        textarea {
+
+            resize: vertical;
+
+        }
+
+
+        /* ================================================= */
+        /* POIDS */
+        /* ================================================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 8px;
+
+        }
+
+
+        .stat {
+
+            background: #fff7f8;
+
+            border-radius: 13px;
+
+            padding: 12px 7px;
+
+            text-align: center;
+
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            color: var(--rose-dark);
+
+            font-size: 18px;
+
+        }
+
+
+        .stat span {
+
+            font-size: 10px;
+
+            color: var(--muted);
+
+        }
+
+
+        .progress-bar {
+
+            height: 10px;
+
+            background: #ffe4e6;
+
+            border-radius: 999px;
+
+            overflow: hidden;
+
+            margin: 12px 0 5px;
+
+        }
+
+
+        .progress {
+
+            height: 100%;
+
+            width: 0%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fda4af,
+                    #f43f5e
+                );
+
+            border-radius: 999px;
+
+            transition:
+                width .4s ease;
+
+        }
+
+
+        .progress-text {
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .chart-wrapper {
+
+            width: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+        #weightChart {
+
+            width: 100%;
+
+            height: 240px;
+
+            display: block;
+
+        }
+
+
+        .chart-grid {
+
+            stroke: #fce7e9;
+
+            stroke-width: 1;
+
+        }
+
+
+        .chart-line {
+
+            fill: none;
+
+            stroke: #fb7185;
+
+            stroke-width: 4;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        .chart-point {
+
+            fill: white;
+
+            stroke: #f43f5e;
+
+            stroke-width: 3;
+
+        }
+
+
+        .chart-label {
+
+            fill: #9f7d83;
+
+            font-size: 10px;
+
+        }
+
+
+        .chart-empty {
+
+            fill: #9f7d83;
+
+            font-size: 12px;
+
+        }
+
+
+        .history-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 10px 0;
+
+            border-bottom:
+                1px solid #f8eeee;
+
+            font-size: 12px;
+
+        }
+
+
+        .history-row:last-child {
+
+            border-bottom: 0;
+
+        }
+
+
+        /* ================================================= */
+        /* BIEN-ETRE */
+        /* ================================================= */
+
+        .prayer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 8px;
+
+        }
+
+
+        .prayer {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 10px;
+
+            background: #fff7f8;
+
+            border-radius: 10px;
+
+            font-size: 11px;
+
+        }
+
+
+        .prayer input {
+
+            accent-color:
+                var(--rose);
+
+        }
+
+
+        .moods {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 5px;
+
+        }
+
+
+        .mood {
+
+            border: 0;
+
+            background: #fff5f6;
+
+            border-radius: 12px;
+
+            padding: 9px;
+
+            font-size: 23px;
+
+            opacity: .45;
+
+            transition: .2s;
+
+        }
+
+
+        .mood.selected {
+
+            opacity: 1;
+
+            background: #ffe4e6;
+
+            transform:
+                scale(1.08);
+
+            box-shadow:
+                0 3px 10px
+                rgba(244,63,94,.12);
+
+        }
+
+
+        /* ================================================= */
+        /* NAVIGATION MOBILE */
+        /* ================================================= */
+
+        .bottom-nav {
+
+            position: fixed;
+
+            z-index: 100;
+
+            left: 50%;
+
+            bottom: 0;
+
+            transform:
+                translateX(-50%);
+
+            width: 100%;
+
+            max-width: 620px;
+
+            background:
+                rgba(255,255,255,.96);
+
+            backdrop-filter:
+                blur(12px);
+
+            border-top:
+                1px solid #fce7e9;
+
+            padding:
+                7px 8px
+                calc(
+                    7px +
+                    env(safe-area-inset-bottom)
+                );
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+        }
+
+
+        .bottom-nav button {
+
+            border: 0;
+
+            background: transparent;
+
+            color: #a98d92;
+
+            padding: 6px 2px;
+
+            border-radius: 12px;
+
+            font-size: 10px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 3px;
+
+        }
+
+
+        .bottom-nav button span {
+
+            font-size: 21px;
+
+            line-height: 1;
+
+        }
+
+
+        .bottom-nav button.active {
+
+            color: var(--rose-dark);
+
+            background:
+                #fff1f2;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ================================================= */
+        /* NAVIGATION JOUR */
+        /* ================================================= */
+
+        .day-navigation {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 8px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .day-navigation button {
+
+            border: 0;
+
+            background: white;
+
+            color: var(--rose-dark);
+
+            border-radius: 10px;
+
+            padding: 8px 11px;
+
+            box-shadow:
+                0 2px 8px
+                rgba(0,0,0,.04);
+
+        }
+
+
+        .day-navigation strong {
+
+            font-size: 12px;
+
+            text-align: center;
+
+        }
+
+
+        /* ================================================= */
+        /* DESKTOP */
+        /* ================================================= */
+
+        @media(min-width:700px){
+
+            body {
+
+                padding-bottom: 0;
+
+            }
+
+
+            .bottom-nav {
+
+                bottom: 15px;
+
+                border:
+                    1px solid #fce7e9;
+
+                border-radius: 18px;
+
+                width: calc(
+                    100% - 30px
+                );
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -767,102 +1377,96 @@ textarea:focus{
 <body>
 
 
-<!-- ================================================= */
-/* CONFIGURATION */
-/* ================================================= -->
+<!-- ===================================================== -->
+<!-- CONFIGURATION -->
+<!-- ===================================================== -->
 
-<div
-    id="setup"
-    class="setup"
->
+<div id="setup">
 
-    <div class="setup-box">
+    <div class="setup-card">
 
-        <div class="setup-logo">
+        <div class="logo">
             🌷
         </div>
 
-        <div class="setup-title">
+        <h1 class="setup-title">
             DODO WEIGHT
-        </div>
+        </h1>
 
-        <div class="setup-subtitle">
-            Un petit pas chaque jour. 🤍
-        </div>
-
-
-        <div class="setup-card">
-
-
-            <div class="field">
-
-                <label>
-                    Mon objectif
-                </label>
-
-                <input
-                    id="sGoal"
-                    placeholder="Ex. perdre 10 kg"
-                >
-
-            </div>
+        <p class="setup-subtitle">
+            Un petit journal simple pour suivre
+            ton alimentation, ton activité,
+            ton poids et ton bien-être.
+        </p>
 
 
-            <div class="field">
+        <div class="field">
 
-                <label>
-                    Poids de départ
-                </label>
+            <label>
+                Mon objectif
+            </label>
 
-                <input
-                    id="sStart"
-                    type="number"
-                    step="0.1"
-                    placeholder="Ex. 75"
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Poids objectif
-                </label>
-
-                <input
-                    id="sTarget"
-                    type="number"
-                    step="0.1"
-                    placeholder="Ex. 65"
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Date de départ
-                </label>
-
-                <input
-                    id="sDate"
-                    type="date"
-                >
-
-            </div>
-
-
-            <button
-                class="primary"
-                onclick="finishSetup()"
+            <input
+                id="sGoal"
+                type="text"
+                placeholder="Ex : perdre 10 kg"
             >
-                Commencer 🌷
-            </button>
-
 
         </div>
+
+
+        <div class="field">
+
+            <label>
+                Poids de départ
+            </label>
+
+            <input
+                id="sStart"
+                type="number"
+                step="0.1"
+                placeholder="Ex : 75"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Poids objectif
+            </label>
+
+            <input
+                id="sTarget"
+                type="number"
+                step="0.1"
+                placeholder="Ex : 65"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Date de départ
+            </label>
+
+            <input
+                id="sDate"
+                type="date"
+            >
+
+        </div>
+
+
+        <button
+            class="start-button"
+            onclick="finishSetup()"
+        >
+            Commencer 🌸
+        </button>
 
     </div>
 
@@ -870,705 +1474,844 @@ textarea:focus{
 
 
 
-<!-- ================================================= */
-/* APPLICATION */
-/* ================================================= -->
+<!-- ===================================================== -->
+<!-- APPLICATION -->
+<!-- ===================================================== -->
 
 <div
     id="app"
     class="app"
-    style="display:none"
 >
 
 
-<header>
+    <!-- HEADER -->
 
-    <div class="header-row">
+    <header class="top">
 
-        <div>
+        <div class="brand">
 
-            <div class="logo-title">
-                DODO WEIGHT
-            </div>
-
-            <div
-                id="dateLabel"
-                class="day-label"
-            ></div>
-
-        </div>
-
-
-        <div class="day-buttons">
+            <h1>
+                🌷 DODO WEIGHT
+            </h1>
 
             <button
-                class="day-btn"
-                onclick="changeDay(-1)"
+                class="today-button"
+                onclick="goToday()"
             >
-                ‹
-            </button>
-
-            <button
-                class="day-btn"
-                onclick="changeDay(1)"
-            >
-                ›
+                Aujourd'hui
             </button>
 
         </div>
-
-    </div>
-
-</header>
-
-
-
-<main class="content">
-
-
-<!-- ================================================= */
-/* ALIMENTATION */
-/* ================================================= -->
-
-<section
-    id="food"
-    class="page active"
->
-
-
-    <div class="card hero">
-
-        <h2>
-            🍽️ Alimentation
-        </h2>
-
-        <p id="foodGoal">
-            Mon objectif
-        </p>
-
-    </div>
-
-
-    <div class="subtabs">
-
-        <button
-            id="menuTab"
-            class="subtab active"
-            onclick="showFoodSection('menus')"
-        >
-            🍽️ Menus
-        </button>
-
-
-        <button
-            id="shoppingTab"
-            class="subtab"
-            onclick="showFoodSection('shopping')"
-        >
-            🛒 Courses
-        </button>
-
-    </div>
-
-
-
-    <!-- MENUS -->
-
-    <div id="menusSection">
-
 
         <div
-            id="weekTabs"
-            class="week-tabs"
-        ></div>
+            id="dateLabel"
+            class="date-label"
+        >
+        </div>
+
+    </header>
 
 
-        <div class="card">
 
-            <h3>
-                Repas du jour
-            </h3>
+    <!-- ================================================= -->
+    <!-- ALIMENTATION -->
+    <!-- ================================================= -->
+
+    <main
+        id="foodPage"
+        class="page active"
+    >
+
+        <div class="card goal-card">
+
+            <div class="goal-main">
+
+                <div>
+
+                    <span>
+                        Mon objectif
+                    </span>
+
+                    <strong id="foodGoal">
+                        Perdre du poids
+                    </strong>
+
+                </div>
+
+                <div class="goal-emoji">
+                    🥗
+                </div>
+
+            </div>
+
+        </div>
 
 
-            <div
-                id="meals"
-            ></div>
+        <div class="subtabs">
+
+            <button
+                id="menuTab"
+                class="subtab active"
+                onclick="
+                    showFoodSection('menus')
+                "
+            >
+                🍽️ Menus
+            </button>
+
+            <button
+                id="shoppingTab"
+                class="subtab"
+                onclick="
+                    showFoodSection('shopping')
+                "
+            >
+                🛒 Courses
+            </button>
+
+        </div>
+
+
+        <!-- MENUS -->
+
+        <div id="menusSection">
+
+            <div class="card">
+
+                <div class="section-title">
+
+                    <h2>
+                        🍽️ Mon alimentation
+                    </h2>
+
+                    <small>
+                        Portions pesées
+                    </small>
+
+                </div>
+
+
+                <div
+                    id="weekTabs"
+                    class="week-tabs"
+                >
+                </div>
+
+            </div>
 
 
             <div
                 id="dayIntensity"
-            ></div>
+            >
+            </div>
+
+
+            <div
+                id="meals"
+                class="card"
+            >
+            </div>
+
+        </div>
+
+
+        <!-- COURSES -->
+
+        <div
+            id="shoppingSection"
+            style="display:none;"
+        >
+
+            <div class="card">
+
+                <div class="section-title">
+
+                    <h2>
+                        🛒 Mes courses
+                    </h2>
+
+                    <button
+                        class="clear-button"
+                        onclick="
+                            clearShopping()
+                        "
+                    >
+                        Réinitialiser
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="week-tabs"
+                    style="margin-bottom:10px;"
+                >
+
+                    <button
+                        id="shopWeek0"
+                        class="week-tab active"
+                        onclick="
+                            setShoppingWeek(0)
+                        "
+                    >
+                        S1
+                    </button>
+
+                    <button
+                        id="shopWeek1"
+                        class="week-tab"
+                        onclick="
+                            setShoppingWeek(1)
+                        "
+                    >
+                        S2
+                    </button>
+
+                    <button
+                        id="shopWeek2"
+                        class="week-tab"
+                        onclick="
+                            setShoppingWeek(2)
+                        "
+                    >
+                        S3
+                    </button>
+
+                    <button
+                        id="shopWeek3"
+                        class="week-tab"
+                        onclick="
+                            setShoppingWeek(3)
+                        "
+                    >
+                        S4
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="shoppingCount"
+                    class="shopping-count"
+                >
+                    0 produit coché
+                </div>
+
+            </div>
+
+
+            <div
+                id="shoppingList"
+                class="card"
+            >
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- ACTIVITE -->
+    <!-- ================================================= -->
+
+    <main
+        id="activityPage"
+        class="page"
+    >
+
+        <div class="day-navigation">
+
+            <button
+                onclick="
+                    changeDay(-1)
+                "
+            >
+                ←
+            </button>
+
+            <strong id="activityDay">
+            </strong>
+
+            <button
+                onclick="
+                    changeDay(1)
+                "
+            >
+                →
+            </button>
 
         </div>
 
 
         <div class="card">
 
-            <h3>
-                💧 Hydratation
-            </h3>
+            <div class="section-title">
+
+                <h2>
+                    🏃‍♀️ Activité du jour
+                </h2>
+
+            </div>
 
 
-            <label class="small">
-                Nombre de verres
-            </label>
-
-
-            <input
-                id="water"
-                type="number"
-                min="0"
-                placeholder="0"
+            <div
+                id="activityIntensity"
             >
+            </div>
 
-        </div>
-
-
-    </div>
-
-
-
-    <!-- COURSES -->
-
-    <div
-        id="shoppingSection"
-        style="display:none"
-    >
-
-
-        <div class="week-tabs">
-
-            <button
-                class="week-tab active"
-                id="shopWeek0"
-                onclick="setShoppingWeek(0)"
-            >
-                Semaine 1
-            </button>
-
-            <button
-                class="week-tab"
-                id="shopWeek1"
-                onclick="setShoppingWeek(1)"
-            >
-                Semaine 2
-            </button>
-
-            <button
-                class="week-tab"
-                id="shopWeek2"
-                onclick="setShoppingWeek(2)"
-            >
-                Semaine 3
-            </button>
-
-            <button
-                class="week-tab"
-                id="shopWeek3"
-                onclick="setShoppingWeek(3)"
-            >
-                Semaine 4
-            </button>
-
-        </div>
-
-
-        <div class="shopping-summary">
-
-            <span id="shoppingCount">
-                0 produit coché
-            </span>
-
-            <button
-                class="clear-shopping"
-                onclick="clearShopping()"
-            >
-                Tout décocher
-            </button>
-
-        </div>
-
-
-        <div
-            id="shoppingList"
-            class="card"
-        ></div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ================================================= */
-/* ACTIVITE */
-/* ================================================= */
-
-<section
-    id="activityPage"
-    class="page"
->
-
-
-    <div class="card hero">
-
-        <h2>
-            🏃 Activité
-        </h2>
-
-        <p id="activityDay"></p>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            Activité du jour
-        </h3>
-
-
-        <div
-            id="activityBox"
-            class="activity-box"
-        >
 
             <div
                 id="activityName"
                 class="activity-name"
-            ></div>
+            >
+            </div>
+
 
             <div
                 id="activityDetails"
                 class="activity-details"
-            ></div>
+            >
+            </div>
 
         </div>
 
 
-        <div
-            id="activityIntensity"
-        ></div>
+        <div class="card">
 
-    </div>
+            <div class="section-title">
 
+                <h2>
+                    📋 Mon activité
+                </h2>
 
-    <div class="card">
-
-        <h3>
-            Activité réalisée
-        </h3>
+            </div>
 
 
-        <label class="small">
-            Durée réellement réalisée
-        </label>
+            <div class="input-row">
+
+                <div class="input-box">
+
+                    <label>
+                        Durée réalisée
+                    </label>
+
+                    <input
+                        id="activityMinutes"
+                        type="number"
+                        placeholder="minutes"
+                    >
+
+                </div>
 
 
-        <input
-            id="activityMinutes"
-            type="number"
-            min="0"
-            placeholder="Ex. 30"
-        >
+                <div class="input-box">
 
+                    <label>
+                        Eau
+                    </label>
 
-        <label class="small">
-            Notes
-        </label>
+                    <input
+                        id="water"
+                        type="number"
+                        placeholder="verres"
+                    >
 
+                </div>
 
-        <textarea
-            id="activityNotes"
-            rows="3"
-            placeholder="Comment s'est passée ma séance ?"
-        ></textarea>
+            </div>
 
-    </div>
-
-
-</section>
-
-
-
-<!-- ================================================= */
-/* POIDS */
-/* ================================================= */
-
-<section
-    id="weightPage"
-    class="page"
->
-
-
-    <div class="card hero">
-
-        <h2>
-            ⚖️ Mon poids
-        </h2>
-
-        <p>
-            Ma progression, sans pression.
-        </p>
-
-    </div>
-
-
-    <div class="stats">
-
-
-        <div class="stat">
-
-            <strong id="startStat">
-                —
-            </strong>
-
-            <span>
-                Départ
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong id="currentStat">
-                —
-            </strong>
-
-            <span>
-                Actuel
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong id="leftStat">
-                —
-            </strong>
-
-            <span>
-                Restant
-            </span>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            🎯 Progression
-        </h3>
-
-
-        <div class="progress-labels">
-
-            <span id="startText">
-                —
-            </span>
-
-            <span id="targetText">
-                —
-            </span>
-
-        </div>
-
-
-        <div class="progress-bg">
 
             <div
-                id="progress"
-                class="progress"
-            ></div>
+                class="input-box"
+                style="margin-top:12px;"
+            >
+
+                <label>
+                    Notes
+                </label>
+
+                <textarea
+                    id="activityNotes"
+                    rows="3"
+                    placeholder="Comment s'est passée ta séance ?"
+                ></textarea>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- SUIVI POIDS -->
+    <!-- ================================================= -->
+
+    <main
+        id="weightPage"
+        class="page"
+    >
+
+        <div class="day-navigation">
+
+            <button
+                onclick="
+                    changeDay(-1)
+                "
+            >
+                ←
+            </button>
+
+            <strong>
+                Suivi du jour
+            </strong>
+
+            <button
+                onclick="
+                    changeDay(1)
+                "
+            >
+                →
+            </button>
 
         </div>
 
 
-        <div
-            id="progressText"
-            style="
-            color:#71717a;
-            font-size:11px;
-            margin-top:7px;
-            "
-        ></div>
+        <div class="card">
 
-    </div>
+            <div class="section-title">
 
+                <h2>
+                    ⚖️ Ma progression
+                </h2>
 
-    <div class="card">
-
-        <h3>
-            📉 Évolution
-        </h3>
+            </div>
 
 
-        <div class="chart-wrap">
+            <div class="stats">
 
-            <svg
-                id="weightChart"
-                viewBox="0 0 600 250"
-                preserveAspectRatio="xMidYMid meet"
-            ></svg>
+                <div class="stat">
+
+                    <strong
+                        id="startStat"
+                    >
+                        —
+                    </strong>
+
+                    <span>
+                        Départ
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong
+                        id="currentStat"
+                    >
+                        —
+                    </strong>
+
+                    <span>
+                        Actuel
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong
+                        id="leftStat"
+                    >
+                        —
+                    </strong>
+
+                    <span>
+                        À perdre
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="progress"
+                    class="progress"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="progressText"
+                class="progress-text"
+            >
+                Ajoute une pesée pour suivre ta progression.
+            </div>
 
         </div>
 
-    </div>
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    📈 Courbe de poids
+                </h2>
+
+            </div>
 
 
-    <div class="card">
+            <div class="chart-wrapper">
 
-        <h3>
-            Pesée du jour
-        </h3>
+                <svg
+                    id="weightChart"
+                    viewBox="0 0 600 250"
+                    preserveAspectRatio="none"
+                >
+                </svg>
+
+            </div>
+
+        </div>
 
 
-        <label class="small">
-            Poids en kg
-        </label>
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    ⚖️ Pesée du jour
+                </h2>
+
+            </div>
 
 
-        <input
-            id="weight"
-            type="number"
-            step="0.1"
-            placeholder="Ex. 74.8"
+            <div class="input-box">
+
+                <label>
+                    Poids
+                </label>
+
+                <input
+                    id="weight"
+                    type="number"
+                    step="0.1"
+                    placeholder="kg"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    📋 Historique
+                </h2>
+
+            </div>
+
+
+            <div
+                id="history"
+            >
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- BIEN-ETRE -->
+    <!-- ================================================= -->
+
+    <main
+        id="wellbeingPage"
+        class="page"
+    >
+
+        <div class="day-navigation">
+
+            <button
+                onclick="
+                    changeDay(-1)
+                "
+            >
+                ←
+            </button>
+
+            <strong>
+                Mon bien-être
+            </strong>
+
+            <button
+                onclick="
+                    changeDay(1)
+                "
+            >
+                →
+            </button>
+
+        </div>
+
+
+        <!-- PRIERES -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    🕌 Mes prières
+                </h2>
+
+                <small>
+                    Aujourd'hui
+                </small>
+
+            </div>
+
+
+            <div
+                id="prayers"
+                class="prayer-grid"
+            >
+            </div>
+
+        </div>
+
+
+        <!-- HUMEUR -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    😊 Mon humeur
+                </h2>
+
+            </div>
+
+
+            <div class="moods">
+
+                <button
+                    class="mood"
+                    data-mood="1"
+                >
+                    😔
+                </button>
+
+                <button
+                    class="mood"
+                    data-mood="2"
+                >
+                    😐
+                </button>
+
+                <button
+                    class="mood"
+                    data-mood="3"
+                >
+                    🙂
+                </button>
+
+                <button
+                    class="mood"
+                    data-mood="4"
+                >
+                    😊
+                </button>
+
+                <button
+                    class="mood"
+                    data-mood="5"
+                >
+                    🥰
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOMMEIL / EAU -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    🌙 Mes habitudes
+                </h2>
+
+            </div>
+
+
+            <div class="input-row">
+
+                <div class="input-box">
+
+                    <label>
+                        Sommeil
+                    </label>
+
+                    <input
+                        id="sleep"
+                        type="number"
+                        step="0.5"
+                        placeholder="heures"
+                    >
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <label>
+                        Eau
+                    </label>
+
+                    <input
+                        id="waterWellbeing"
+                        type="number"
+                        placeholder="verres"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESSENTI -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    🤍 Mon ressenti
+                </h2>
+
+            </div>
+
+
+            <textarea
+                id="feeling"
+                class="textarea"
+                rows="4"
+                placeholder="Comment je me sens aujourd'hui..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- VICTOIRE -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <h2>
+                    🌷 Ma victoire du jour
+                </h2>
+
+            </div>
+
+
+            <textarea
+                id="victory"
+                class="textarea"
+                rows="3"
+                placeholder="Même une petite victoire compte..."
+            ></textarea>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- NAVIGATION BASSE -->
+    <!-- ================================================= -->
+
+    <nav
+        class="bottom-nav"
+        id="bottomNav"
+    >
+
+        <button
+            class="active"
+            data-page="foodPage"
         >
 
-    </div>
+            <span>
+                🥗
+            </span>
+
+            Alimentation
+
+        </button>
 
 
-    <div class="card">
+        <button
+            data-page="activityPage"
+        >
 
-        <h3>
-            📋 Historique
-        </h3>
+            <span>
+                🏃‍♀️
+            </span>
 
+            Activité
 
-        <div
-            id="history"
-        ></div>
-
-    </div>
-
-
-</section>
+        </button>
 
 
+        <button
+            data-page="weightPage"
+        >
 
-<!-- ================================================= */
-/* MOI */
-/* ================================================= */
+            <span>
+                ⚖️
+            </span>
 
-<section
-    id="mePage"
-    class="page"
->
+            Poids
 
-
-    <div class="card hero">
-
-        <h2>
-            🤍 Moi
-        </h2>
-
-        <p>
-            Mon bien-être au quotidien.
-        </p>
-
-    </div>
+        </button>
 
 
-    <div class="card">
+        <button
+            data-page="wellbeingPage"
+        >
 
-        <h3>
-            🕌 Mes prières
-        </h3>
-
-
-        <div
-            id="prayers"
-            class="prayers"
-        ></div>
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            😊 Mon humeur
-        </h3>
-
-
-        <div class="moods">
-
-
-            <button
-                class="mood"
-                data-mood="1"
-            >
-                😔
-            </button>
-
-
-            <button
-                class="mood"
-                data-mood="2"
-            >
-                😐
-            </button>
-
-
-            <button
-                class="mood"
-                data-mood="3"
-            >
-                🙂
-            </button>
-
-
-            <button
-                class="mood"
-                data-mood="4"
-            >
-                😊
-            </button>
-
-
-            <button
-                class="mood"
-                data-mood="5"
-            >
+            <span>
                 🤍
-            </button>
+            </span>
 
+            Bien-être
 
-        </div>
+        </button>
 
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            😴 Mon sommeil
-        </h3>
-
-
-        <input
-            id="sleep"
-            type="number"
-            step="0.5"
-            placeholder="Nombre d'heures"
-        >
-
-    </div>
-
-
-    <div class="card">
-
-        <h3>
-            📝 Mon ressenti
-        </h3>
-
-
-        <textarea
-            id="feeling"
-            rows="4"
-            placeholder="Comment je me sens aujourd'hui ?"
-        ></textarea>
-
-
-        <label class="small">
-            ✨ Ma victoire du jour
-        </label>
-
-
-        <textarea
-            id="victory"
-            rows="3"
-            placeholder="Une petite victoire, même minime."
-        ></textarea>
-
-    </div>
-
-
-</section>
-
-
-</main>
-
-
-
-<!-- ================================================= */
-/* NAVIGATION */
-/* ================================================= */
-
-<nav class="bottom-nav">
-
-
-    <button
-        class="active"
-        data-page="food"
-    >
-
-        <span>
-            🍽️
-        </span>
-
-        Alimentation
-
-    </button>
-
-
-    <button
-        data-page="activityPage"
-    >
-
-        <span>
-            🏃
-        </span>
-
-        Activité
-
-    </button>
-
-
-    <button
-        data-page="weightPage"
-    >
-
-        <span>
-            ⚖️
-        </span>
-
-        Poids
-
-    </button>
-
-
-    <button
-        data-page="mePage"
-    >
-
-        <span>
-            🤍
-        </span>
-
-        Moi
-
-    </button>
-
-
-</nav>
+    </nav>
 
 
 </div>
@@ -1577,845 +2320,743 @@ textarea:focus{
 
 <script>
 
-
 /* ================================================= */
-/* JOURS */
+/* DONNEES GENERALES */
 /* ================================================= */
-
 
 const DAYS = [
-
-    'Lundi',
-    'Mardi',
-    'Mercredi',
-    'Jeudi',
-    'Vendredi',
-    'Samedi',
-    'Dimanche'
-
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+    "Dimanche"
 ];
 
 
 const PRAYERS = [
-
-    'Fajr / Sobh',
-    'Dhuhr',
-    'Asr',
-    'Maghrib',
-    'Isha'
-
+    "Fajr / Sobh",
+    "Dhuhr",
+    "Asr",
+    "Maghrib",
+    "Isha"
 ];
-
 
 
 /* ================================================= */
 /* MENUS */
 /* ================================================= */
-/*
-   Glucides volontairement variables :
-   🟢 léger     = peu de féculents
-   🟠 modéré    = portion modérée
-   🔴 intense   = portion un peu plus importante
-*/
 
+/*
+    i = intensité de la journée
+
+    green  = légère
+    orange = modérée
+    red    = intense
+
+    Les glucides sont donc modulés selon
+    l'activité du jour.
+*/
 
 const MEALS = [
 
-/* ================================================= */
-/* SEMAINE 1 */
-/* ================================================= */
+    /* SEMAINE 1 */
 
-[
+    [
 
-{
-b:'2 œufs + 30 g pain complet + 1 pomme',
-l:'130 g poulet + 50 g riz complet cru + 200 g courgettes + 5 g huile',
-c:'150 g skyr + 100 g fruits rouges',
-d:'150 g cabillaud + 250 g légumes + 5 g huile',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + 1 fruit",
+            l: "130 g poulet + 40 g riz complet cru + 250 g légumes",
+            c: "150 g fromage blanc + quelques fruits rouges",
+            d: "2 œufs + 250 g courgettes + salade"
+        },
 
-{
-b:'150 g fromage blanc + 1 banane',
-l:'120 g saumon + 180 g pommes de terre + 200 g haricots verts',
-c:'1 pomme + 1 yaourt nature',
-d:'2 œufs + 250 g courgettes + salade',
-i:'orange'
-},
+        {
+            i: "orange",
+            b: "150 g fromage blanc + 1 banane + 20 g flocons d'avoine",
+            l: "120 g saumon + 50 g riz complet cru + 200 g haricots verts",
+            c: "1 pomme + 1 yaourt nature",
+            d: "2 œufs + 200 g légumes + 30 g pain complet"
+        },
 
-{
-b:'2 œufs + 1 kiwi + 30 g pain complet',
-l:'130 g poulet + 60 g riz complet cru + 200 g légumes',
-c:'150 g skyr + 100 g fruits rouges',
-d:'150 g cabillaud + 250 g légumes',
-i:'red'
-},
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + 1 pomme",
+            l: "130 g poulet + 40 g semoule crue + 250 g légumes",
+            c: "150 g fromage blanc",
+            d: "2 œufs + 200 g courgettes + salade"
+        },
 
-{
-b:'150 g fromage blanc + 1 pomme + cannelle',
-l:'130 g dinde + 50 g semoule complète crue + 200 g légumes',
-c:'1 yaourt + 1 kiwi',
-d:'2 œufs + 250 g légumes + 5 g huile',
-i:'green'
-},
+        {
+            i: "orange",
+            b: "2 œufs + 30 g pain complet + 1 banane",
+            l: "130 g poulet + 50 g riz complet cru + légumes",
+            c: "1 yaourt + 1 pomme",
+            d: "120 g thon + salade + 150 g pommes de terre"
+        },
 
-{
-b:'2 œufs + 40 g pain complet + 1 banane',
-l:'120 g thon au naturel + 200 g pommes de terre + tomates',
-c:'150 g skyr + fruits rouges',
-d:'130 g poulet + 250 g légumes',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "150 g fromage blanc + 1 fruit + 20 g pain complet",
+            l: "120 g thon + 40 g pâtes complètes crues + courgettes",
+            c: "1 pomme",
+            d: "120 g saumon + légumes + salade"
+        },
 
-{
-b:'150 g fromage blanc + 1 banane',
-l:'130 g poulet + 70 g riz complet cru + 200 g légumes',
-c:'1 pomme + 1 yaourt',
-d:'120 g saumon + 180 g pommes de terre + légumes',
-i:'red'
-},
+        {
+            i: "red",
+            b: "2 œufs + 40 g pain complet + 1 banane",
+            l: "150 g poulet + 60 g riz complet cru + légumes",
+            c: "150 g fromage blanc + 1 fruit",
+            d: "120 g saumon + 180 g pommes de terre + légumes"
+        },
 
-{
-b:'2 œufs + 30 g pain complet + 1 pomme',
-l:'150 g poulet + 250 g légumes + 5 g huile',
-c:'150 g skyr + fruits rouges',
-d:'2 œufs + grande salade + 200 g courgettes',
-i:'green'
-}
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + 1 pomme",
+            l: "130 g poulet + 200 g pommes de terre + légumes",
+            c: "150 g fromage blanc",
+            d: "Soupe de légumes + 2 œufs"
+        }
 
-],
+    ],
 
 
-/* ================================================= */
-/* SEMAINE 2 */
-/* ================================================= */
+    /* SEMAINE 2 */
 
-[
+    [
 
-{
-b:'2 œufs + 30 g pain complet + 1 fruit',
-l:'130 g poulet + 50 g riz complet cru + 250 g légumes',
-c:'150 g skyr + fruits rouges',
-d:'150 g cabillaud + 250 g légumes',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + pomme",
+            l: "130 g poulet + 40 g riz complet cru + légumes",
+            c: "Yaourt nature + quelques fruits rouges",
+            d: "Omelette 2 œufs + légumes"
+        },
 
-{
-b:'150 g fromage blanc + 1 banane',
-l:'120 g saumon + 180 g pommes de terre + haricots verts',
-c:'1 pomme + 1 yaourt',
-d:'2 œufs + courgettes + salade',
-i:'orange'
-},
+        {
+            i: "orange",
+            b: "150 g fromage blanc + banane + 20 g avoine",
+            l: "120 g saumon + 50 g riz complet cru + courgettes",
+            c: "Pomme + yaourt",
+            d: "2 œufs + haricots verts + 30 g pain complet"
+        },
 
-{
-b:'2 œufs + kiwi + 30 g pain complet',
-l:'130 g dinde + 60 g riz complet cru + légumes',
-c:'150 g skyr',
-d:'150 g poisson blanc + 250 g légumes',
-i:'red'
-},
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + banane",
+            l: "130 g poulet + 40 g semoule crue + légumes",
+            c: "150 g fromage blanc",
+            d: "120 g pois chiches + 2 œufs + légumes"
+        },
 
-{
-b:'150 g skyr + 100 g fruits rouges + 30 g flocons avoine',
-l:'130 g poulet + 50 g semoule complète crue + légumes',
-c:'1 pomme',
-d:'2 œufs + légumes + 5 g huile',
-i:'green'
-},
+        {
+            i: "orange",
+            b: "2 œufs + pomme + 30 g pain complet",
+            l: "130 g poulet + 50 g riz complet cru + légumes",
+            c: "Banane + yaourt",
+            d: "Omelette + légumes + salade"
+        },
 
-{
-b:'2 œufs + 40 g pain complet + 1 pomme',
-l:'120 g thon + 200 g pommes de terre + tomates',
-c:'150 g fromage blanc + kiwi',
-d:'130 g poulet + 250 g légumes',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "Fromage blanc + fruit + 20 g pain complet",
+            l: "120 g thon + 40 g pâtes complètes crues + tomates",
+            c: "Pomme",
+            d: "180 g pommes de terre + 2 œufs + légumes"
+        },
 
-{
-b:'150 g fromage blanc + banane',
-l:'130 g poulet + 70 g riz complet cru + légumes',
-c:'1 yaourt + fruit',
-d:'120 g saumon + 200 g légumes + 150 g pommes de terre',
-i:'red'
-},
+        {
+            i: "red",
+            b: "2 œufs + 40 g pain complet + pomme",
+            l: "150 g poulet + 60 g riz complet cru + légumes",
+            c: "Fromage blanc + banane",
+            d: "120 g saumon + 200 g légumes + 150 g pommes de terre"
+        },
 
-{
-b:'2 œufs + fruit',
-l:'150 g poulet + grande salade + 5 g huile',
-c:'150 g skyr + fruits rouges',
-d:'2 œufs + 250 g légumes',
-i:'green'
-}
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + banane",
+            l: "130 g poulet + 40 g semoule crue + légumes",
+            c: "Yaourt + pomme",
+            d: "Soupe de légumes + 2 œufs"
+        }
 
-],
+    ],
 
 
-/* ================================================= */
-/* SEMAINE 3 */
-/* ================================================= */
+    /* SEMAINE 3 */
 
-[
+    [
 
-{
-b:'2 œufs + 30 g pain complet + pomme',
-l:'130 g poulet curry + 50 g riz complet cru + légumes',
-c:'150 g skyr + fruits rouges',
-d:'150 g poisson blanc + 250 g légumes',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + pomme",
+            l: "130 g poulet + 40 g riz complet cru + légumes",
+            c: "Fromage blanc + quelques fruits rouges",
+            d: "Omelette + légumes"
+        },
 
-{
-b:'150 g fromage blanc + banane',
-l:'120 g thon + 60 g pâtes complètes crues + tomates',
-c:'1 pomme + yaourt',
-d:'2 œufs façon shakshuka + légumes',
-i:'red'
-},
+        {
+            i: "orange",
+            b: "150 g fromage blanc + banane + 20 g avoine",
+            l: "120 g thon + 50 g pâtes complètes crues + tomates",
+            c: "Yaourt + pomme",
+            d: "2 œufs façon shakshuka + 30 g pain"
+        },
 
-{
-b:'2 œufs + kiwi + 30 g pain complet',
-l:'130 g poulet + 60 g semoule complète crue + légumes',
-c:'150 g skyr',
-d:'120 g pois chiches + 2 œufs + légumes',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "2 œufs + pain complet + fruit",
+            l: "130 g poulet + 40 g semoule crue + légumes",
+            c: "Fromage blanc",
+            d: "Pois chiches 120 g + 2 œufs + légumes"
+        },
 
-{
-b:'150 g skyr + fruits rouges + 30 g flocons avoine',
-l:'120 g saumon + 180 g pommes de terre + légumes',
-c:'1 banane',
-d:'2 œufs + grande salade + courgettes',
-i:'green'
-},
+        {
+            i: "orange",
+            b: "2 œufs + pomme + 30 g pain",
+            l: "120 g saumon + 50 g riz complet cru + légumes",
+            c: "Yaourt + banane",
+            d: "2 œufs + 180 g pommes de terre + salade"
+        },
 
-{
-b:'2 œufs + 40 g pain complet + pomme',
-l:'130 g poulet + 50 g riz complet cru + courgettes',
-c:'150 g fromage blanc',
-d:'120 g thon + salade + 180 g pommes de terre',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "Fromage blanc + fruit + 20 g pain",
+            l: "130 g poulet + 40 g pâtes complètes crues + courgettes",
+            c: "Pomme",
+            d: "120 g thon + salade + légumes"
+        },
 
-{
-b:'150 g fromage blanc + banane',
-l:'130 g poulet + 70 g riz complet cru + légumes',
-c:'1 yaourt + fruit',
-d:'120 g saumon + 200 g légumes + 40 g pain complet',
-i:'red'
-},
+        {
+            i: "red",
+            b: "2 œufs + 40 g pain complet + pomme",
+            l: "150 g poulet + 60 g riz complet cru + légumes",
+            c: "Fromage blanc + banane",
+            d: "120 g saumon + légumes + 40 g pain"
+        },
 
-{
-b:'2 œufs + fruit',
-l:'130 g poulet + 50 g semoule complète crue + légumes + 50 g pois chiches',
-c:'150 g skyr',
-d:'Soupe de légumes + 2 œufs',
-i:'green'
-}
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain + banane",
+            l: "130 g poulet + 40 g semoule + légumes",
+            c: "Yaourt + fruit",
+            d: "Soupe + 2 œufs"
+        }
 
-],
+    ],
 
 
-/* ================================================= */
-/* SEMAINE 4 */
-/* ================================================= */
+    /* SEMAINE 4 */
 
-[
+    [
 
-{
-b:'2 œufs + 30 g pain complet + pomme',
-l:'130 g poulet + 50 g riz complet cru + légumes',
-c:'150 g skyr + fruits rouges',
-d:'2 œufs + 250 g légumes + 5 g huile',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain complet + pomme",
+            l: "130 g poulet + 40 g riz complet cru + légumes",
+            c: "Fromage blanc + fruits rouges",
+            d: "2 œufs + légumes"
+        },
 
-{
-b:'150 g fromage blanc + banane',
-l:'120 g saumon + 180 g pommes de terre + haricots verts',
-c:'1 pomme + yaourt',
-d:'Omelette 2 œufs + légumes',
-i:'orange'
-},
+        {
+            i: "orange",
+            b: "Fromage blanc + banane + 20 g avoine",
+            l: "120 g saumon + 50 g riz complet cru + haricots verts",
+            c: "Yaourt + pomme",
+            d: "Omelette + légumes + 30 g pain"
+        },
 
-{
-b:'2 œufs + kiwi + 30 g pain complet',
-l:'130 g poulet + 60 g semoule complète crue + légumes',
-c:'150 g skyr',
-d:'120 g pois chiches + 2 œufs + légumes',
-i:'red'
-},
+        {
+            i: "green",
+            b: "2 œufs + pain complet + pomme",
+            l: "130 g poulet + 40 g semoule + légumes",
+            c: "Fromage blanc + fruit",
+            d: "Pois chiches + 2 œufs + légumes"
+        },
 
-{
-b:'150 g skyr + fruits rouges + 30 g avoine',
-l:'130 g dinde + 50 g riz complet cru + légumes',
-c:'1 pomme',
-d:'2 œufs + 250 g légumes',
-i:'green'
-},
+        {
+            i: "orange",
+            b: "2 œufs + banane + 30 g pain",
+            l: "130 g poulet + 50 g riz complet + légumes",
+            c: "Yaourt + pomme",
+            d: "2 œufs + pommes de terre + salade"
+        },
 
-{
-b:'2 œufs + 40 g pain complet + pomme',
-l:'120 g thon + 200 g pommes de terre + courgettes',
-c:'150 g fromage blanc',
-d:'130 g poulet + 250 g légumes',
-i:'orange'
-},
+        {
+            i: "green",
+            b: "Fromage blanc + fruit + pain complet",
+            l: "120 g thon + 40 g pâtes complètes + courgettes",
+            c: "Banane",
+            d: "130 g poulet + légumes"
+        },
 
-{
-b:'150 g fromage blanc + banane',
-l:'120 g saumon + 70 g riz complet cru + légumes',
-c:'1 yaourt + fruit',
-d:'120 g pois chiches + 2 œufs + légumes',
-i:'red'
-},
+        {
+            i: "red",
+            b: "2 œufs + 40 g pain complet + pomme",
+            l: "150 g poulet + 60 g riz complet + légumes",
+            c: "Fromage blanc + banane",
+            d: "120 g saumon + légumes + 150 g pommes de terre"
+        },
 
-{
-b:'2 œufs + fruit',
-l:'150 g poulet + grande salade + légumes',
-c:'150 g skyr + fruits rouges',
-d:'Soupe de légumes + omelette 2 œufs',
-i:'green'
-}
+        {
+            i: "green",
+            b: "2 œufs + 30 g pain + banane",
+            l: "130 g poulet + 200 g pommes de terre + légumes",
+            c: "Yaourt + pomme",
+            d: "Soupe de légumes + omelette 2 œufs"
+        }
 
-]
+    ]
 
 ];
-
 
 
 /* ================================================= */
 /* ACTIVITES */
 /* ================================================= */
 
-
 const ACTIVITIES = [
 
-/* SEMAINE 1 */
+    [
 
-[
-{
-name:'Marche douce',
-details:'30 minutes à rythme confortable.',
-intensity:'green'
-},
+        {
+            intensity: "green",
+            name: "Marche douce",
+            details: "30 minutes à rythme confortable."
+        },
 
-{
-name:'Jambes & fessiers',
-details:'20 min : 3×12 squats, 3×12 ponts fessiers, 3×10 fentes/jambe.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Jambes & fessiers",
+            details: "20 minutes\n3 × 12 squats\n3 × 12 ponts fessiers\n3 × 10 fentes par jambe\n3 × 15 élévations mollets"
+        },
 
-{
-name:'Marche active',
-details:'35 minutes avec 10 à 15 minutes à rythme soutenu.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Marche active",
+            details: "35 minutes avec 10 à 15 minutes à rythme soutenu."
+        },
 
-{
-name:'Haut du corps',
-details:'20 min : pompes murales, élévations bras, tirages avec sac léger, gainage.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Haut du corps",
+            details: "20 minutes\n3 × 10 pompes mur\n3 × 12 élévations bras\n3 × 12 tirages avec sac léger\n3 × 20 secondes gainage"
+        },
 
-{
-name:'Danse 💃',
-details:'25 à 30 minutes à rythme modéré.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Danse 💃",
+            details: "25 à 30 minutes."
+        },
 
-{
-name:'Full body',
-details:'25 min : squats, ponts fessiers, pompes murales, montées de genoux, gainage.',
-intensity:'red'
-},
+        {
+            intensity: "red",
+            name: "Full body",
+            details: "25 minutes\n12 squats\n12 ponts fessiers\n10 pompes mur\n20 montées de genoux\n20 secondes gainage\n→ 3 tours"
+        },
 
-{
-name:'Récupération 🌿',
-details:'20 à 30 min de marche tranquille + étirements.',
-intensity:'green'
-}
+        {
+            intensity: "green",
+            name: "Récupération 🌿",
+            details: "20 à 30 minutes de marche + 10 minutes d'étirements."
+        }
 
-],
-
-
-/* SEMAINE 2 */
-
-[
-{
-name:'Marche active',
-details:'35 minutes.',
-intensity:'orange'
-},
-
-{
-name:'Jambes & fessiers',
-details:'25 minutes.',
-intensity:'orange'
-},
-
-{
-name:'Vélo doux',
-details:'30 minutes ou marche équivalente.',
-intensity:'orange'
-},
-
-{
-name:'Haut du corps + gainage',
-details:'20 à 25 minutes.',
-intensity:'orange'
-},
-
-{
-name:'Danse 💃',
-details:'30 minutes.',
-intensity:'orange'
-},
-
-{
-name:'Full body',
-details:'25 à 30 minutes.',
-intensity:'red'
-},
-
-{
-name:'Marche tranquille',
-details:'30 minutes + étirements.',
-intensity:'green'
-}
-
-],
+    ],
 
 
-/* SEMAINE 3 */
+    [
 
-[
-{
-name:'Marche',
-details:'40 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Marche active",
+            details: "35 minutes."
+        },
 
-{
-name:'Jambes & fessiers',
-details:'25 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Jambes & fessiers",
+            details: "25 minutes."
+        },
 
-{
-name:'Cardio doux',
-details:'30 minutes.',
-intensity:'red'
-},
+        {
+            intensity: "orange",
+            name: "Vélo doux ou marche",
+            details: "30 minutes."
+        },
 
-{
-name:'Haut du corps + gainage',
-details:'25 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "red",
+            name: "Haut du corps + gainage",
+            details: "20 à 25 minutes."
+        },
 
-{
-name:'Marche active',
-details:'35 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Danse 💃",
+            details: "30 minutes."
+        },
 
-{
-name:'Full body',
-details:'30 minutes.',
-intensity:'red'
-},
+        {
+            intensity: "red",
+            name: "Full body",
+            details: "25 à 30 minutes."
+        },
 
-{
-name:'Récupération',
-details:'20 à 30 minutes de marche.',
-intensity:'green'
-}
+        {
+            intensity: "green",
+            name: "Marche tranquille",
+            details: "30 minutes + étirements."
+        }
 
-],
+    ],
 
 
-/* SEMAINE 4 */
+    [
 
-[
-{
-name:'Marche active',
-details:'40 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Marche",
+            details: "40 minutes."
+        },
 
-{
-name:'Jambes & fessiers',
-details:'25 à 30 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Jambes & fessiers",
+            details: "25 minutes."
+        },
 
-{
-name:'Danse / cardio doux',
-details:'35 minutes.',
-intensity:'red'
-},
+        {
+            intensity: "orange",
+            name: "Cardio doux",
+            details: "30 minutes."
+        },
 
-{
-name:'Haut du corps + gainage',
-details:'25 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "red",
+            name: "Haut du corps + gainage",
+            details: "25 minutes."
+        },
 
-{
-name:'Marche',
-details:'40 minutes.',
-intensity:'orange'
-},
+        {
+            intensity: "orange",
+            name: "Marche active",
+            details: "35 minutes."
+        },
 
-{
-name:'Full body',
-details:'30 minutes.',
-intensity:'red'
-},
+        {
+            intensity: "red",
+            name: "Full body",
+            details: "30 minutes."
+        },
 
-{
-name:'Récupération active',
-details:'30 minutes + étirements.',
-intensity:'green'
-}
+        {
+            intensity: "green",
+            name: "Récupération",
+            details: "20 à 30 minutes de marche et étirements."
+        }
 
-]
+    ],
+
+
+    [
+
+        {
+            intensity: "orange",
+            name: "Marche active",
+            details: "40 minutes."
+        },
+
+        {
+            intensity: "orange",
+            name: "Jambes & fessiers",
+            details: "25 à 30 minutes."
+        },
+
+        {
+            intensity: "red",
+            name: "Danse / cardio",
+            details: "35 minutes."
+        },
+
+        {
+            intensity: "red",
+            name: "Haut du corps + gainage",
+            details: "25 minutes."
+        },
+
+        {
+            intensity: "orange",
+            name: "Marche",
+            details: "40 minutes."
+        },
+
+        {
+            intensity: "red",
+            name: "Full body",
+            details: "30 minutes."
+        },
+
+        {
+            intensity: "green",
+            name: "Récupération active",
+            details: "30 minutes + étirements."
+        }
+
+    ]
 
 ];
 
 
+/* ================================================= */
+/* LISTES DE COURSES */
+/* ================================================= */
 
-/* ================================================= */
-/* COURSES */
-/* ================================================= */
 /*
-   1 personne
-   7 jours
-   quantités réalistes
-   maximum 10 produits / catégorie
+    Quantités adaptées à UNE personne
+    pour environ une semaine.
 */
-
 
 const SHOPPING = [
 
+    [
 
-/* ================================================= */
-/* SEMAINE 1 */
-/* ================================================= */
+        {
+            category: "🥩 Protéines",
+            items: [
+                ["Poulet", "900 g"],
+                ["Saumon", "300 g"],
+                ["Thon", "3 boîtes"],
+                ["Œufs", "12"],
+                ["Fromage blanc", "1 kg"],
+                ["Yaourts nature", "4"],
+                ["Pois chiches", "1 boîte"]
+            ]
+        },
 
-[
+        {
+            category: "🍚 Féculents",
+            items: [
+                ["Riz complet", "300 g"],
+                ["Pâtes complètes", "250 g"],
+                ["Semoule", "250 g"],
+                ["Pommes de terre", "1 kg"],
+                ["Pain complet", "1 petit pain"]
+            ]
+        },
 
-{
-category:'🥩 Protéines',
-items:[
-['Blanc de poulet','700 g'],
-['Saumon','250 g'],
-['Thon au naturel','2 boîtes'],
-['Œufs','10'],
-['Cabillaud','300 g'],
-['Pois chiches','1 boîte']
-]
-},
+        {
+            category: "🥦 Légumes",
+            items: [
+                ["Courgettes", "1 kg"],
+                ["Haricots verts", "500 g"],
+                ["Salade", "1"],
+                ["Tomates", "500 g"],
+                ["Légumes surgelés", "1 kg"],
+                ["Oignons", "3"]
+            ]
+        },
 
-{
-category:'🥦 Légumes',
-items:[
-['Courgettes','700 g'],
-['Haricots verts','500 g'],
-['Brocoli','500 g'],
-['Tomates','500 g'],
-['Salade','1 sachet'],
-['Légumes surgelés','1 kg']
-]
-},
+        {
+            category: "🍎 Fruits",
+            items: [
+                ["Pommes", "5"],
+                ["Bananes", "4"],
+                ["Fruits rouges", "300 g"],
+                ["Citrons", "2"]
+            ]
+        },
 
-{
-category:'🍎 Fruits',
-items:[
-['Pommes','4'],
-['Bananes','4'],
-['Kiwis','3'],
-['Fruits rouges surgelés','300 g']
-]
-},
+        {
+            category: "🫒 Épicerie",
+            items: [
+                ["Huile d'olive", "1 petite bouteille"],
+                ["Curry", "1"],
+                ["Paprika", "1"],
+                ["Herbes", "1"],
+                ["Poivre", "1"]
+            ]
+        }
 
-{
-category:'🍚 Féculents',
-items:[
-['Riz complet','500 g'],
-['Pommes de terre','1 kg'],
-['Semoule complète','250 g'],
-['Pain complet','1 petit pain'],
-['Flocons d’avoine','250 g']
-]
-},
-
-{
-category:'🥛 Produits laitiers',
-items:[
-['Skyr','750 g'],
-['Fromage blanc','500 g'],
-['Yaourts nature','4']
-]
-},
-
-{
-category:'🫒 Épicerie',
-items:[
-['Huile d’olive','1 petite bouteille'],
-['Moutarde','1 pot'],
-['Curry','1 pot'],
-['Paprika','1 pot'],
-['Herbes de Provence','1 pot']
-]
-}
-
-],
+    ],
 
 
-/* ================================================= */
-/* SEMAINE 2 */
-/* ================================================= */
+    [
 
-[
+        {
+            category: "🥩 Protéines",
+            items: [
+                ["Poulet", "900 g"],
+                ["Saumon", "300 g"],
+                ["Thon", "3 boîtes"],
+                ["Œufs", "12"],
+                ["Fromage blanc", "1 kg"],
+                ["Yaourts nature", "4"],
+                ["Pois chiches", "1 boîte"]
+            ]
+        },
 
-{
-category:'🥩 Protéines',
-items:[
-['Blanc de poulet','700 g'],
-['Dinde','300 g'],
-['Saumon','250 g'],
-['Thon au naturel','2 boîtes'],
-['Œufs','10'],
-['Poisson blanc','300 g']
-]
-},
+        {
+            category: "🍚 Féculents",
+            items: [
+                ["Riz complet", "300 g"],
+                ["Pâtes complètes", "250 g"],
+                ["Semoule", "250 g"],
+                ["Pommes de terre", "1 kg"],
+                ["Pain complet", "1 petit pain"],
+                ["Flocons d'avoine", "250 g"]
+            ]
+        },
 
-{
-category:'🥦 Légumes',
-items:[
-['Courgettes','700 g'],
-['Haricots verts','500 g'],
-['Brocoli','500 g'],
-['Tomates','500 g'],
-['Poivrons','400 g'],
-['Légumes surgelés','1 kg']
-]
-},
+        {
+            category: "🥦 Légumes",
+            items: [
+                ["Courgettes", "1 kg"],
+                ["Haricots verts", "500 g"],
+                ["Salade", "1"],
+                ["Tomates", "500 g"],
+                ["Légumes surgelés", "1 kg"],
+                ["Oignons", "3"]
+            ]
+        },
 
-{
-category:'🍎 Fruits',
-items:[
-['Pommes','4'],
-['Bananes','4'],
-['Kiwis','3'],
-['Fruits rouges','300 g']
-]
-},
+        {
+            category: "🍎 Fruits",
+            items: [
+                ["Pommes", "5"],
+                ["Bananes", "4"],
+                ["Fruits rouges", "300 g"],
+                ["Citrons", "2"]
+            ]
+        }
 
-{
-category:'🍚 Féculents',
-items:[
-['Riz complet','500 g'],
-['Pommes de terre','1 kg'],
-['Semoule complète','250 g'],
-['Pain complet','1 petit pain'],
-['Flocons d’avoine','250 g']
-]
-},
-
-{
-category:'🥛 Produits laitiers',
-items:[
-['Skyr','750 g'],
-['Fromage blanc','500 g'],
-['Yaourts nature','4']
-]
-},
-
-{
-category:'🫒 Épicerie',
-items:[
-['Huile d’olive','1 petite bouteille'],
-['Moutarde','1 pot'],
-['Curry','1 pot'],
-['Paprika','1 pot'],
-['Ail','1 tête']
-]
-}
-
-],
+    ],
 
 
-/* ================================================= */
-/* SEMAINE 3 */
-/* ================================================= */
+    [
 
-[
+        {
+            category: "🥩 Protéines",
+            items: [
+                ["Poulet", "900 g"],
+                ["Saumon", "300 g"],
+                ["Thon", "3 boîtes"],
+                ["Œufs", "12"],
+                ["Fromage blanc", "1 kg"],
+                ["Yaourts nature", "4"],
+                ["Pois chiches", "1 boîte"]
+            ]
+        },
 
-{
-category:'🥩 Protéines',
-items:[
-['Blanc de poulet','700 g'],
-['Saumon','250 g'],
-['Thon au naturel','2 boîtes'],
-['Œufs','10'],
-['Poisson blanc','300 g'],
-['Pois chiches','1 boîte']
-]
-},
+        {
+            category: "🍚 Féculents",
+            items: [
+                ["Riz complet", "300 g"],
+                ["Pâtes complètes", "250 g"],
+                ["Semoule", "250 g"],
+                ["Pommes de terre", "1 kg"],
+                ["Pain complet", "1 petit pain"]
+            ]
+        },
 
-{
-category:'🥦 Légumes',
-items:[
-['Courgettes','700 g'],
-['Brocoli','500 g'],
-['Tomates','600 g'],
-['Épinards','400 g'],
-['Salade','1 sachet'],
-['Légumes surgelés','1 kg']
-]
-},
+        {
+            category: "🥦 Légumes",
+            items: [
+                ["Courgettes", "1 kg"],
+                ["Haricots verts", "500 g"],
+                ["Salade", "1"],
+                ["Tomates", "500 g"],
+                ["Légumes surgelés", "1 kg"],
+                ["Oignons", "3"]
+            ]
+        },
 
-{
-category:'🍎 Fruits',
-items:[
-['Pommes','4'],
-['Bananes','4'],
-['Kiwis','3'],
-['Fruits rouges','300 g']
-]
-},
+        {
+            category: "🍎 Fruits",
+            items: [
+                ["Pommes", "5"],
+                ["Bananes", "4"],
+                ["Fruits rouges", "300 g"],
+                ["Citrons", "2"]
+            ]
+        }
 
-{
-category:'🍚 Féculents',
-items:[
-['Riz complet','500 g'],
-['Pommes de terre','1 kg'],
-['Pâtes complètes','250 g'],
-['Semoule complète','250 g'],
-['Pain complet','1 petit pain'],
-['Flocons d’avoine','250 g']
-]
-},
-
-{
-category:'🥛 Produits laitiers',
-items:[
-['Skyr','750 g'],
-['Fromage blanc','500 g'],
-['Yaourts nature','4']
-]
-},
-
-{
-category:'🫒 Épicerie',
-items:[
-['Huile d’olive','1 petite bouteille'],
-['Curry','1 pot'],
-['Paprika','1 pot'],
-['Herbes','1 pot'],
-['Cannelle','1 pot']
-]
-}
-
-],
+    ],
 
 
-/* ================================================= */
-/* SEMAINE 4 */
-/* ================================================= */
+    [
 
-[
+        {
+            category: "🥩 Protéines",
+            items: [
+                ["Poulet", "900 g"],
+                ["Saumon", "300 g"],
+                ["Thon", "3 boîtes"],
+                ["Œufs", "12"],
+                ["Fromage blanc", "1 kg"],
+                ["Yaourts nature", "4"],
+                ["Pois chiches", "1 boîte"]
+            ]
+        },
 
-{
-category:'🥩 Protéines',
-items:[
-['Blanc de poulet','700 g'],
-['Dinde','300 g'],
-['Saumon','250 g'],
-['Thon au naturel','2 boîtes'],
-['Œufs','10'],
-['Pois chiches','1 boîte']
-]
-},
+        {
+            category: "🍚 Féculents",
+            items: [
+                ["Riz complet", "300 g"],
+                ["Pâtes complètes", "250 g"],
+                ["Semoule", "250 g"],
+                ["Pommes de terre", "1 kg"],
+                ["Pain complet", "1 petit pain"]
+            ]
+        },
 
-{
-category:'🥦 Légumes',
-items:[
-['Courgettes','700 g'],
-['Haricots verts','500 g'],
-['Brocoli','500 g'],
-['Tomates','500 g'],
-['Salade','1 sachet'],
-['Légumes surgelés','1 kg']
-]
-},
+        {
+            category: "🥦 Légumes",
+            items: [
+                ["Courgettes", "1 kg"],
+                ["Haricots verts", "500 g"],
+                ["Salade", "1"],
+                ["Tomates", "500 g"],
+                ["Légumes surgelés", "1 kg"],
+                ["Oignons", "3"]
+            ]
+        },
 
-{
-category:'🍎 Fruits',
-items:[
-['Pommes','4'],
-['Bananes','4'],
-['Kiwis','3'],
-['Fruits rouges','300 g']
-]
-},
+        {
+            category: "🍎 Fruits",
+            items: [
+                ["Pommes", "5"],
+                ["Bananes", "4"],
+                ["Fruits rouges", "300 g"],
+                ["Citrons", "2"]
+            ]
+        }
 
-{
-category:'🍚 Féculents',
-items:[
-['Riz complet','500 g'],
-['Pommes de terre','1 kg'],
-['Semoule complète','250 g'],
-['Pain complet','1 petit pain'],
-['Flocons d’avoine','250 g']
-]
-},
-
-{
-category:'🥛 Produits laitiers',
-items:[
-['Skyr','750 g'],
-['Fromage blanc','500 g'],
-['Yaourts nature','4']
-]
-},
-
-{
-category:'🫒 Épicerie',
-items:[
-['Huile d’olive','1 petite bouteille'],
-['Moutarde','1 pot'],
-['Curry','1 pot'],
-['Paprika','1 pot'],
-['Herbes de Provence','1 pot']
-]
-}
-
-]
+    ]
 
 ];
-
 
 
 /* ================================================= */
 /* ETAT */
 /* ================================================= */
 
-
-function newDay(){
+function createDay(){
 
     return {
 
-        weight:'',
-        water:'',
+        weight: "",
 
-        activityMinutes:'',
-        activityNotes:'',
+        water: "",
 
-        prayers:[
+        activityMinutes: "",
+
+        activityNotes: "",
+
+        prayers: [
             false,
             false,
             false,
@@ -2423,122 +3064,376 @@ function newDay(){
             false
         ],
 
-        mood:0,
+        mood: 0,
 
-        sleep:'',
-        feeling:'',
-        victory:''
+        sleep: "",
+
+        feeling: "",
+
+        victory: ""
 
     };
 
 }
 
 
-let data =
+function createData(){
 
-JSON.parse(
-    localStorage.getItem('dodoWeight')
-    ||
-    'null'
-)
+    return {
 
-||
+        setup: {
 
-{
+            goal: "",
 
-    setup:{
-        goal:'',
-        start:'',
-        target:'',
-        date:''
-    },
+            start: "",
 
-    days:Array.from(
-        {length:28},
-        newDay
-    ),
+            target: "",
 
-    day:0,
+            date: ""
 
-    shopping:[
+        },
+
+        day: 0,
+
+        days: Array.from(
+            { length: 28 },
+            createDay
+        ),
+
+        shopping: [
+            [],
+            [],
+            [],
+            []
+        ]
+
+    };
+
+}
+
+
+let data;
+
+
+try {
+
+    data =
+        JSON.parse(
+            localStorage.getItem(
+                "dodoWeight"
+            )
+        );
+
+} catch(error){
+
+    data = null;
+
+}
+
+
+if(
+    !data ||
+    !data.setup ||
+    !Array.isArray(data.days)
+){
+
+    data =
+        createData();
+
+}
+
+
+/* ================================================= */
+/* SECURITE ANCIENNES DONNEES */
+/* ================================================= */
+
+while(
+    data.days.length < 28
+){
+
+    data.days.push(
+        createDay()
+    );
+
+}
+
+
+if(
+    !Array.isArray(
+        data.shopping
+    )
+){
+
+    data.shopping = [
         [],
         [],
         [],
         []
-    ]
+    ];
 
-};
+}
+
+
+while(
+    data.shopping.length < 4
+){
+
+    data.shopping.push([]);
+
+}
 
 
 let shoppingWeek = 0;
-
 
 
 /* ================================================= */
 /* SAUVEGARDE */
 /* ================================================= */
 
-
 function save(){
 
     localStorage.setItem(
-        'dodoWeight',
+        "dodoWeight",
         JSON.stringify(data)
     );
 
 }
 
 
+/* ================================================= */
+/* DATE */
+/* ================================================= */
+
+function formatDate(date){
+
+    return new Intl.DateTimeFormat(
+        "fr-FR",
+        {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    ).format(date);
+
+}
+
+
+function getAutomaticDay(){
+
+    if(
+        !data.setup.date
+    ){
+
+        return 0;
+
+    }
+
+
+    const start =
+        new Date(
+            data.setup.date +
+            "T00:00:00"
+        );
+
+
+    const today =
+        new Date();
+
+
+    start.setHours(
+        0,0,0,0
+    );
+
+    today.setHours(
+        0,0,0,0
+    );
+
+
+    const difference =
+        today.getTime()
+        -
+        start.getTime();
+
+
+    const daysPassed =
+        Math.floor(
+            difference /
+            86400000
+        );
+
+
+    return Math.max(
+        0,
+        Math.min(
+            27,
+            daysPassed
+        )
+    );
+
+}
+
 
 /* ================================================= */
-/* CONFIGURATION */
+/* DATE PAR DEFAUT */
 /* ================================================= */
 
+function setDefaultDate(){
+
+    const input =
+        document.getElementById(
+            "sDate"
+        );
+
+
+    if(
+        input &&
+        !input.value
+    ){
+
+        const today =
+            new Date();
+
+
+        const year =
+            today.getFullYear();
+
+
+        const month =
+            String(
+                today.getMonth()+1
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const day =
+            String(
+                today.getDate()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        input.value =
+            `${year}-${month}-${day}`;
+
+    }
+
+}
+
+
+/* ================================================= */
+/* DEMARRAGE */
+/* ================================================= */
 
 function finishSetup(){
 
-    data.setup.goal =
+    const goal =
         document
-        .getElementById('sGoal')
+        .getElementById("sGoal")
+        .value
+        .trim();
+
+
+    const start =
+        document
+        .getElementById("sStart")
         .value;
+
+
+    const target =
+        document
+        .getElementById("sTarget")
+        .value;
+
+
+    const date =
+        document
+        .getElementById("sDate")
+        .value;
+
+
+    if(!start){
+
+        alert(
+            "Indique ton poids de départ."
+        );
+
+        return;
+
+    }
+
+
+    if(!target){
+
+        alert(
+            "Indique ton poids objectif."
+        );
+
+        return;
+
+    }
+
+
+    if(!date){
+
+        alert(
+            "Indique ta date de départ."
+        );
+
+        return;
+
+    }
+
+
+    data.setup.goal =
+        goal ||
+        "Perdre du poids";
 
 
     data.setup.start =
-        document
-        .getElementById('sStart')
-        .value;
+        start;
 
 
     data.setup.target =
-        document
-        .getElementById('sTarget')
-        .value;
+        target;
 
 
     data.setup.date =
-        document
-        .getElementById('sDate')
-        .value;
+        date;
+
+
+    data.day =
+        getAutomaticDay();
 
 
     save();
+
 
     showApp();
 
 }
 
 
+/* ================================================= */
+/* AFFICHER APPLICATION */
+/* ================================================= */
 
 function showApp(){
 
     document
-        .getElementById('setup')
-        .style.display='none';
+        .getElementById("setup")
+        .style.display =
+        "none";
 
 
     document
-        .getElementById('app')
-        .style.display='block';
+        .getElementById("app")
+        .style.display =
+        "block";
 
 
     renderAll();
@@ -2546,15 +3441,35 @@ function showApp(){
 }
 
 
+/* ================================================= */
+/* JOUR ACTUEL */
+/* ================================================= */
+
+function goToday(){
+
+    saveInputs();
+
+
+    data.day =
+        getAutomaticDay();
+
+
+    renderAll();
+
+
+    save();
+
+}
+
 
 /* ================================================= */
-/* JOUR */
+/* CHANGEMENT JOUR */
 /* ================================================= */
-
 
 function changeDay(direction){
 
     saveInputs();
+
 
     data.day =
         Math.max(
@@ -2565,167 +3480,101 @@ function changeDay(direction){
             )
         );
 
+
     renderAll();
+
 
     save();
 
 }
-
-
-
-/* ================================================= */
-/* SOUS ONGLETS ALIMENTATION */
-/* ================================================= */
-
-
-function showFoodSection(section){
-
-    const menus =
-        document.getElementById(
-            'menusSection'
-        );
-
-    const shopping =
-        document.getElementById(
-            'shoppingSection'
-        );
-
-
-    const menuTab =
-        document.getElementById(
-            'menuTab'
-        );
-
-    const shoppingTab =
-        document.getElementById(
-            'shoppingTab'
-        );
-
-
-    if(section === 'menus'){
-
-        menus.style.display='block';
-
-        shopping.style.display='none';
-
-        menuTab.classList.add(
-            'active'
-        );
-
-        shoppingTab.classList.remove(
-            'active'
-        );
-
-    }
-
-    else{
-
-        menus.style.display='none';
-
-        shopping.style.display='block';
-
-        menuTab.classList.remove(
-            'active'
-        );
-
-        shoppingTab.classList.add(
-            'active'
-        );
-
-        renderShopping();
-
-    }
-
-}
-
-
-
-/* ================================================= */
-/* SEMAINE MENU */
-/* ================================================= */
-
-
-function goWeek(week){
-
-    saveInputs();
-
-    data.day =
-        week * 7;
-
-    renderAll();
-
-    save();
-
-}
-
 
 
 /* ================================================= */
 /* RENDU GENERAL */
 /* ================================================= */
 
-
 function renderAll(){
 
-    const d =
+    const dayIndex =
         data.day;
 
 
     const week =
         Math.floor(
-            d / 7
+            dayIndex / 7
         );
 
 
-    const dow =
-        d % 7;
+    const dayOfWeek =
+        dayIndex % 7;
 
 
-    const state =
-        data.days[d];
+    let date =
+        data.setup.date
+        ?
+
+        new Date(
+            data.setup.date +
+            "T00:00:00"
+        )
+
+        :
+
+        new Date();
+
+
+    date.setDate(
+        date.getDate() +
+        dayIndex
+    );
 
 
     document
-        .getElementById('dateLabel')
+        .getElementById(
+            "dateLabel"
+        )
         .textContent =
-        `Semaine ${week+1} • ${DAYS[dow]} • Jour ${d+1}`;
+
+        `${formatDate(date)}
+        • Semaine ${week+1}
+        • Jour ${dayIndex+1}`;
 
 
     document
-        .getElementById('foodGoal')
+        .getElementById(
+            "foodGoal"
+        )
         .textContent =
-        data.setup.goal
-        ||
-        'Mon objectif du jour';
+        data.setup.goal ||
+        "Mon objectif";
 
 
     document
-        .getElementById('activityDay')
+        .getElementById(
+            "activityDay"
+        )
         .textContent =
-        `${DAYS[dow]} • Semaine ${week+1}`;
 
+        `${formatDate(date)}
+        • Jour ${dayIndex+1}`;
 
 
     renderMeals(
         week,
-        dow
+        dayOfWeek
     );
 
 
     renderActivity(
         week,
-        dow
+        dayOfWeek
     );
 
 
-    renderPrayers(
-        state
-    );
+    renderPrayers();
 
 
-    renderInputs(
-        state
-    );
+    renderInputs();
 
 
     renderWeight();
@@ -2736,385 +3585,656 @@ function renderAll(){
 }
 
 
-
 /* ================================================= */
 /* MENUS */
 /* ================================================= */
 
-
 function renderMeals(
     week,
-    dow
+    dayOfWeek
 ){
 
-    const day =
-        MEALS[week][dow];
+    const meal =
+        MEALS[week][dayOfWeek];
 
 
-    const labels = [
+    const meals = [
 
-        ['🌅','Petit-déjeuner'],
-        ['🍽️','Déjeuner'],
-        ['🍎','Collation'],
-        ['🌙','Dîner']
+        [
+            "🌅",
+            "Petit-déjeuner",
+            meal.b
+        ],
+
+        [
+            "🍽️",
+            "Déjeuner",
+            meal.l
+        ],
+
+        [
+            "🍎",
+            "Collation",
+            meal.c
+        ],
+
+        [
+            "🌙",
+            "Dîner",
+            meal.d
+        ]
 
     ];
 
 
     document
-        .getElementById('meals')
+        .getElementById(
+            "meals"
+        )
         .innerHTML =
 
+        meals.map(
 
-        day
+            meal => `
 
-        .slice(
-            0,
-            4
-        )
+                <div class="meal">
 
-        .map(
-
-            (meal,index) =>
-
-            `
-
-            <div class="meal">
-
-                <div class="meal-icon">
-                    ${labels[index][0]}
-                </div>
-
-                <div class="meal-info">
-
-                    <div class="meal-title">
-                        ${labels[index][1]}
+                    <div class="meal-icon">
+                        ${meal[0]}
                     </div>
 
-                    <div class="meal-text">
-                        ${meal}
+                    <div>
+
+                        <div class="meal-title">
+                            ${meal[1]}
+                        </div>
+
+                        <div class="meal-text">
+                            ${meal[2]}
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
-
             `
 
-        )
-
-        .join('');
+        ).join("");
 
 
-    const intensity =
-        day.i;
+    const intensity = {
 
+        green: {
 
-    const intensityData = {
+            title:
+                "🟢 Journée légère",
 
-        green:{
-            label:'🟢 Journée légère',
-            text:'Glucides réduits : priorité aux protéines et légumes.',
-            class:'green'
+            text:
+                "Peu de glucides : priorité aux protéines et aux légumes.",
+
+            class:
+                "green"
+
         },
 
-        orange:{
-            label:'🟠 Journée modérée',
-            text:'Glucides modérés pour accompagner l’activité.',
-            class:'orange'
+        orange: {
+
+            title:
+                "🟠 Journée modérée",
+
+            text:
+                "Glucides modérés pour accompagner l'activité.",
+
+            class:
+                "orange"
+
         },
 
-        red:{
-            label:'🔴 Journée intense',
-            text:'Glucides légèrement augmentés pour soutenir l’entraînement.',
-            class:'red'
+        red: {
+
+            title:
+                "🔴 Journée intense",
+
+            text:
+                "Un peu plus de glucides pour soutenir l'entraînement.",
+
+            class:
+                "red"
+
         }
 
     };
 
 
     const info =
-        intensityData[intensity];
+        intensity[
+            meal.i
+        ];
 
 
     document
-        .getElementById('dayIntensity')
-        .innerHTML =
+        .getElementById(
+            "dayIntensity"
+        )
+        .innerHTML = `
 
-        `
+            <div
+                class="intensity ${info.class}"
+            >
 
-        <div class="intensity ${info.class}">
+                <span class="intensity-dot"></span>
 
-            <span class="intensity-dot"></span>
+                <div>
 
-            <span>
-                <strong>
-                    ${info.label}
-                </strong>
-                <br>
-                ${info.text}
-            </span>
+                    <strong>
+                        ${info.title}
+                    </strong>
 
-        </div>
+                    <br>
+
+                    ${info.text}
+
+                </div>
+
+            </div>
 
         `;
 
 
     document
-        .getElementById('weekTabs')
+        .getElementById(
+            "weekTabs"
+        )
         .innerHTML =
 
         [0,1,2,3]
 
         .map(
 
-            index =>
+            index => `
+
+                <button
+                    class="week-tab ${
+                        index === week
+                        ? "active"
+                        : ""
+                    }"
+                    onclick="
+                        goWeek(${index})
+                    "
+                >
+                    Semaine ${index+1}
+                </button>
 
             `
 
-            <button
-                class="week-tab ${index===week?'active':''}"
-                onclick="goWeek(${index})"
-            >
-                Semaine ${index+1}
-            </button>
-
-            `
-
-        )
-
-        .join('');
+        ).join("");
 
 }
 
+
+/* ================================================= */
+/* SEMAINE */
+/* ================================================= */
+
+function goWeek(week){
+
+    saveInputs();
+
+
+    data.day =
+        week * 7;
+
+
+    renderAll();
+
+
+    save();
+
+}
 
 
 /* ================================================= */
 /* ACTIVITE */
 /* ================================================= */
 
-
 function renderActivity(
     week,
-    dow
+    dayOfWeek
 ){
 
     const activity =
-        ACTIVITIES[week][dow];
+        ACTIVITIES[
+            week
+        ][
+            dayOfWeek
+        ];
 
 
     document
-        .getElementById('activityName')
+        .getElementById(
+            "activityName"
+        )
         .textContent =
         activity.name;
 
 
     document
-        .getElementById('activityDetails')
+        .getElementById(
+            "activityDetails"
+        )
         .textContent =
         activity.details;
 
 
-    const labels = {
+    const intensity = {
 
-        green:{
-            label:'🟢 Intensité légère',
-            text:'Journée de récupération ou activité douce.',
-            class:'green'
+        green: {
+
+            title:
+                "🟢 Intensité légère",
+
+            text:
+                "Journée douce ou récupération.",
+
+            class:
+                "green"
+
         },
 
-        orange:{
-            label:'🟠 Intensité modérée',
-            text:'Les glucides sont modérés pour accompagner l’effort.',
-            class:'orange'
+        orange: {
+
+            title:
+                "🟠 Intensité modérée",
+
+            text:
+                "Activité modérée : glucides adaptés.",
+
+            class:
+                "orange"
+
         },
 
-        red:{
-            label:'🔴 Intensité élevée',
-            text:'Les glucides sont légèrement augmentés aujourd’hui.',
-            class:'red'
+        red: {
+
+            title:
+                "🔴 Intensité élevée",
+
+            text:
+                "Journée exigeante : les glucides sont légèrement augmentés.",
+
+            class:
+                "red"
+
         }
 
     };
 
 
     const info =
-        labels[activity.intensity];
+        intensity[
+            activity.intensity
+        ];
 
 
     document
-        .getElementById('activityIntensity')
-        .innerHTML =
+        .getElementById(
+            "activityIntensity"
+        )
+        .innerHTML = `
 
-        `
+            <div
+                class="intensity ${info.class}"
+            >
 
-        <div class="intensity ${info.class}">
+                <span class="intensity-dot"></span>
 
-            <span class="intensity-dot"></span>
+                <div>
 
-            <span>
-                <strong>
-                    ${info.label}
-                </strong>
-                <br>
-                ${info.text}
-            </span>
+                    <strong>
+                        ${info.title}
+                    </strong>
 
-        </div>
+                    <br>
+
+                    ${info.text}
+
+                </div>
+
+            </div>
 
         `;
 
 }
 
 
-
 /* ================================================= */
 /* INPUTS */
 /* ================================================= */
 
+function renderInputs(){
 
-function renderInputs(state){
+    const state =
+        data.days[
+            data.day
+        ];
+
 
     document
-        .getElementById('water')
+        .getElementById(
+            "water"
+        )
         .value =
-        state.water;
+        state.water || "";
 
 
     document
-        .getElementById('activityMinutes')
+        .getElementById(
+            "waterWellbeing"
+        )
         .value =
-        state.activityMinutes;
+        state.water || "";
 
 
     document
-        .getElementById('activityNotes')
+        .getElementById(
+            "activityMinutes"
+        )
         .value =
-        state.activityNotes;
+        state.activityMinutes || "";
 
 
     document
-        .getElementById('weight')
+        .getElementById(
+            "activityNotes"
+        )
         .value =
-        state.weight;
+        state.activityNotes || "";
 
 
     document
-        .getElementById('sleep')
+        .getElementById(
+            "weight"
+        )
         .value =
-        state.sleep;
+        state.weight || "";
 
 
     document
-        .getElementById('feeling')
+        .getElementById(
+            "sleep"
+        )
         .value =
-        state.feeling;
+        state.sleep || "";
 
 
     document
-        .getElementById('victory')
+        .getElementById(
+            "feeling"
+        )
         .value =
-        state.victory;
+        state.feeling || "";
 
 
     document
-        .querySelectorAll('.mood')
+        .getElementById(
+            "victory"
+        )
+        .value =
+        state.victory || "";
+
+
+    document
+        .querySelectorAll(
+            ".mood"
+        )
         .forEach(
 
-            button =>
+            button => {
 
-            button.classList.toggle(
+                button.classList.toggle(
 
-                'selected',
+                    "selected",
 
-                +button.dataset.mood
-                ===
-                state.mood
+                    Number(
+                        button.dataset.mood
+                    )
+                    ===
+                    Number(
+                        state.mood
+                    )
 
-            )
+                );
+
+            }
 
         );
 
 }
 
 
+/* ================================================= */
+/* SAUVEGARDE INPUTS */
+/* ================================================= */
+
+function saveInputs(){
+
+    const state =
+        data.days[
+            data.day
+        ];
+
+
+    if(!state){
+
+        return;
+
+    }
+
+
+    state.water =
+        document
+        .getElementById(
+            "water"
+        )
+        .value;
+
+
+    state.activityMinutes =
+        document
+        .getElementById(
+            "activityMinutes"
+        )
+        .value;
+
+
+    state.activityNotes =
+        document
+        .getElementById(
+            "activityNotes"
+        )
+        .value;
+
+
+    state.weight =
+        document
+        .getElementById(
+            "weight"
+        )
+        .value;
+
+
+    state.sleep =
+        document
+        .getElementById(
+            "sleep"
+        )
+        .value;
+
+
+    state.feeling =
+        document
+        .getElementById(
+            "feeling"
+        )
+        .value;
+
+
+    state.victory =
+        document
+        .getElementById(
+            "victory"
+        )
+        .value;
+
+
+    save();
+
+}
+
 
 /* ================================================= */
 /* PRIERES */
 /* ================================================= */
 
+function renderPrayers(){
 
-function renderPrayers(state){
-
-    const d =
-        data.day;
+    const state =
+        data.days[
+            data.day
+        ];
 
 
     document
-        .getElementById('prayers')
+        .getElementById(
+            "prayers"
+        )
         .innerHTML =
 
-        PRAYERS
+        PRAYERS.map(
 
-        .map(
+            (
+                prayer,
+                index
+            ) => `
 
-            (prayer,index) =>
+                <label class="prayer">
+
+                    <input
+                        type="checkbox"
+                        ${
+                            state.prayers[index]
+                            ? "checked"
+                            : ""
+                        }
+
+                        onchange="
+                            data.days[
+                                data.day
+                            ].prayers[
+                                ${index}
+                            ] = this.checked;
+
+                            save();
+                        "
+                    >
+
+                    ${prayer}
+
+                </label>
 
             `
 
-            <label class="prayer">
-
-                <input
-                    type="checkbox"
-                    ${state.prayers[index]?'checked':''}
-
-                    onchange="
-                        data.days[${d}]
-                        .prayers[${index}]
-                        =this.checked;
-                        save();
-                    "
-                >
-
-                ${prayer}
-
-            </label>
-
-            `
-
-        )
-
-        .join('');
+        ).join("");
 
 }
 
+
+/* ================================================= */
+/* HUMEUR */
+/* ================================================= */
+
+document
+    .querySelectorAll(
+        ".mood"
+    )
+    .forEach(
+
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    data.days[
+                        data.day
+                    ].mood =
+                        Number(
+                            button.dataset.mood
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            ".mood"
+                        )
+                        .forEach(
+
+                            item =>
+                            item.classList.remove(
+                                "selected"
+                            )
+
+                        );
+
+
+                    button.classList.add(
+                        "selected"
+                    );
+
+
+                    save();
+
+                }
+            );
+
+        }
+
+    );
 
 
 /* ================================================= */
 /* COURSES */
 /* ================================================= */
 
-
-function setShoppingWeek(week){
+function setShoppingWeek(
+    week
+){
 
     shoppingWeek =
         week;
 
 
     for(
-        let i=0;
-        i<4;
+        let i = 0;
+        i < 4;
         i++
     ){
 
-        document
-            .getElementById(
-                'shopWeek'+i
-            )
-            .classList.toggle(
-                'active',
-                i===week
+        const button =
+            document.getElementById(
+                "shopWeek" + i
             );
+
+
+        if(button){
+
+            button.classList.toggle(
+                "active",
+                i === week
+            );
+
+        }
 
     }
 
@@ -3124,157 +4244,154 @@ function setShoppingWeek(week){
 }
 
 
-
-function shoppingKey(
-    week,
+function getShoppingKey(
     category,
-    index
+    item
 ){
 
-    return `${week}_${category}_${index}`;
+    return `${shoppingWeek}_${category}_${item}`;
 
 }
-
 
 
 function renderShopping(){
 
     const container =
         document.getElementById(
-            'shoppingList'
+            "shoppingList"
         );
 
 
     if(!container){
+
         return;
+
     }
 
 
     const selected =
         data.shopping[
             shoppingWeek
-        ]
-        ||
-        [];
+        ];
 
 
-    let count =
+    const count =
         selected.length;
 
 
     document
         .getElementById(
-            'shoppingCount'
+            "shoppingCount"
         )
         .textContent =
 
-        count === 0
-
-        ?
-
-        '0 produit coché'
-
-        :
-
-        `${count} produit${count>1?'s':''} coché${count>1?'s':''}`;
+        `${count}
+        produit${count > 1 ? "s" : ""}
+        coché${count > 1 ? "s" : ""}`;
 
 
     container.innerHTML =
 
-        SHOPPING[shoppingWeek]
+        SHOPPING[
+            shoppingWeek
+        ]
 
         .map(
 
-            (category,categoryIndex) =>
+            (
+                category,
+                categoryIndex
+            ) => `
 
-            `
+                <div
+                    class="shop-category"
+                >
 
-            <div class="shop-category">
-
-                <div class="shop-category-title">
-                    ${category.category}
-                </div>
-
-
-                ${
-
-                category.items
-
-                .map(
-
-                    (item,index) => {
-
-                        const key =
-                            shoppingKey(
-                                shoppingWeek,
-                                categoryIndex,
-                                index
-                            );
+                    <div
+                        class="shop-category-title"
+                    >
+                        ${category.category}
+                    </div>
 
 
-                        const checked =
-                            selected.includes(
-                                key
-                            );
+                    ${
+                        category.items
+                        .map(
+
+                            (
+                                item,
+                                itemIndex
+                            ) => {
+
+                                const key =
+                                    getShoppingKey(
+                                        categoryIndex,
+                                        itemIndex
+                                    );
 
 
-                        return `
+                                const checked =
+                                    selected.includes(
+                                        key
+                                    );
 
-                        <label class="shop-item">
 
-                            <input
-                                type="checkbox"
-                                ${checked?'checked':''}
-                                onchange="
-                                    toggleShopping(
-                                        '${key}'
-                                    )
-                                "
-                            >
+                                return `
 
-                            <span class="shop-name">
-                                ${item[0]}
-                            </span>
+                                    <label
+                                        class="shop-item"
+                                    >
 
-                            <span class="shop-quantity">
-                                ${item[1]}
-                            </span>
+                                        <input
+                                            type="checkbox"
+                                            ${
+                                                checked
+                                                ? "checked"
+                                                : ""
+                                            }
 
-                        </label>
+                                            onchange="
+                                                toggleShopping(
+                                                    '${key}'
+                                                )
+                                            "
+                                        >
 
-                        `;
 
+                                        <span
+                                            class="shop-name"
+                                        >
+                                            ${item[0]}
+                                        </span>
+
+
+                                        <span
+                                            class="shop-quantity"
+                                        >
+                                            ${item[1]}
+                                        </span>
+
+                                    </label>
+
+                                `;
+
+                            }
+
+                        ).join("")
                     }
 
-                )
-
-                .join('')
-
-                }
-
-            </div>
+                </div>
 
             `
 
-        )
-
-        .join('');
+        ).join("");
 
 }
 
 
-
-function toggleShopping(key){
-
-    if(
-        !data.shopping[shoppingWeek]
-    ){
-
-        data.shopping[shoppingWeek] =
-            [];
-
-    }
-
+function toggleShopping(
+    key
+){
 
     const list =
         data.shopping[
@@ -3295,9 +4412,7 @@ function toggleShopping(key){
             1
         );
 
-    }
-
-    else{
+    } else {
 
         list.push(
             key
@@ -3308,10 +4423,10 @@ function toggleShopping(key){
 
     save();
 
+
     renderShopping();
 
 }
-
 
 
 function clearShopping(){
@@ -3323,313 +4438,15 @@ function clearShopping(){
 
     save();
 
+
     renderShopping();
 
 }
 
 
-
-/* ================================================= */
-/* COURBE DE POIDS */
-/* ================================================= */
-
-
-function renderWeightChart(){
-
-    const svg =
-        document.getElementById(
-            'weightChart'
-        );
-
-
-    if(!svg){
-        return;
-    }
-
-
-    const weights =
-
-        data.days
-
-        .map(
-
-            (day,index) => ({
-
-                day:index+1,
-
-                value:
-                    parseFloat(
-                        day.weight
-                    )
-
-            })
-
-        )
-
-        .filter(
-
-            item =>
-            Number.isFinite(
-                item.value
-            )
-
-        );
-
-
-    svg.innerHTML='';
-
-
-    if(
-        weights.length === 0
-    ){
-
-        svg.innerHTML =
-
-        `
-
-        <text
-            x="300"
-            y="130"
-            text-anchor="middle"
-            class="chart-empty"
-        >
-            Ajoute une pesée pour voir ta progression
-        </text>
-
-        `;
-
-        return;
-
-    }
-
-
-    const width = 600;
-
-    const height = 250;
-
-    const left = 45;
-
-    const right = 18;
-
-    const top = 18;
-
-    const bottom = 35;
-
-
-    const chartWidth =
-        width-left-right;
-
-
-    const chartHeight =
-        height-top-bottom;
-
-
-    let min =
-        Math.min(
-            ...weights.map(
-                x=>x.value
-            )
-        );
-
-
-    let max =
-        Math.max(
-            ...weights.map(
-                x=>x.value
-            )
-        );
-
-
-    if(
-        min === max
-    ){
-
-        min -= 1;
-
-        max += 1;
-
-    }
-
-    else{
-
-        min -= .5;
-
-        max += .5;
-
-    }
-
-
-    function x(index){
-
-        if(
-            weights.length === 1
-        ){
-
-            return left +
-                chartWidth/2;
-
-        }
-
-
-        return left +
-
-            (
-                index /
-                (weights.length-1)
-            )
-
-            *
-            chartWidth;
-
-    }
-
-
-    function y(value){
-
-        return top +
-
-            (
-                (max-value)
-                /
-                (max-min)
-            )
-
-            *
-            chartHeight;
-
-    }
-
-
-    /* grille très légère */
-
-    for(
-        let i=0;
-        i<=2;
-        i++
-    ){
-
-        const yy =
-            top +
-            (i/2)
-            *
-            chartHeight;
-
-
-        const value =
-            max -
-            (
-                (max-min)
-                *
-                (i/2)
-            );
-
-
-        svg.innerHTML +=
-
-        `
-
-        <line
-            x1="${left}"
-            y1="${yy}"
-            x2="${width-right}"
-            y2="${yy}"
-            class="chart-grid"
-        />
-
-        <text
-            x="${left-7}"
-            y="${yy+4}"
-            text-anchor="end"
-            class="chart-label"
-        >
-            ${value.toFixed(1)}
-        </text>
-
-        `;
-
-    }
-
-
-    let points='';
-
-
-    weights.forEach(
-
-        (item,index)=>{
-
-            points +=
-
-                `${x(index)},${y(item.value)} `;
-
-        }
-
-    );
-
-
-    if(
-        weights.length > 1
-    ){
-
-        svg.innerHTML +=
-
-        `
-
-        <polyline
-            points="${points}"
-            class="chart-line"
-        />
-
-        `;
-
-    }
-
-
-    weights.forEach(
-
-        (item,index)=>{
-
-            const xx =
-                x(index);
-
-
-            const yy =
-                y(item.value);
-
-
-            svg.innerHTML +=
-
-            `
-
-            <circle
-                cx="${xx}"
-                cy="${yy}"
-                r="5"
-                class="chart-point"
-            />
-
-            <text
-                x="${xx}"
-                y="${height-10}"
-                text-anchor="middle"
-                class="chart-label"
-            >
-                J${item.day}
-            </text>
-
-            `;
-
-        }
-
-    );
-
-}
-
-
-
 /* ================================================= */
 /* POIDS */
 /* ================================================= */
-
 
 function renderWeight(){
 
@@ -3651,7 +4468,10 @@ function renderWeight(){
 
         .map(
 
-            (day,index)=>({
+            (
+                day,
+                index
+            ) => ({
 
                 index,
 
@@ -3681,7 +4501,7 @@ function renderWeight(){
         ?
 
         weights[
-            weights.length-1
+            weights.length - 1
         ].value
 
         :
@@ -3689,41 +4509,55 @@ function renderWeight(){
         start;
 
 
-    let remaining = null;
+    const remaining =
+
+        Number.isFinite(
+            current
+        )
+        &&
+        Number.isFinite(
+            target
+        )
+
+        ?
+
+        Math.max(
+            0,
+            current - target
+        )
+
+        :
+
+        null;
+
+
+    let progress = 0;
 
 
     if(
-        Number.isFinite(target)
+
+        Number.isFinite(
+            start
+        )
+
         &&
-        Number.isFinite(current)
-    ){
 
-        remaining =
-            Math.max(
-                0,
-                current-target
-            );
+        Number.isFinite(
+            target
+        )
 
-    }
-
-
-    let progress=0;
-
-
-    if(
-        Number.isFinite(start)
         &&
-        Number.isFinite(target)
-        &&
+
         start !== target
+
     ){
 
         progress =
 
             (
-                (start-current)
+                (start - current)
                 /
-                (start-target)
+                (start - target)
             )
             *
             100;
@@ -3742,98 +4576,76 @@ function renderWeight(){
 
 
     document
-        .getElementById('startStat')
+        .getElementById(
+            "startStat"
+        )
         .textContent =
 
         Number.isFinite(start)
-
         ?
 
         start.toFixed(1)
-
         :
 
-        '—';
+        "—";
 
 
     document
-        .getElementById('currentStat')
+        .getElementById(
+            "currentStat"
+        )
         .textContent =
 
         Number.isFinite(current)
-
         ?
 
         current.toFixed(1)
-
         :
 
-        '—';
+        "—";
 
 
     document
-        .getElementById('leftStat')
+        .getElementById(
+            "leftStat"
+        )
         .textContent =
 
         remaining !== null
-
         ?
 
         remaining.toFixed(1)
-
         :
 
-        '—';
+        "—";
 
 
     document
-        .getElementById('startText')
-        .textContent =
-
-        Number.isFinite(start)
-
-        ?
-
-        start.toFixed(1)+' kg'
-
-        :
-
-        'Départ';
-
-
-    document
-        .getElementById('targetText')
-        .textContent =
-
-        Number.isFinite(target)
-
-        ?
-
-        target.toFixed(1)+' kg'
-
-        :
-
-        'Objectif';
-
-
-    document
-        .getElementById('progress')
+        .getElementById(
+            "progress"
+        )
         .style.width =
-        progress+'%';
+        progress + "%";
 
 
     if(
-        Number.isFinite(current)
+        Number.isFinite(
+            current
+        )
         &&
-        Number.isFinite(start)
+        Number.isFinite(
+            start
+        )
     ){
 
         const lost =
-            start-current;
+            start - current;
 
 
         document
-            .getElementById('progressText')
+            .getElementById(
+                "progressText"
+            )
             .textContent =
 
             lost >= 0
@@ -3848,27 +4660,18 @@ function renderWeight(){
 
     }
 
-    else{
 
-        document
-            .getElementById('progressText')
-            .textContent =
-            'Ajoute une pesée pour suivre ta progression.';
+    const history =
+        document.getElementById(
+            "history"
+        );
 
-    }
-
-
-    /* historique */
 
     if(
         weights.length === 0
     ){
 
-        document
-            .getElementById('history')
-            .innerHTML =
-
-            `
+        history.innerHTML = `
 
             <div class="history-row">
 
@@ -3882,44 +4685,39 @@ function renderWeight(){
 
             </div>
 
-            `;
+        `;
 
     }
 
     else{
 
-        document
-            .getElementById('history')
-            .innerHTML =
+        history.innerHTML =
 
             weights
-
             .slice()
             .reverse()
 
             .map(
 
-                item =>
+                item => `
 
-                `
+                    <div class="history-row">
 
-                <div class="history-row">
+                        <span>
+                            Jour ${item.index + 1}
+                        </span>
 
-                    <span>
-                        Jour ${item.index+1}
-                    </span>
+                        <b>
+                            ${item.value.toFixed(1)}
+                            kg
+                        </b>
 
-                    <b>
-                        ${item.value.toFixed(1)} kg
-                    </b>
-
-                </div>
+                    </div>
 
                 `
 
             )
-
-            .join('');
+            .join("");
 
     }
 
@@ -3929,280 +4727,549 @@ function renderWeight(){
 }
 
 
-
 /* ================================================= */
-/* SAUVEGARDE DES CHAMPS */
+/* COURBE */
 /* ================================================= */
 
+function renderWeightChart(){
 
-function saveInputs(){
-
-    const state =
-        data.days[data.day];
-
-
-    state.water =
-        document
-        .getElementById('water')
-        .value;
+    const svg =
+        document.getElementById(
+            "weightChart"
+        );
 
 
-    state.activityMinutes =
-        document
-        .getElementById('activityMinutes')
-        .value;
+    const weights =
+
+        data.days
+
+        .map(
+
+            (
+                day,
+                index
+            ) => ({
+
+                day:
+                    index + 1,
+
+                value:
+                    parseFloat(
+                        day.weight
+                    )
+
+            })
+
+        )
+
+        .filter(
+
+            item =>
+            Number.isFinite(
+                item.value
+            )
+
+        );
 
 
-    state.activityNotes =
-        document
-        .getElementById('activityNotes')
-        .value;
+    svg.innerHTML = "";
 
 
-    state.weight =
-        document
-        .getElementById('weight')
-        .value;
+    if(
+        weights.length === 0
+    ){
+
+        svg.innerHTML = `
+
+            <text
+                x="300"
+                y="125"
+                text-anchor="middle"
+                class="chart-empty"
+            >
+                Ajoute une pesée pour voir ta progression
+            </text>
+
+        `;
+
+        return;
+
+    }
 
 
-    state.sleep =
-        document
-        .getElementById('sleep')
-        .value;
+    const width = 600;
+    const height = 240;
+
+    const left = 45;
+    const right = 15;
+    const top = 20;
+    const bottom = 35;
 
 
-    state.feeling =
-        document
-        .getElementById('feeling')
-        .value;
+    const chartWidth =
+        width -
+        left -
+        right;
 
 
-    state.victory =
-        document
-        .getElementById('victory')
-        .value;
+    const chartHeight =
+        height -
+        top -
+        bottom;
 
 
-    save();
+    let min =
+        Math.min(
+            ...weights.map(
+                x => x.value
+            )
+        );
+
+
+    let max =
+        Math.max(
+            ...weights.map(
+                x => x.value
+            )
+        );
+
+
+    if(
+        min === max
+    ){
+
+        min -= 1;
+
+        max += 1;
+
+    }
+
+    else{
+
+        min -= .5;
+
+        max += .5;
+
+    }
+
+
+    function x(index){
+
+        if(
+            weights.length === 1
+        ){
+
+            return (
+                left +
+                chartWidth / 2
+            );
+
+        }
+
+
+        return (
+
+            left +
+
+            (
+                index /
+                (weights.length - 1)
+            )
+            *
+            chartWidth
+
+        );
+
+    }
+
+
+    function y(value){
+
+        return (
+
+            top +
+
+            (
+                (max - value)
+                /
+                (max - min)
+            )
+            *
+            chartHeight
+
+        );
+
+    }
+
+
+    for(
+        let i = 0;
+        i <= 2;
+        i++
+    ){
+
+        const yy =
+            top +
+            (
+                i / 2
+            )
+            *
+            chartHeight;
+
+
+        const value =
+            max -
+            (
+                (max - min)
+                *
+                (i / 2)
+            );
+
+
+        svg.innerHTML += `
+
+            <line
+                x1="${left}"
+                y1="${yy}"
+                x2="${width-right}"
+                y2="${yy}"
+                class="chart-grid"
+            />
+
+            <text
+                x="${left-7}"
+                y="${yy+4}"
+                text-anchor="end"
+                class="chart-label"
+            >
+                ${value.toFixed(1)}
+            </text>
+
+        `;
+
+    }
+
+
+    let points = "";
+
+
+    weights.forEach(
+
+        (
+            item,
+            index
+        ) => {
+
+            points +=
+
+                `${x(index)},${y(item.value)} `;
+
+        }
+
+    );
+
+
+    if(
+        weights.length > 1
+    ){
+
+        svg.innerHTML += `
+
+            <polyline
+                points="${points}"
+                class="chart-line"
+            />
+
+        `;
+
+    }
+
+
+    weights.forEach(
+
+        (
+            item,
+            index
+        ) => {
+
+            const xx =
+                x(index);
+
+
+            const yy =
+                y(item.value);
+
+
+            svg.innerHTML += `
+
+                <circle
+                    cx="${xx}"
+                    cy="${yy}"
+                    r="5"
+                    class="chart-point"
+                />
+
+                <text
+                    x="${xx}"
+                    y="${height-10}"
+                    text-anchor="middle"
+                    class="chart-label"
+                >
+                    J${item.day}
+                </text>
+
+            `;
+
+        }
+
+    );
 
 }
 
+
+/* ================================================= */
+/* NAVIGATION BASSE */
+/* ================================================= */
+
+document
+    .querySelectorAll(
+        ".bottom-nav button"
+    )
+    .forEach(
+
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    saveInputs();
+
+
+                    document
+                        .querySelectorAll(
+                            ".bottom-nav button"
+                        )
+                        .forEach(
+
+                            item =>
+                            item.classList.remove(
+                                "active"
+                            )
+
+                        );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    document
+                        .querySelectorAll(
+                            ".page"
+                        )
+                        .forEach(
+
+                            page =>
+                            page.classList.remove(
+                                "active"
+                            )
+
+                        );
+
+
+                    document
+                        .getElementById(
+                            button.dataset.page
+                        )
+                        .classList.add(
+                            "active"
+                        );
+
+
+                    window.scrollTo(
+                        0,
+                        0
+                    );
+
+                }
+            );
+
+        }
+
+    );
 
 
 /* ================================================= */
 /* SAUVEGARDE AUTOMATIQUE */
 /* ================================================= */
 
-
 [
+    "water",
+    "waterWellbeing",
+    "activityMinutes",
+    "activityNotes",
+    "weight",
+    "sleep",
+    "feeling",
+    "victory"
 
-    'water',
-    'activityMinutes',
-    'activityNotes',
-    'weight',
-    'sleep',
-    'feeling',
-    'victory'
-
-]
-
-.forEach(
+].forEach(
 
     id => {
 
-        document
-            .getElementById(id)
-            .addEventListener(
+        const element =
+            document.getElementById(
+                id
+            );
 
-                'input',
 
-                () => {
+        if(!element){
 
-                    saveInputs();
+            return;
 
-                    if(
-                        id === 'weight'
-                    ){
+        }
 
-                        renderWeight();
 
-                    }
+        element.addEventListener(
+            "input",
+            () => {
+
+                saveInputs();
+
+
+                if(
+                    id === "weight"
+                ){
+
+                    renderWeight();
 
                 }
 
-            );
+            }
+        );
 
     }
 
 );
 
 
-
 /* ================================================= */
-/* HUMEUR */
+/* SYNCHRONISATION EAU */
 /* ================================================= */
-
 
 document
-    .querySelectorAll('.mood')
-    .forEach(
-
-        button => {
-
-            button.onclick = () => {
-
-                data.days[
-                    data.day
-                ].mood =
-                    +button.dataset.mood;
-
-
-                document
-                    .querySelectorAll('.mood')
-                    .forEach(
-
-                        item =>
-                        item.classList.remove(
-                            'selected'
-                        )
-
-                    );
-
-
-                button.classList.add(
-                    'selected'
-                );
-
-
-                save();
-
-            };
-
-        }
-
-    );
-
-
-
-/* ================================================= */
-/* NAVIGATION PRINCIPALE */
-/* ================================================= */
-
-
-document
-    .querySelectorAll(
-        '.bottom-nav button'
+    .getElementById(
+        "waterWellbeing"
     )
-    .forEach(
+    .addEventListener(
+        "input",
+        function(){
 
-        button => {
-
-            button.onclick = () => {
-
-                saveInputs();
-
-
-                document
-                    .querySelectorAll(
-                        '.bottom-nav button'
-                    )
-                    .forEach(
-
-                        item =>
-                        item.classList.remove(
-                            'active'
-                        )
-
-                    );
+            document
+                .getElementById(
+                    "water"
+                )
+                .value =
+                this.value;
 
 
-                button.classList.add(
-                    'active'
-                );
-
-
-                document
-                    .querySelectorAll(
-                        '.page'
-                    )
-                    .forEach(
-
-                        page =>
-                        page.classList.remove(
-                            'active'
-                        )
-
-                    );
-
-
-                document
-                    .getElementById(
-                        button.dataset.page
-                    )
-                    .classList.add(
-                        'active'
-                    );
-
-
-                window.scrollTo(
-                    0,
-                    0
-                );
-
-            };
+            saveInputs();
 
         }
-
     );
-
 
 
 /* ================================================= */
 /* INITIALISATION */
 /* ================================================= */
 
+setDefaultDate();
+
+
+/* Restaurer les informations */
 
 document
-    .getElementById('sGoal')
+    .getElementById(
+        "sGoal"
+    )
     .value =
-    data.setup.goal;
-
-
-document
-    .getElementById('sStart')
-    .value =
-    data.setup.start;
-
-
-document
-    .getElementById('sTarget')
-    .value =
-    data.setup.target;
+    data.setup.goal || "";
 
 
 document
-    .getElementById('sDate')
+    .getElementById(
+        "sStart"
+    )
     .value =
-    data.setup.date;
+    data.setup.start || "";
 
+
+document
+    .getElementById(
+        "sTarget"
+    )
+    .value =
+    data.setup.target || "";
 
 
 if(
+    data.setup.date
+){
 
-    data.setup.goal
-    ||
+    document
+        .getElementById(
+            "sDate"
+        )
+        .value =
+        data.setup.date;
+
+}
+
+
+/* ================================================= */
+/* OUVERTURE AUTOMATIQUE */
+/* ================================================= */
+
+if(
+
     data.setup.start
-    ||
+    &&
     data.setup.target
+    &&
+    data.setup.date
 
 ){
+
+    /*
+        Très important :
+
+        Chaque ouverture de l'application
+        recalcule automatiquement le jour
+        selon la date réelle.
+
+        Exemple :
+
+        Départ 14/08
+        14/08 = Jour 1
+        15/08 = Jour 2
+        16/08 = Jour 3
+        etc.
+    */
+
+    data.day =
+        getAutomaticDay();
+
+
+    save();
+
 
     showApp();
 
 }
 
 </script>
-
 
 </body>
 
