@@ -1,239 +1,336 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#e11d48">
-<title>Mon Journal Bien-Être</title>
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<meta
+    name="theme-color"
+    content="#e11d48"
+>
+
+<title>DODO WEIGHT</title>
+
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --rose:#e11d48;
+    --rose-light:#fff1f2;
+    --rose-dark:#881337;
+    --rose-border:#ffe4e6;
+    --muted:#71717a;
+}
+
 
 body{
     margin:0;
-    min-height:100vh;
     background:#fff1f2;
-    color:#3f3f46;
-    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    padding:16px;
+    color:#27272a;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 }
+
 
 .app{
-    width:100%;
     max-width:680px;
     margin:auto;
+    min-height:100vh;
     background:#fff;
-    border-radius:22px;
-    box-shadow:0 10px 40px #0001;
-    overflow:hidden;
+    padding-bottom:78px;
 }
 
-.page{display:none}
-.page.active{display:block}
 
-.hero{
-    height:180px;
-    background:linear-gradient(135deg,#fb7185,#fda4af);
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+    padding:20px 20px 8px;
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:5;
+}
+
+
+.header-row{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    justify-content:center;
-    color:white;
-    text-align:center;
 }
 
-.hero span{font-size:64px}
 
-.content{padding:26px}
-
-h1,h2,h3{
-    margin-top:0;
-    color:#881337;
+h1,
+h2,
+h3{
+    margin:0;
+    color:var(--rose-dark);
 }
 
-h1,h2{
+
+h1,
+h2{
     font-family:Georgia,serif;
 }
 
-h1{font-size:32px}
 
-.center{text-align:center}
-
-.muted{
-    color:#71717a;
-    font-size:14px;
+h1{
+    font-size:27px;
 }
 
-.quote{
-    font-style:italic;
+
+h2{
+    font-size:22px;
+}
+
+
+h3{
+    font-size:15px;
+}
+
+
+.day{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:4px;
+}
+
+
+/* ========================= */
+/* PAGES */
+/* ========================= */
+
+.content{
+    padding:12px 18px 20px;
+}
+
+
+.page{
+    display:none;
+}
+
+
+.page.active{
+    display:block;
+}
+
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+.card{
+    background:#fff;
+    border:1px solid var(--rose-border);
+    border-radius:18px;
+    padding:16px;
+    margin:12px 0;
+    box-shadow:0 4px 18px #00000008;
+}
+
+
+.hero{
+    background:
+        linear-gradient(
+            135deg,
+            #fb7185,
+            #fda4af
+        );
+    color:white;
+    border:0;
+}
+
+
+.hero h2,
+.hero p{
+    color:white;
+}
+
+
+.hero p{
+    margin:5px 0 0;
+}
+
+
+/* ========================= */
+/* REPAS */
+/* ========================= */
+
+.meal{
+    display:flex;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px solid var(--rose-border);
+    font-size:13px;
+}
+
+
+.meal:last-child{
+    border-bottom:0;
+}
+
+
+.meal b{
+    width:95px;
+    flex:none;
     color:#9f1239;
 }
 
-.field{
-    display:flex;
-    gap:10px;
-    align-items:center;
-    margin:12px 0;
+
+/* ========================= */
+/* ACTIVITE */
+/* ========================= */
+
+.activity{
+    background:var(--rose-light);
+    border-radius:14px;
+    padding:14px;
     font-size:14px;
 }
 
-input,textarea{
+
+/* ========================= */
+/* INPUTS */
+/* ========================= */
+
+label.small{
+    display:block;
+    color:var(--muted);
+    font-size:12px;
+    margin:10px 0 5px;
+}
+
+
+input,
+textarea{
     font:inherit;
     border:1px solid #fecdd3;
     border-radius:10px;
     padding:9px;
+    width:100%;
     background:#fff;
 }
 
-input:focus,textarea:focus{
+
+textarea{
+    resize:vertical;
+}
+
+
+input:focus,
+textarea:focus{
     outline:2px solid #fda4af;
     outline-offset:1px;
 }
 
-.field input{
-    flex:1;
-    min-width:0;
-}
 
-.number{
-    max-width:110px;
-}
+/* ========================= */
+/* BOUTONS */
+/* ========================= */
 
 button{
     border:0;
-    border-radius:999px;
-    padding:10px 16px;
-    background:#e11d48;
-    color:white;
-    font-weight:600;
+    font:inherit;
     cursor:pointer;
 }
 
-button.secondary{
+
+.primary{
+    background:var(--rose);
+    color:#fff;
+    border-radius:12px;
+    padding:11px 16px;
+    font-weight:600;
+}
+
+
+.secondary{
     background:#ffe4e6;
     color:#9f1239;
+    border-radius:10px;
+    padding:9px 13px;
 }
 
-button:disabled{
-    opacity:.4;
-    cursor:not-allowed;
+
+.icon-btn{
+    background:#fff1f2;
+    color:#9f1239;
+    border-radius:50%;
+    width:38px;
+    height:38px;
+    font-size:18px;
 }
 
-.nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 16px;
-    border-top:1px solid #ffe4e6;
-    background:#fff;
-}
 
-.week-tabs{
+/* ========================= */
+/* SEMAINES */
+/* ========================= */
+
+.tabs{
     display:flex;
     gap:6px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin:10px 0 18px;
-}
-
-.week-tabs button{
-    padding:6px 11px;
-    font-size:12px;
-}
-
-.week-tabs button.active{
-    background:#be123c;
-}
-
-.section{
-    margin-top:22px;
-}
-
-.section h3{
-    font-size:16px;
-    margin-bottom:9px;
-}
-
-.meal{
-    display:flex;
-    gap:9px;
-    padding:9px;
-    background:#fff1f2;
-    border-radius:10px;
-    margin:5px 0;
-    font-size:13px;
-}
-
-.meal b{
-    min-width:92px;
-    color:#9f1239;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-}
-
-.grid label{
-    font-size:11px;
-    color:#71717a;
-    display:block;
-    margin-bottom:4px;
-}
-
-.grid input{
-    width:100%;
-}
-
-.prayers{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    font-size:12px;
-}
-
-.prayers label{
-    display:flex;
-    align-items:center;
-    gap:4px;
-}
-
-.moods{
-    display:flex;
-    gap:8px;
-}
-
-.mood{
-    font-size:24px;
-    background:transparent;
-    color:inherit;
-    padding:2px;
-    opacity:.35;
-}
-
-.mood.selected{
-    opacity:1;
-}
-
-textarea{
-    width:100%;
-    resize:vertical;
-}
-
-.progress-wrap{
-    background:#ffe4e6;
-    border-radius:999px;
-    height:14px;
-    overflow:hidden;
     margin:12px 0;
+    overflow-x:auto;
 }
 
-.progress{
-    height:100%;
-    background:#e11d48;
-    width:0;
-    transition:.25s;
+
+.tabs button{
+    padding:7px 11px;
+    border-radius:999px;
+    background:#ffe4e6;
+    color:#9f1239;
+    font-size:12px;
+    white-space:nowrap;
 }
+
+
+.tabs button.active{
+    background:#be123c;
+    color:#fff;
+}
+
+
+/* ========================= */
+/* GRILLE */
+/* ========================= */
+
+.row{
+    display:flex;
+    gap:10px;
+}
+
+
+.row>*{
+    flex:1;
+}
+
+
+/* ========================= */
+/* POIDS */
+/* ========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:8px;
+}
+
 
 .stat{
     background:#fff1f2;
@@ -242,717 +339,972 @@ textarea{
     text-align:center;
 }
 
-.stats{
+
+.stat strong{
+    font-size:20px;
+    color:#9f1239;
+}
+
+
+.stat span{
+    font-size:11px;
+    color:var(--muted);
+}
+
+
+.progress-bg{
+    height:14px;
+    background:#ffe4e6;
+    border-radius:99px;
+    overflow:hidden;
+}
+
+
+.progress{
+    height:100%;
+    background:#e11d48;
+    width:0;
+    transition:.25s;
+}
+
+
+/* ========================= */
+/* PRIERES */
+/* ========================= */
+
+.prayers{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        1fr 1fr;
     gap:8px;
 }
 
-.checks label{
+
+.prayer{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px;
+    background:#fff1f2;
+    border-radius:12px;
+    font-size:13px;
+}
+
+
+.prayer input{
+    width:auto;
+}
+
+
+/* ========================= */
+/* HUMEUR */
+/* ========================= */
+
+.moods{
+    display:flex;
+    justify-content:space-between;
+}
+
+
+.mood{
+    background:none;
+    font-size:27px;
+    opacity:.35;
+    padding:4px;
+}
+
+
+.mood.selected{
+    opacity:1;
+    transform:scale(1.1);
+}
+
+
+/* ========================= */
+/* HISTORIQUE */
+/* ========================= */
+
+.history-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid var(--rose-border);
+}
+
+
+.empty{
+    text-align:center;
+    color:var(--muted);
+    padding:30px 10px;
+}
+
+
+/* ========================= */
+/* BARRE DU BAS */
+/* ========================= */
+
+.bottom{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:100%;
+    max-width:680px;
+
+    height:72px;
+
+    background:#fff;
+
+    border-top:1px solid var(--rose-border);
+
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+    z-index:20;
+}
+
+
+.bottom button{
+    background:none;
+    color:#71717a;
+
+    font-size:10px;
+
+    padding:7px 2px;
+}
+
+
+.bottom button span{
     display:block;
-    margin:9px 0;
+    font-size:22px;
+    margin-bottom:2px;
+}
+
+
+.bottom button.active{
+    color:#be123c;
+    font-weight:700;
+}
+
+
+/* ========================= */
+/* PAGE CONFIGURATION */
+/* ========================= */
+
+.setup{
+    min-height:100vh;
+    padding:30px 20px;
+    background:#fff;
+}
+
+
+.setup-box{
+    max-width:520px;
+    margin:0 auto;
+}
+
+
+.setup .logo{
+    text-align:center;
+    font-size:60px;
+    margin:20px 0;
+}
+
+
+.setup p{
+    color:var(--muted);
     font-size:14px;
 }
 
-.small{
-    font-size:12px;
+
+.field{
+    margin:14px 0;
 }
 
-@media(max-width:520px){
-    body{
-        padding:0;
-    }
+
+.field label{
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:5px;
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:480px){
 
     .app{
-        border-radius:0;
-        min-height:100vh;
+        padding-bottom:76px;
     }
+
 
     .content{
-        padding:20px;
+        padding:10px 14px 18px;
     }
 
-    .grid{
-        grid-template-columns:1fr 1fr;
+
+    .card{
+        padding:14px;
     }
 
-    .meal{
-        font-size:12px;
+
+    .stats{
+        gap:6px;
     }
+
 
     .meal b{
-        min-width:82px;
+        width:85px;
     }
+
+
+    .bottom{
+        height:70px;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="app">
 
-<!-- ACCUEIL -->
-<section class="page active" id="cover">
+<!-- ===================================================== -->
+<!-- CONFIGURATION INITIALE -->
+<!-- ===================================================== -->
 
-    <div class="hero">
-        <span>🌷</span>
-    </div>
+<div
+    id="setup"
+    class="setup"
+>
 
-    <div class="content center">
+    <div class="setup-box">
 
-        <h1>Mon Journal Bien-Être</h1>
-
-        <p class="muted">
-            Un petit pas chaque jour.
-        </p>
-
-        <div class="field">
-            <span>Mon objectif :</span>
-            <input id="goal" placeholder="Ex. perdre 10 kg">
+        <div class="logo">
+            🌷
         </div>
 
-        <div class="field">
-            <span>Poids de départ :</span>
-            <input
-                id="startWeight"
-                class="number"
-                type="number"
-                step="0.1"
-                placeholder="kg"
+
+        <h1 style="text-align:center">
+            DODO WEIGHT
+        </h1>
+
+
+        <p style="text-align:center">
+            Un petit pas chaque jour. 🤍
+        </p>
+
+
+        <div class="card">
+
+
+            <div class="field">
+
+                <label>
+                    Mon objectif
+                </label>
+
+                <input
+                    id="sGoal"
+                    placeholder="Ex. perdre 10 kg"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Poids de départ (kg)
+                </label>
+
+                <input
+                    id="sStart"
+                    type="number"
+                    step="0.1"
+                    placeholder="Ex. 75"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Poids objectif (kg)
+                </label>
+
+                <input
+                    id="sTarget"
+                    type="number"
+                    step="0.1"
+                    placeholder="Ex. 65"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Date de départ
+                </label>
+
+                <input
+                    id="sDate"
+                    type="date"
+                >
+
+            </div>
+
+
+            <button
+                class="primary"
+                style="width:100%"
+                onclick="finishSetup()"
             >
-        </div>
+                Commencer 🌷
+            </button>
 
-        <div class="field">
-            <span>Poids objectif :</span>
-            <input
-                id="targetWeight"
-                class="number"
-                type="number"
-                step="0.1"
-                placeholder="kg"
-            >
-        </div>
-
-        <div class="field">
-            <span>Date de départ :</span>
-            <input id="startDate" type="date">
-        </div>
-
-        <button onclick="startApp()">
-            Commencer 🌷
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- BIENVENUE -->
-<section class="page" id="welcome">
-
-    <div class="content">
-
-        <h2>Bienvenue 🤍</h2>
-
-        <p>
-            Cette application sert simplement à suivre
-            les habitudes, le poids et le ressenti
-            au fil des 4 semaines.
-        </p>
-
-        <div class="checks">
-
-            <label>
-                🥗
-                <input type="checkbox">
-                Suivre mon alimentation
-            </label>
-
-            <label>
-                🏃‍♀️
-                <input type="checkbox">
-                Bouger régulièrement
-            </label>
-
-            <label>
-                💧
-                <input type="checkbox">
-                Boire suffisamment
-            </label>
-
-            <label>
-                😴
-                <input type="checkbox">
-                Dormir suffisamment
-            </label>
-
-            <label>
-                🌷
-                <input type="checkbox">
-                Prendre soin de moi
-            </label>
-
-            <label>
-                🤍
-                <input type="checkbox">
-                Être patiente avec moi-même
-            </label>
-
-        </div>
-
-        <p class="quote">
-            « Je n'ai pas besoin d'être parfaite.
-            J'ai seulement besoin de continuer. »
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- REPÈRES -->
-<section class="page" id="guides">
-
-    <div class="content">
-
-        <h2>Quelques repères 🍽️</h2>
-
-        <p>
-            <b>Féculents :</b>
-            les quantités indiquées comme « cru »
-            sont pesées avant cuisson.
-        </p>
-
-        <p>
-            <b>Saumon :</b>
-            environ 120 à 150 g par repas.
-            La truite peut le remplacer ponctuellement.
-        </p>
-
-        <p>
-            <b>Matières grasses :</b>
-            environ 5 g d'huile pour la cuisson
-            lorsque le menu le prévoit.
-        </p>
-
-        <p>
-            <b>Hydratation :</b>
-            boire régulièrement et adapter selon
-            la soif, la chaleur et l'activité.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- COURSES -->
-<section class="page" id="shopping">
-
-    <div class="content">
-
-        <h2>Courses 🛒</h2>
-
-        <div class="grid">
-
-            <div>
-                <h3>Féculents</h3>
-                <p class="small">
-                    ☐ Riz<br>
-                    ☐ Pâtes<br>
-                    ☐ Semoule<br>
-                    ☐ Pommes de terre
-                </p>
-            </div>
-
-            <div>
-                <h3>Protéines</h3>
-                <p class="small">
-                    ☐ Poulet<br>
-                    ☐ Saumon<br>
-                    ☐ Thon<br>
-                    ☐ Œufs<br>
-                    ☐ Pois chiches
-                </p>
-            </div>
-
-            <div>
-                <h3>Laitiers</h3>
-                <p class="small">
-                    ☐ Fromage blanc<br>
-                    ☐ Yaourts nature
-                </p>
-            </div>
-
-            <div>
-                <h3>Fruits/légumes</h3>
-                <p class="small">
-                    ☐ Pommes<br>
-                    ☐ Bananes<br>
-                    ☐ Courgettes<br>
-                    ☐ Haricots verts<br>
-                    ☐ Tomates<br>
-                    ☐ Salade
-                </p>
-            </div>
-
-            <div>
-                <h3>Épicerie</h3>
-                <p class="small">
-                    ☐ Huile d'olive<br>
-                    ☐ Curry<br>
-                    ☐ Paprika<br>
-                    ☐ Herbes<br>
-                    ☐ Poivre
-                </p>
-            </div>
 
         </div>
 
     </div>
 
-</section>
+</div>
 
 
-<!-- JOUR -->
-<section class="page" id="dayPage">
 
-    <div class="content">
+<!-- ===================================================== -->
+<!-- APPLICATION -->
+<!-- ===================================================== -->
 
-        <div class="center">
+<div
+    id="app"
+    class="app"
+    style="display:none"
+>
 
-            <h2 id="dayTitle"></h2>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="header-row">
+
+        <div>
+
+            <h1>
+                DODO WEIGHT
+            </h1>
 
             <div
-                class="week-tabs"
-                id="weekTabs">
-            </div>
+                id="dateLabel"
+                class="day"
+            ></div>
 
         </div>
 
 
-        <!-- REPAS -->
-        <div class="section">
+        <div>
 
-            <h3>🍽️ Repas</h3>
-
-            <div id="meals"></div>
-
-        </div>
-
-
-        <!-- ACTIVITÉ -->
-        <div class="section">
-
-            <h3>🏃‍♀️ Activité</h3>
-
-            <p
-                id="activity"
-                class="small">
-            </p>
-
-            <textarea
-                id="activityNotes"
-                rows="2"
-                placeholder="Notes sur mon activité...">
-            </textarea>
-
-        </div>
+            <button
+                class="icon-btn"
+                onclick="changeDay(-1)"
+            >
+                ‹
+            </button>
 
 
-        <!-- PRIÈRES -->
-        <div class="section">
-
-            <h3>🕌 Prières</h3>
-
-            <div
-                class="prayers"
-                id="prayers">
-            </div>
-
-        </div>
-
-
-        <!-- SUIVI -->
-        <div class="section">
-
-            <h3>⚖️ Suivi</h3>
-
-            <div class="grid">
-
-                <div>
-
-                    <label>
-                        Poids (kg)
-                    </label>
-
-                    <input
-                        id="weight"
-                        type="number"
-                        step="0.1">
-
-                </div>
-
-
-                <div>
-
-                    <label>
-                        💧 Eau (verres)
-                    </label>
-
-                    <input
-                        id="water"
-                        type="number">
-
-                </div>
-
-
-                <div>
-
-                    <label>
-                        😴 Sommeil (h)
-                    </label>
-
-                    <input
-                        id="sleep"
-                        type="number"
-                        step="0.5">
-
-                </div>
-
-            </div>
-
-
-            <p class="small">
-                😊 Humeur
-            </p>
-
-            <div class="moods">
-
-                <button
-                    class="mood"
-                    data-mood="1">
-                    😔
-                </button>
-
-                <button
-                    class="mood"
-                    data-mood="2">
-                    😐
-                </button>
-
-                <button
-                    class="mood"
-                    data-mood="3">
-                    🙂
-                </button>
-
-                <button
-                    class="mood"
-                    data-mood="4">
-                    😊
-                </button>
-
-                <button
-                    class="mood"
-                    data-mood="5">
-                    🤍
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- NOTES -->
-        <div class="section">
-
-            <label class="small">
-                📝 Mon ressenti
-            </label>
-
-            <textarea
-                id="notes"
-                rows="2">
-            </textarea>
-
-
-            <label class="small">
-                ✨ Ma victoire du jour
-            </label>
-
-            <textarea
-                id="victory"
-                rows="2">
-            </textarea>
+            <button
+                class="icon-btn"
+                onclick="changeDay(1)"
+            >
+                ›
+            </button>
 
         </div>
 
     </div>
 
-</section>
+</header>
 
 
-<!-- BILAN -->
-<section class="page" id="reviewPage">
 
-    <div class="content">
+<main class="content">
 
-        <h2
-            class="center"
-            id="reviewTitle">
+
+<!-- ===================================================== -->
+<!-- ONGLET ALIMENTATION -->
+<!-- ===================================================== -->
+
+<section
+    id="food"
+    class="page active"
+>
+
+
+    <div class="card hero">
+
+        <h2>
+            🍽️ Alimentation
         </h2>
 
+        <p id="foodGoal"></p>
 
-        <div class="field">
-
-            <span>
-                Poids début :
-            </span>
-
-            <input
-                id="revStart"
-                type="number"
-                step="0.1">
-
-        </div>
+    </div>
 
 
-        <div class="field">
 
-            <span>
-                Poids fin :
-            </span>
+    <!-- SEMAINES -->
 
-            <input
-                id="revEnd"
-                type="number"
-                step="0.1">
-
-        </div>
+    <div
+        class="tabs"
+        id="weekTabs"
+    ></div>
 
 
-        <div class="field">
 
-            <span>
-                Séances :
-            </span>
+    <!-- REPAS -->
 
-            <input
-                id="revSessions"
-                class="number"
-                type="number"
-                min="0"
-                max="7">
+    <div class="card">
 
-            / 7
-
-        </div>
+        <h3>
+            Repas du jour
+        </h3>
 
 
-        <div class="field">
+        <div id="meals"></div>
 
-            <span>
-                Alimentation :
-            </span>
-
-            <input
-                id="revFood"
-                class="number"
-                type="number"
-                min="0"
-                max="7">
-
-            / 7
-
-        </div>
+    </div>
 
 
-        <div class="field">
 
-            <span>
-                5 prières :
-            </span>
+    <!-- EAU -->
 
-            <input
-                id="revPrayers"
-                class="number"
-                type="number"
-                min="0"
-                max="7">
+    <div class="card">
 
-            / 7
-
-        </div>
+        <h3>
+            💧 Hydratation
+        </h3>
 
 
         <label class="small">
-            💕 Cette semaine, je suis fière de...
+            Nombre de verres
         </label>
 
-        <textarea
-            id="revProud"
-            rows="2">
-        </textarea>
 
-
-        <label class="small">
-            🌱 La semaine prochaine, je veux...
-        </label>
-
-        <textarea
-            id="revNext"
-            rows="2">
-        </textarea>
-
-
-        <div class="field">
-
-            <span>
-                ⭐ Ma note :
-            </span>
-
-            <input
-                id="revNote"
-                class="number"
-                type="number"
-                min="0"
-                max="10">
-
-            / 10
-
-        </div>
+        <input
+            id="water"
+            type="number"
+            min="0"
+            placeholder="0"
+        >
 
     </div>
+
 
 </section>
 
 
-<!-- FINAL -->
-<section class="page" id="finalPage">
 
-    <div class="content">
+<!-- ===================================================== -->
+<!-- ONGLET ACTIVITE -->
+<!-- ===================================================== -->
 
-        <h2 class="center">
-            🌷 Bravo !
+<section
+    id="activityPage"
+    class="page"
+>
+
+
+    <div class="card hero">
+
+        <h2>
+            🏃 Activité
         </h2>
+
+        <p id="activityDay"></p>
+
+    </div>
+
+
+
+    <!-- ACTIVITE PREVUE -->
+
+    <div class="card">
+
+        <h3>
+            Activité prévue
+        </h3>
 
 
         <div
-            id="finalStats"
-            class="stats">
+            id="activity"
+            class="activity"
+        ></div>
+
+    </div>
+
+
+
+    <!-- ACTIVITE REALISEE -->
+
+    <div class="card">
+
+        <h3>
+            Activité réalisée
+        </h3>
+
+
+        <label class="small">
+            Durée (minutes)
+        </label>
+
+
+        <input
+            id="activityMinutes"
+            type="number"
+            min="0"
+            placeholder="Ex. 30"
+        >
+
+
+        <label class="small">
+            Notes
+        </label>
+
+
+        <textarea
+            id="activityNotes"
+            rows="3"
+            placeholder="Comment s'est passée ma séance ?"
+        ></textarea>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- ONGLET POIDS -->
+<!-- ===================================================== -->
+
+<section
+    id="weightPage"
+    class="page"
+>
+
+
+    <div class="card hero">
+
+        <h2>
+            ⚖️ Mon poids
+        </h2>
+
+        <p>
+            Ma progression, sans pression.
+        </p>
+
+    </div>
+
+
+
+    <!-- STATISTIQUES -->
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <strong id="startStat">
+                —
+            </strong>
+
+            <br>
+
+            <span>
+                Départ
+            </span>
+
         </div>
 
 
-        <div class="progress-wrap">
+        <div class="stat">
+
+            <strong id="currentStat">
+                —
+            </strong>
+
+            <br>
+
+            <span>
+                Actuel
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong id="leftStat">
+                —
+            </strong>
+
+            <br>
+
+            <span>
+                Restant
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- PROGRESSION -->
+
+    <div class="card">
+
+        <h3>
+            🎯 Progression
+        </h3>
+
+
+        <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            font-size:12px;
+            color:#71717a;
+            "
+        >
+
+            <span id="startText">
+                —
+            </span>
+
+            <span id="targetText">
+                —
+            </span>
+
+        </div>
+
+
+        <div
+            class="progress-bg"
+            style="margin-top:8px"
+        >
 
             <div
                 id="progress"
-                class="progress">
-            </div>
+                class="progress"
+            ></div>
 
         </div>
 
 
         <p
-            id="finalMessage"
-            class="center quote">
-        </p>
+            id="progressText"
+            class="small"
+        ></p>
 
+    </div>
+
+
+
+    <!-- PESEE -->
+
+    <div class="card">
 
         <h3>
-            Ce que j'ai réussi à changer
+            Pesée du jour
         </h3>
 
 
-        <div class="checks">
-
-            <label>
-                ☐ Mon alimentation
-            </label>
-
-            <label>
-                ☐ Mon activité physique
-            </label>
-
-            <label>
-                ☐ Mon hydratation
-            </label>
-
-            <label>
-                ☐ Mon sommeil
-            </label>
-
-            <label>
-                ☐ Ma régularité
-            </label>
-
-        </div>
-
-
         <label class="small">
-            🌷 Ce dont je suis la plus fière
+            Poids (kg)
         </label>
 
-        <textarea
-            id="finalProud"
-            rows="2">
-        </textarea>
-
-
-        <label class="small">
-            🤍 Ce que je veux continuer
-        </label>
-
-        <textarea
-            id="finalContinue"
-            rows="2">
-        </textarea>
-
-
-        <label class="small">
-            🎯 Mon prochain objectif
-        </label>
 
         <input
-            id="finalGoal"
-            style="width:100%">
+            id="weight"
+            type="number"
+            step="0.1"
+            placeholder="Ex. 74.8"
+        >
 
     </div>
+
+
+
+    <!-- HISTORIQUE -->
+
+    <div class="card">
+
+        <h3>
+            📈 Historique
+        </h3>
+
+
+        <div id="history"></div>
+
+    </div>
+
 
 </section>
 
 
-<!-- NAVIGATION -->
-<div
-    class="nav"
-    id="nav"
-    style="display:none">
+
+<!-- ===================================================== -->
+<!-- ONGLET MOI -->
+<!-- ===================================================== -->
+
+<section
+    id="mePage"
+    class="page"
+>
+
+
+    <div class="card hero">
+
+        <h2>
+            🤍 Moi
+        </h2>
+
+        <p>
+            Mon bien-être au quotidien.
+        </p>
+
+    </div>
+
+
+
+    <!-- PRIERES -->
+
+    <div class="card">
+
+        <h3>
+            🕌 Mes prières
+        </h3>
+
+
+        <div
+            id="prayers"
+            class="prayers"
+        ></div>
+
+    </div>
+
+
+
+    <!-- HUMEUR -->
+
+    <div class="card">
+
+        <h3>
+            😊 Mon humeur
+        </h3>
+
+
+        <div class="moods">
+
+
+            <button
+                class="mood"
+                data-mood="1"
+            >
+                😔
+            </button>
+
+
+            <button
+                class="mood"
+                data-mood="2"
+            >
+                😐
+            </button>
+
+
+            <button
+                class="mood"
+                data-mood="3"
+            >
+                🙂
+            </button>
+
+
+            <button
+                class="mood"
+                data-mood="4"
+            >
+                😊
+            </button>
+
+
+            <button
+                class="mood"
+                data-mood="5"
+            >
+                🤍
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SOMMEIL -->
+
+    <div class="card">
+
+        <h3>
+            😴 Mon sommeil
+        </h3>
+
+
+        <input
+            id="sleep"
+            type="number"
+            step="0.5"
+            placeholder="Nombre d'heures"
+        >
+
+    </div>
+
+
+
+    <!-- RESSENTI -->
+
+    <div class="card">
+
+        <h3>
+            📝 Mon ressenti
+        </h3>
+
+
+        <textarea
+            id="feeling"
+            rows="4"
+            placeholder="Comment je me sens aujourd'hui ?"
+        ></textarea>
+
+
+        <label class="small">
+            ✨ Ma victoire du jour
+        </label>
+
+
+        <textarea
+            id="victory"
+            rows="3"
+            placeholder="Une petite victoire, même minime."
+        ></textarea>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- ===================================================== -->
+<!-- BARRE DE NAVIGATION -->
+<!-- ===================================================== -->
+
+<nav class="bottom">
+
 
     <button
-        class="secondary"
-        id="prev">
-        ←
+        data-page="food"
+        class="active"
+    >
+
+        <span>
+            🍽️
+        </span>
+
+        Alimentation
+
     </button>
 
-    <span
-        id="indicator"
-        class="small">
-    </span>
 
     <button
-        id="next">
-        →
+        data-page="activityPage"
+    >
+
+        <span>
+            🏃
+        </span>
+
+        Activité
+
     </button>
+
+
+    <button
+        data-page="weightPage"
+    >
+
+        <span>
+            ⚖️
+        </span>
+
+        Poids
+
+    </button>
+
+
+    <button
+        data-page="mePage"
+    >
+
+        <span>
+            🤍
+        </span>
+
+        Moi
+
+    </button>
+
+
+</nav>
+
 
 </div>
 
-</div>
 
 
 <script>
 
+
+/* ===================================================== */
+/* DONNEES */
+/* ===================================================== */
+
+
 const DAYS = [
+
     'Lundi',
     'Mardi',
     'Mercredi',
@@ -960,20 +1312,34 @@ const DAYS = [
     'Vendredi',
     'Samedi',
     'Dimanche'
+
 ];
 
+
 const PRAYERS = [
+
     'Fajr/Sobh',
     'Dhuhr',
     'Asr',
     'Maghrib',
     'Isha'
+
 ];
+
+
+
+/* ===================================================== */
+/* MENUS */
+/* ===================================================== */
 
 
 const MEALS = [
 
+
+/* SEMAINE 1 */
+
 [
+
 [
 '2 œufs + 50g pain + 1 banane',
 '130g poulet + 60g riz cru + 200g légumes',
@@ -1022,10 +1388,14 @@ const MEALS = [
 '150g fromage blanc + 1 banane',
 'Soupe de légumes + 2 œufs + 40g pain'
 ]
+
 ],
 
 
+/* SEMAINE 2 */
+
 [
+
 [
 '2 œufs + 50g pain + pomme',
 '130g poulet + 60g riz + légumes',
@@ -1074,10 +1444,14 @@ const MEALS = [
 'Yaourt + pomme',
 'Soupe de légumes + 2 œufs + 40g pain'
 ]
+
 ],
 
 
+/* SEMAINE 3 */
+
 [
+
 [
 '2 œufs + 50g pain + pomme',
 'Poulet curry 130g + 60g riz + légumes',
@@ -1126,10 +1500,14 @@ const MEALS = [
 'Yaourt + fruit',
 'Soupe + 2 œufs + 40g pain'
 ]
+
 ],
 
 
+/* SEMAINE 4 */
+
 [
+
 [
 '2 œufs + pain + pomme',
 '130g poulet + 60g riz + légumes',
@@ -1180,10 +1558,18 @@ const MEALS = [
 ]
 
 ]
+
 ];
 
 
+
+/* ===================================================== */
+/* ACTIVITES */
+/* ===================================================== */
+
+
 const ACTIVITIES = [
+
 
 [
 'Marche douce — 30 min',
@@ -1195,6 +1581,7 @@ const ACTIVITIES = [
 'Récupération 🌿 — marche + étirements'
 ],
 
+
 [
 'Marche active — 35 min',
 'Jambes/fessiers — 25 min',
@@ -1205,6 +1592,7 @@ const ACTIVITIES = [
 'Marche tranquille + étirements — 30 min'
 ],
 
+
 [
 'Marche — 40 min',
 'Jambes/fessiers — 25 min',
@@ -1214,6 +1602,7 @@ const ACTIVITIES = [
 'Full body — 30 min',
 'Récupération + marche — 20-30 min'
 ],
+
 
 [
 'Marche active — 40 min',
@@ -1228,380 +1617,559 @@ const ACTIVITIES = [
 ];
 
 
-const defaultDay = () => ({
 
-    prayers:[
-        false,
-        false,
-        false,
-        false,
-        false
-    ],
-
-    weight:'',
-    water:'',
-    sleep:'',
-    mood:0,
-    notes:'',
-    victory:'',
-    activity:''
-
-});
+/* ===================================================== */
+/* ETAT */
+/* ===================================================== */
 
 
-const defaultReview = () => ({
+function newDay(){
 
-    start:'',
-    end:'',
-    sessions:'',
-    food:'',
-    prayers:'',
-    proud:'',
-    next:'',
-    note:''
+    return {
 
-});
+        weight:'',
+        water:'',
 
+        activityMinutes:'',
+        activityNotes:'',
 
-let state =
-JSON.parse(
-    localStorage.getItem('bienEtreApp') || 'null'
-) || {
+        prayers:[
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
 
-    setup:{
-        goal:'',
-        startWeight:'',
-        targetWeight:'',
-        startDate:''
-    },
+        mood:0,
 
-    days:Array.from(
-        {length:28},
-        defaultDay
-    ),
+        sleep:'',
+        feeling:'',
+        victory:''
 
-    reviews:Array.from(
-        {length:4},
-        defaultReview
-    ),
+    };
 
-    final:{
-        proud:'',
-        cont:'',
-        goal:''
-    },
-
-    page:0
-
-};
+}
 
 
-let currentPage =
-state.page || 0;
+
+let data =
+    JSON.parse(
+        localStorage.getItem(
+            'dodoWeight'
+        ) || 'null'
+    )
+    ||
+    {
+
+        setup:{
+            goal:'',
+            start:'',
+            target:'',
+            date:''
+        },
+
+        days:Array.from(
+            {length:28},
+            newDay
+        ),
+
+        day:0
+
+    };
+
+
+
+/* ===================================================== */
+/* SAUVEGARDE */
+/* ===================================================== */
 
 
 function save(){
 
-    state.page=currentPage;
-
     localStorage.setItem(
-        'bienEtreApp',
-        JSON.stringify(state)
+        'dodoWeight',
+        JSON.stringify(data)
     );
 
 }
 
 
-function pageForDay(d){
 
-    return 4+d+Math.floor(d/7);
-
-}
-
-
-function dayFromPage(p){
-
-    if(p>=4 && p<=10)
-        return p-4;
-
-    if(p>=12 && p<=18)
-        return p-5;
-
-    if(p>=20 && p<=26)
-        return p-6;
-
-    if(p>=28 && p<=34)
-        return p-7;
-
-    return -1;
-
-}
+/* ===================================================== */
+/* CONFIGURATION */
+/* ===================================================== */
 
 
-function reviewFromPage(p){
+function finishSetup(){
 
-    if(p===11)
-        return 0;
-
-    if(p===19)
-        return 1;
-
-    if(p===27)
-        return 2;
-
-    if(p===35)
-        return 3;
-
-    return -1;
-
-}
+    data.setup.goal =
+        document
+        .getElementById('sGoal')
+        .value;
 
 
-function allPages(){
+    data.setup.start =
+        document
+        .getElementById('sStart')
+        .value;
 
-    return 37;
 
-}
+    data.setup.target =
+        document
+        .getElementById('sTarget')
+        .value;
 
 
-function startApp(){
+    data.setup.date =
+        document
+        .getElementById('sDate')
+        .value;
 
-    state.setup.goal =
-        document.getElementById('goal').value;
-
-    state.setup.startWeight =
-        document.getElementById('startWeight').value;
-
-    state.setup.targetWeight =
-        document.getElementById('targetWeight').value;
-
-    state.setup.startDate =
-        document.getElementById('startDate').value;
-
-    currentPage=1;
 
     save();
 
-    showPage(1);
+    showApp();
 
 }
 
 
-function renderSetup(){
 
-    document.getElementById('goal').value =
-        state.setup.goal;
+function showApp(){
 
-    document.getElementById('startWeight').value =
-        state.setup.startWeight;
+    document
+        .getElementById('setup')
+        .style.display='none';
 
-    document.getElementById('targetWeight').value =
-        state.setup.targetWeight;
 
-    document.getElementById('startDate').value =
-        state.setup.startDate;
+    document
+        .getElementById('app')
+        .style.display='block';
+
+
+    renderAll();
 
 }
 
 
-function renderDay(d){
 
-    const w =
-        Math.floor(d/7);
-
-    const dow =
-        d%7;
-
-    const s =
-        state.days[d];
+/* ===================================================== */
+/* CHANGEMENT DE JOUR */
+/* ===================================================== */
 
 
-    document.getElementById('dayTitle').textContent =
-        `Semaine ${w+1} • Jour ${dow+1} • ${DAYS[dow]}`;
+function changeDay(direction){
+
+    saveInputs();
 
 
-    const tabs =
-        document.getElementById('weekTabs');
+    data.day =
+        Math.max(
+            0,
+            Math.min(
+                27,
+                data.day + direction
+            )
+        );
 
-    tabs.innerHTML='';
+
+    renderAll();
+
+    save();
+
+}
 
 
-    for(let i=0;i<4;i++){
 
-        const b =
-            document.createElement('button');
+/* ===================================================== */
+/* ALLER A UNE SEMAINE */
+/* ===================================================== */
 
-        b.textContent =
-            'S'+(i+1);
 
-        b.className =
-            i===w
-            ? 'active'
-            : 'secondary';
+function goWeek(week){
 
-        b.onclick =
-            () => showPage(4+i*8);
+    saveInputs();
 
-        tabs.appendChild(b);
 
-    }
+    data.day =
+        week * 7;
+
+
+    renderAll();
+
+    save();
+
+}
+
+
+
+/* ===================================================== */
+/* RENDU PRINCIPAL */
+/* ===================================================== */
+
+
+function renderAll(){
+
+    const d =
+        data.day;
+
+
+    const week =
+        Math.floor(d / 7);
+
+
+    const dayOfWeek =
+        d % 7;
+
+
+    const state =
+        data.days[d];
+
+
+    document
+        .getElementById('dateLabel')
+        .textContent =
+        `Semaine ${week+1} • ${DAYS[dayOfWeek]} • Jour ${d+1}`;
+
+
+    document
+        .getElementById('foodGoal')
+        .textContent =
+        data.setup.goal ||
+        'Mon objectif du jour';
+
+
+    document
+        .getElementById('activityDay')
+        .textContent =
+        `${DAYS[dayOfWeek]} • Semaine ${week+1}`;
+
+
+
+    /* ========================= */
+    /* REPAS */
+    /* ========================= */
 
 
     const labels = [
+
         '🌅 Petit-déj',
         '🍽️ Déjeuner',
         '🍎 Collation',
         '🌙 Dîner'
+
     ];
 
 
-    document.getElementById('meals').innerHTML =
-        MEALS[w][dow]
+    document
+        .getElementById('meals')
+        .innerHTML =
+
+        MEALS[week][dayOfWeek]
+
         .map(
-            (m,i) =>
-            `<div class="meal">
-                <b>${labels[i]}</b>
-                <span>${m}</span>
-            </div>`
+
+            (meal,index) =>
+
+            `
+            <div class="meal">
+
+                <b>
+                    ${labels[index]}
+                </b>
+
+                <span>
+                    ${meal}
+                </span>
+
+            </div>
+            `
+
         )
+
         .join('');
 
 
-    document.getElementById('activity').textContent =
-        ACTIVITIES[w][dow];
+
+    /* ========================= */
+    /* ACTIVITE */
+    /* ========================= */
 
 
-    document.getElementById('prayers').innerHTML =
-        PRAYERS
+    document
+        .getElementById('activity')
+        .textContent =
+        ACTIVITIES[week][dayOfWeek];
+
+
+
+    /* ========================= */
+    /* SEMAINES */
+    /* ========================= */
+
+
+    document
+        .getElementById('weekTabs')
+        .innerHTML =
+
+        [0,1,2,3]
+
         .map(
-            (p,i) =>
-            `<label>
+
+            weekIndex =>
+
+            `
+            <button
+                class="${weekIndex===week?'active':''}"
+                onclick="goWeek(${weekIndex})"
+            >
+                Semaine ${weekIndex+1}
+            </button>
+            `
+
+        )
+
+        .join('');
+
+
+
+    /* ========================= */
+    /* CHAMPS ALIMENTATION */
+    /* ========================= */
+
+
+    document
+        .getElementById('water')
+        .value =
+        state.water;
+
+
+
+    /* ========================= */
+    /* CHAMPS ACTIVITE */
+    /* ========================= */
+
+
+    document
+        .getElementById('activityMinutes')
+        .value =
+        state.activityMinutes;
+
+
+    document
+        .getElementById('activityNotes')
+        .value =
+        state.activityNotes;
+
+
+
+    /* ========================= */
+    /* POIDS */
+    /* ========================= */
+
+
+    document
+        .getElementById('weight')
+        .value =
+        state.weight;
+
+
+
+    /* ========================= */
+    /* PRIERES */
+    /* ========================= */
+
+
+    document
+        .getElementById('prayers')
+        .innerHTML =
+
+        PRAYERS
+
+        .map(
+
+            (prayer,index) =>
+
+            `
+            <label class="prayer">
+
                 <input
                     type="checkbox"
-                    ${s.prayers[i]?'checked':''}
-                    onchange="state.days[${d}].prayers[${i}]=this.checked;save()">
-                ${p}
-            </label>`
+                    ${state.prayers[index]?'checked':''}
+
+                    onchange="
+                        data.days[${d}]
+                        .prayers[${index}]
+                        = this.checked;
+
+                        save();
+                    "
+                >
+
+                ${prayer}
+
+            </label>
+            `
+
         )
+
         .join('');
 
 
-    document.getElementById('weight').value =
-        s.weight;
 
-    document.getElementById('water').value =
-        s.water;
-
-    document.getElementById('sleep').value =
-        s.sleep;
-
-    document.getElementById('notes').value =
-        s.notes;
-
-    document.getElementById('victory').value =
-        s.victory;
-
-    document.getElementById('activityNotes').value =
-        s.activity;
+    /* ========================= */
+    /* MOI */
+    /* ========================= */
 
 
-    document.querySelectorAll('.mood')
-    .forEach(
-        b =>
-        b.classList.toggle(
-            'selected',
-            +b.dataset.mood===s.mood
-        )
-    );
-
-}
+    document
+        .getElementById('sleep')
+        .value =
+        state.sleep;
 
 
-function renderReview(r){
-
-    const s =
-        state.reviews[r];
-
-
-    document.getElementById('reviewTitle').textContent =
-        '🌷 Bilan Semaine '+(r+1);
+    document
+        .getElementById('feeling')
+        .value =
+        state.feeling;
 
 
-    const ids = [
-        'revStart',
-        'revEnd',
-        'revSessions',
-        'revFood',
-        'revPrayers',
-        'revProud',
-        'revNext',
-        'revNote'
-    ];
+    document
+        .getElementById('victory')
+        .value =
+        state.victory;
 
 
-    const keys = [
-        'start',
-        'end',
-        'sessions',
-        'food',
-        'prayers',
-        'proud',
-        'next',
-        'note'
-    ];
 
+    document
+        .querySelectorAll('.mood')
+        .forEach(
 
-    ids.forEach(
-        (id,i) => {
+            button =>
 
-            document.getElementById(id).value =
-                s[keys[i]];
+            button.classList.toggle(
 
-        }
-    );
+                'selected',
 
-}
+                +button.dataset.mood
+                ===
+                state.mood
 
+            )
 
-function renderFinal(){
-
-    const weights =
-        state.days
-        .map(
-            d => parseFloat(d.weight)
-        )
-        .filter(
-            Number.isFinite
         );
 
+
+
+    /* ========================= */
+    /* POIDS */
+    /* ========================= */
+
+    renderWeight();
+
+}
+
+
+
+/* ===================================================== */
+/* CALCUL POIDS */
+/* ===================================================== */
+
+
+function renderWeight(){
 
     const start =
         parseFloat(
-            state.setup.startWeight
+            data.setup.start
         );
-
-
-    const last =
-        weights.length
-        ? weights[weights.length-1]
-        : start;
-
-
-    const lost =
-        Number.isFinite(start)
-        &&
-        Number.isFinite(last)
-        ? start-last
-        : null;
 
 
     const target =
         parseFloat(
-            state.setup.targetWeight
+            data.setup.target
         );
 
 
-    let pct=0;
+    const weights =
+
+        data.days
+
+        .map(
+
+            (day,index) => ({
+
+                index,
+                value:
+                    parseFloat(
+                        day.weight
+                    )
+
+            })
+
+        )
+
+        .filter(
+
+            item =>
+                Number.isFinite(
+                    item.value
+                )
+
+        );
+
+
+    const current =
+
+        weights.length
+
+        ?
+
+        weights[
+            weights.length - 1
+        ].value
+
+        :
+
+        start;
+
+
+
+    let lost = null;
+
+
+    if(
+        Number.isFinite(start)
+        &&
+        Number.isFinite(current)
+    ){
+
+        lost =
+            start - current;
+
+    }
+
+
+
+    let remaining = null;
+
+
+    if(
+        Number.isFinite(target)
+        &&
+        Number.isFinite(current)
+    ){
+
+        remaining =
+            Math.max(
+                0,
+                current - target
+            );
+
+    }
+
+
+
+    let progress = 0;
 
 
     if(
@@ -1609,192 +2177,258 @@ function renderFinal(){
         &&
         Number.isFinite(target)
         &&
-        start!==target
+        start !== target
     ){
 
-        pct =
+        progress =
+
+            (
+                (start - current)
+                /
+                (start - target)
+            )
+            *
+            100;
+
+
+        progress =
             Math.max(
                 0,
                 Math.min(
                     100,
-                    (
-                        (start-last)
-                        /
-                        (start-target)
-                    )*100
+                    progress
                 )
             );
 
     }
 
 
-    document.getElementById('finalStats').innerHTML = `
 
-        <div class="stat">
+    document
+        .getElementById('startStat')
+        .textContent =
 
-            <b>
-                ${Number.isFinite(start)?start:'—'}
-            </b>
+        Number.isFinite(start)
 
-            <br>
-
-            <span class="small">
-                Départ
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <b>
-                ${Number.isFinite(last)?last:'—'}
-            </b>
-
-            <br>
-
-            <span class="small">
-                Dernier poids
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <b>
-                ${lost!==null?lost.toFixed(1):'—'}
-            </b>
-
-            <br>
-
-            <span class="small">
-                kg évol.
-            </span>
-
-        </div>
-
-    `;
-
-
-    document.getElementById('progress').style.width =
-        pct+'%';
-
-
-    document.getElementById('finalMessage').textContent =
-        lost!==null
         ?
-        (
-            lost>0
-            ?
-            `Bravo, ${lost.toFixed(1)} kg de moins. Continue à ton rythme 🤍`
-            :
-            `Chaque journée compte. La progression ne se résume pas à la balance. 🤍`
-        )
+
+        start.toFixed(1)
+
         :
-        `Chaque journée compte. 🤍`;
+
+        '—';
 
 
-    document.getElementById('finalProud').value =
-        state.final.proud;
 
-    document.getElementById('finalContinue').value =
-        state.final.cont;
+    document
+        .getElementById('currentStat')
+        .textContent =
 
-    document.getElementById('finalGoal').value =
-        state.final.goal;
+        Number.isFinite(current)
+
+        ?
+
+        current.toFixed(1)
+
+        :
+
+        '—';
+
+
+
+    document
+        .getElementById('leftStat')
+        .textContent =
+
+        remaining !== null
+
+        ?
+
+        remaining.toFixed(1)
+
+        :
+
+        '—';
+
+
+
+    document
+        .getElementById('startText')
+        .textContent =
+
+        Number.isFinite(start)
+
+        ?
+
+        start.toFixed(1)+' kg'
+
+        :
+
+        'Départ';
+
+
+
+    document
+        .getElementById('targetText')
+        .textContent =
+
+        Number.isFinite(target)
+
+        ?
+
+        target.toFixed(1)+' kg'
+
+        :
+
+        'Objectif';
+
+
+
+    document
+        .getElementById('progress')
+        .style.width =
+        progress+'%';
+
+
+
+    if(lost !== null){
+
+        document
+            .getElementById('progressText')
+            .textContent =
+
+            lost >= 0
+
+            ?
+
+            `${lost.toFixed(1)} kg perdus • ${progress.toFixed(0)} % de l'objectif`
+
+            :
+
+            `+${Math.abs(lost).toFixed(1)} kg • ${progress.toFixed(0)} % de l'objectif`;
+
+    }
+
+    else{
+
+        document
+            .getElementById('progressText')
+            .textContent =
+            'Ajoute une pesée pour voir ta progression.';
+
+    }
+
+
+
+    /* ========================= */
+    /* HISTORIQUE */
+    /* ========================= */
+
+
+    if(!weights.length){
+
+        document
+            .getElementById('history')
+            .innerHTML =
+
+            `
+            <div class="empty">
+                Aucune pesée enregistrée pour le moment.
+            </div>
+            `;
+
+        return;
+
+    }
+
+
+
+    document
+        .getElementById('history')
+        .innerHTML =
+
+        weights
+
+        .slice()
+        .reverse()
+
+        .map(
+
+            item =>
+
+            `
+            <div class="history-row">
+
+                <span>
+                    Jour ${item.index+1}
+                </span>
+
+                <b>
+                    ${item.value.toFixed(1)} kg
+                </b>
+
+            </div>
+            `
+
+        )
+
+        .join('');
 
 }
+
+
+
+/* ===================================================== */
+/* SAUVEGARDE DES CHAMPS */
+/* ===================================================== */
 
 
 function saveInputs(){
 
-    const d =
-        dayFromPage(currentPage);
+    const state =
+        data.days[data.day];
 
 
-    if(d>=0){
-
-        const s =
-            state.days[d];
-
-
-        s.weight =
-            document.getElementById('weight').value;
-
-        s.water =
-            document.getElementById('water').value;
-
-        s.sleep =
-            document.getElementById('sleep').value;
-
-        s.notes =
-            document.getElementById('notes').value;
-
-        s.victory =
-            document.getElementById('victory').value;
-
-        s.activity =
-            document.getElementById('activityNotes').value;
-
-    }
+    state.water =
+        document
+        .getElementById('water')
+        .value;
 
 
-    const r =
-        reviewFromPage(currentPage);
+    state.activityMinutes =
+        document
+        .getElementById('activityMinutes')
+        .value;
 
 
-    if(r>=0){
-
-        const s =
-            state.reviews[r];
-
-
-        const ids = [
-            'revStart',
-            'revEnd',
-            'revSessions',
-            'revFood',
-            'revPrayers',
-            'revProud',
-            'revNext',
-            'revNote'
-        ];
+    state.activityNotes =
+        document
+        .getElementById('activityNotes')
+        .value;
 
 
-        const keys = [
-            'start',
-            'end',
-            'sessions',
-            'food',
-            'prayers',
-            'proud',
-            'next',
-            'note'
-        ];
+    state.weight =
+        document
+        .getElementById('weight')
+        .value;
 
 
-        ids.forEach(
-            (id,i) =>
-            s[keys[i]] =
-                document.getElementById(id).value
-        );
-
-    }
+    state.sleep =
+        document
+        .getElementById('sleep')
+        .value;
 
 
-    if(currentPage===36){
+    state.feeling =
+        document
+        .getElementById('feeling')
+        .value;
 
-        state.final.proud =
-            document.getElementById('finalProud').value;
 
-        state.final.cont =
-            document.getElementById('finalContinue').value;
-
-        state.final.goal =
-            document.getElementById('finalGoal').value;
-
-    }
+    state.victory =
+        document
+        .getElementById('victory')
+        .value;
 
 
     save();
@@ -1802,225 +2436,205 @@ function saveInputs(){
 }
 
 
-function showPage(p){
 
-    saveInputs();
-
-
-    currentPage =
-        Math.max(
-            0,
-            Math.min(
-                allPages()-1,
-                p
-            )
-        );
-
-
-    document
-        .querySelectorAll('.page')
-        .forEach(
-            x => x.classList.remove('active')
-        );
-
-
-    if(currentPage===0){
-
-        document
-            .getElementById('cover')
-            .classList.add('active');
-
-    }
-
-
-    else if(currentPage===1){
-
-        document
-            .getElementById('welcome')
-            .classList.add('active');
-
-    }
-
-
-    else if(currentPage===2){
-
-        document
-            .getElementById('guides')
-            .classList.add('active');
-
-    }
-
-
-    else if(currentPage===3){
-
-        document
-            .getElementById('shopping')
-            .classList.add('active');
-
-    }
-
-
-    else if(currentPage===36){
-
-        renderFinal();
-
-        document
-            .getElementById('finalPage')
-            .classList.add('active');
-
-    }
-
-
-    else{
-
-        const r =
-            reviewFromPage(currentPage);
-
-
-        if(r>=0){
-
-            renderReview(r);
-
-            document
-                .getElementById('reviewPage')
-                .classList.add('active');
-
-        }
-
-        else{
-
-            renderDay(
-                dayFromPage(currentPage)
-            );
-
-            document
-                .getElementById('dayPage')
-                .classList.add('active');
-
-        }
-
-    }
-
-
-    document.getElementById('nav').style.display =
-        currentPage===0
-        ? 'none'
-        : 'flex';
-
-
-    document.getElementById('indicator').textContent =
-        `${currentPage+1} / ${allPages()}`;
-
-
-    save();
-
-}
-
-
-document.getElementById('prev').onclick =
-    () => showPage(currentPage-1);
-
-
-document.getElementById('next').onclick =
-    () => showPage(currentPage+1);
+/* ===================================================== */
+/* SAUVEGARDE AUTOMATIQUE */
+/* ===================================================== */
 
 
 [
-    'weight',
+
     'water',
+    'activityMinutes',
+    'activityNotes',
+    'weight',
     'sleep',
-    'notes',
-    'victory',
-    'activityNotes'
+    'feeling',
+    'victory'
+
 ]
+
 .forEach(
+
     id =>
+
     document
         .getElementById(id)
         .addEventListener(
+
             'input',
-            saveInputs
+
+            () => {
+
+                saveInputs();
+
+                renderWeight();
+
+            }
+
         )
+
 );
 
 
-[
-    'revStart',
-    'revEnd',
-    'revSessions',
-    'revFood',
-    'revPrayers',
-    'revProud',
-    'revNext',
-    'revNote'
-]
-.forEach(
-    id =>
-    document
-        .getElementById(id)
-        .addEventListener(
-            'input',
-            saveInputs
-        )
-);
 
-
-document
-    .getElementById('finalProud')
-    .addEventListener(
-        'input',
-        saveInputs
-    );
-
-
-document
-    .getElementById('finalContinue')
-    .addEventListener(
-        'input',
-        saveInputs
-    );
-
-
-document
-    .getElementById('finalGoal')
-    .addEventListener(
-        'input',
-        saveInputs
-    );
+/* ===================================================== */
+/* HUMEUR */
+/* ===================================================== */
 
 
 document
     .querySelectorAll('.mood')
     .forEach(
-        b =>
-        b.onclick =
-        () => {
 
-            const d =
-                dayFromPage(currentPage);
+        button =>
 
+        button.onclick = () => {
 
-            if(d<0)
-                return;
+            data.days[data.day].mood =
+                +button.dataset.mood;
 
 
-            state.days[d].mood =
-                +b.dataset.mood;
+            document
+                .querySelectorAll('.mood')
+                .forEach(
+                    item =>
+                    item.classList.remove(
+                        'selected'
+                    )
+                );
 
 
-            renderDay(d);
+            button.classList.add(
+                'selected'
+            );
+
 
             save();
 
         }
+
     );
 
 
-renderSetup();
 
-showPage(currentPage);
+/* ===================================================== */
+/* NAVIGATION BAS */
+/* ===================================================== */
+
+
+document
+    .querySelectorAll('.bottom button')
+    .forEach(
+
+        button =>
+
+        button.onclick = () => {
+
+
+            saveInputs();
+
+
+            document
+                .querySelectorAll(
+                    '.bottom button'
+                )
+                .forEach(
+
+                    item =>
+                    item.classList.remove(
+                        'active'
+                    )
+
+                );
+
+
+            button.classList.add(
+                'active'
+            );
+
+
+            document
+                .querySelectorAll(
+                    '.page'
+                )
+                .forEach(
+
+                    page =>
+                    page.classList.remove(
+                        'active'
+                    )
+
+                );
+
+
+            document
+                .getElementById(
+                    button.dataset.page
+                )
+                .classList.add(
+                    'active'
+                );
+
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+        }
+
+    );
+
+
+
+/* ===================================================== */
+/* INITIALISATION */
+/* ===================================================== */
+
+
+document
+    .getElementById('sGoal')
+    .value =
+    data.setup.goal;
+
+
+document
+    .getElementById('sStart')
+    .value =
+    data.setup.start;
+
+
+document
+    .getElementById('sTarget')
+    .value =
+    data.setup.target;
+
+
+document
+    .getElementById('sDate')
+    .value =
+    data.setup.date;
+
+
+
+if(
+
+    data.setup.start
+    ||
+    data.setup.target
+    ||
+    data.setup.goal
+
+){
+
+    showApp();
+
+}
 
 </script>
 
+
 </body>
+
 </html>
